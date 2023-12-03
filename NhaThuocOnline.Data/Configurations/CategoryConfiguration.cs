@@ -9,26 +9,20 @@ using System.Threading.Tasks;
 
 namespace NhaThuocOnline.Data.Configurations
 {
-    public class BannerConfiguration : IEntityTypeConfiguration<Banner>
+    public class CategoryConfiguration : IEntityTypeConfiguration<Category>
     {
-        public void Configure(EntityTypeBuilder<Banner> builder)
+        public void Configure(EntityTypeBuilder<Category> builder)
         {
-            builder.ToTable("Banners");
+            builder.ToTable("Categories");
             builder.HasKey(x => x.Id);
-            builder.Property(x => x.Id).UseIdentityColumn();
-
-            builder.Property(x => x.Name).HasMaxLength(200).IsRequired();
-            builder.Property(x => x.Description).HasMaxLength(200).IsRequired();
-            builder.Property(x => x.ImagePath).HasMaxLength(200).IsRequired();
-            builder.Property(x => x.Sorted).IsRequired();
+            builder.Property(x=>x.Id).UseIdentityColumn();
+            builder.Property(x => x.CategoryName).IsRequired();
+            builder.Property(x => x.ImagePath).IsRequired();
 
             builder.Property(x => x.CreatedAt).IsRequired();
             builder.Property(x => x.UpdatedAt).IsRequired();
             builder.Property(x => x.CreatedBy).IsRequired();
             builder.Property(x => x.UpdatedBy).IsRequired();
-
-
-
         }
     }
 }

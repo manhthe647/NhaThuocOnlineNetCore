@@ -8,9 +8,9 @@ namespace NhaThuocOnline.Data.Entities
 {
     public class ProductInCategory
     {
-        public int CategoryId;
+        public int CategoryId { get; set; }
 
-        public int ProductId;
+        public int ProductId { get; set; }
 
     }
 }

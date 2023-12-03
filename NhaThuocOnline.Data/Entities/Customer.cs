@@ -14,7 +14,6 @@ namespace NhaThuocOnline.Data.Entities
         public string PhoneNumber { get; set; }
         public string Email { get; set; }
         public string PasswordHash { get; set; }
-        public DateTime Salt { get; set; }
         public bool Active { get; set; }
         public DateTime CreatedAt { get; set; }
 
