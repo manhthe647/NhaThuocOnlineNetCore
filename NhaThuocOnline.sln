@@ -7,6 +7,18 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhaThuocOnline.Data", "NhaT
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhaThuocOnline.Application", "NhaThuocOnline.Application\NhaThuocOnline.Application.csproj", "{A396A655-E6A9-4C8B-8766-F00DB173F9B7}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhaThuocOnline.WebApi", "NhaThuocOnline.WebApi\NhaThuocOnline.WebApi.csproj", "{F366EF0C-068C-425B-B6A2-26A4F631D6E3}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhaThuocOnline.Utilities", "NhaThuocOnline.Utilities\NhaThuocOnline.Utilities.csproj", "{8B157D28-D72F-42E1-8268-35284FCE5586}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhaThuocOnline.WebApp", "NhaThuocOnline.WebApp\NhaThuocOnline.WebApp.csproj", "{3D771F63-8707-4BF2-8C1E-86F1C338DBA0}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhaThuocOnline.WebAdmin", "NhaThuocOnline.WebAdmin\NhaThuocOnline.WebAdmin.csproj", "{BCBFFD5D-77CA-45D1-B9B0-701BB69B72B7}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhaThuocOnline.ViewModel", "NhaThuocOnline.ViewModel\NhaThuocOnline.ViewModel.csproj", "{EF3161C0-5B00-431E-9FF1-A81E6280713C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhaThuocOnline.ApiIntergration", "NhaThuocOnline.ApiIntergration\NhaThuocOnline.ApiIntergration.csproj", "{C0A6716D-6261-4D37-A823-9CFB9C7172CD}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +33,30 @@ Global
 		{A396A655-E6A9-4C8B-8766-F00DB173F9B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A396A655-E6A9-4C8B-8766-F00DB173F9B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A396A655-E6A9-4C8B-8766-F00DB173F9B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F366EF0C-068C-425B-B6A2-26A4F631D6E3}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F366EF0C-068C-425B-B6A2-26A4F631D6E3}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F366EF0C-068C-425B-B6A2-26A4F631D6E3}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F366EF0C-068C-425B-B6A2-26A4F631D6E3}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B157D28-D72F-42E1-8268-35284FCE5586}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B157D28-D72F-42E1-8268-35284FCE5586}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B157D28-D72F-42E1-8268-35284FCE5586}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B157D28-D72F-42E1-8268-35284FCE5586}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3D771F63-8707-4BF2-8C1E-86F1C338DBA0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3D771F63-8707-4BF2-8C1E-86F1C338DBA0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3D771F63-8707-4BF2-8C1E-86F1C338DBA0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3D771F63-8707-4BF2-8C1E-86F1C338DBA0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BCBFFD5D-77CA-45D1-B9B0-701BB69B72B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BCBFFD5D-77CA-45D1-B9B0-701BB69B72B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BCBFFD5D-77CA-45D1-B9B0-701BB69B72B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BCBFFD5D-77CA-45D1-B9B0-701BB69B72B7}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF3161C0-5B00-431E-9FF1-A81E6280713C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF3161C0-5B00-431E-9FF1-A81E6280713C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF3161C0-5B00-431E-9FF1-A81E6280713C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF3161C0-5B00-431E-9FF1-A81E6280713C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0A6716D-6261-4D37-A823-9CFB9C7172CD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0A6716D-6261-4D37-A823-9CFB9C7172CD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0A6716D-6261-4D37-A823-9CFB9C7172CD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0A6716D-6261-4D37-A823-9CFB9C7172CD}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

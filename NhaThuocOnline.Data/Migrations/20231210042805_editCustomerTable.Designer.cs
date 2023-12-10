@@ -12,8 +12,8 @@ using NhaThuocOnline.Data.EF;
 namespace NhaThuocOnline.Data.Migrations
 {
     [DbContext(typeof(NhaThuocOnlineDbContext))]
-    [Migration("20231203115621_seedData")]
-    partial class seedData
+    [Migration("20231210042805_editCustomerTable")]
+    partial class editCustomerTable
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -25,6 +25,107 @@ namespace NhaThuocOnline.Data.Migrations
 
             SqlServerModelBuilderExtensions.UseIdentityColumns(modelBuilder);
 
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppRoleClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<int>", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("ClaimType")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ClaimValue")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("AppUserClaims", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<int>", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProviderDisplayName")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ProviderKey")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("AppUserLogins", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserRole<int>", b =>
+                {
+                    b.Property<int>("UserId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("RoleId")
+                        .HasColumnType("int");
+
+                    b.HasKey("UserId", "RoleId");
+
+                    b.ToTable("AppUserRoles", (string)null);
+                });
+
+            modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserToken<int>", b =>
+                {
+                    b.Property<int>("UserId")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("UserId"));
+
+                    b.Property<string>("LoginProvider")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Name")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Value")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.HasKey("UserId");
+
+                    b.ToTable("AppUserTokens", (string)null);
+                });
+
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.AppStaffAccount", b =>
                 {
                     b.Property<int>("Id")
@@ -33,174 +134,96 @@ namespace NhaThuocOnline.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<int>("AccessFailedCount")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<DateTime>("Dob")
-                        .HasColumnType("datetime2");
-
                     b.Property<string>("Email")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("EmailConfirmed")
+                        .HasColumnType("bit");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<string>("LastName")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
-                    b.Property<string>("Password")
+                    b.Property<bool>("LockoutEnabled")
+                        .HasColumnType("bit");
+
+                    b.Property<DateTimeOffset?>("LockoutEnd")
+                        .HasColumnType("datetimeoffset");
+
+                    b.Property<string>("NationId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Phone")
-                        .IsRequired()
+                    b.Property<string>("NormalizedEmail")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Role")
-                        .IsRequired()
+                    b.Property<string>("NormalizedUserName")
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<string>("Salt")
-                        .IsRequired()
+                    b.Property<string>("PasswordHash")
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("PhoneNumber")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("PhoneNumberConfirmed")
+                        .HasColumnType("bit");
+
+                    b.Property<string>("SecurityStamp")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("TwoFactorEnabled")
+                        .HasColumnType("bit");
 
                     b.Property<string>("UserName")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
+
+                    b.Property<bool>("isActive")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
-                    b.ToTable("AppStaffAccounts");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            CreatedAt = new DateTime(2023, 12, 3, 18, 56, 21, 314, DateTimeKind.Local).AddTicks(2140),
-                            Dob = new DateTime(1990, 10, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "johndoe@example.com",
-                            FirstName = "John",
-                            LastName = "Doe",
-                            Password = "password123",
-                            Phone = "1234567890",
-                            Role = "admin",
-                            Salt = "somesalt123",
-                            UserName = "johndoe"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            CreatedAt = new DateTime(2023, 12, 3, 18, 56, 21, 314, DateTimeKind.Local).AddTicks(2152),
-                            Dob = new DateTime(1995, 5, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "janesmith@example.com",
-                            FirstName = "Jane",
-                            LastName = "Smith",
-                            Password = "pass4321",
-                            Phone = "9876543210",
-                            Role = "user",
-                            Salt = "somesalt456",
-                            UserName = "janesmith"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            CreatedAt = new DateTime(2023, 12, 3, 18, 56, 21, 314, DateTimeKind.Local).AddTicks(2153),
-                            Dob = new DateTime(1982, 3, 20, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "michaeljohnson@example.com",
-                            FirstName = "Michael",
-                            LastName = "Johnson",
-                            Password = "qwerty123",
-                            Phone = "5551234567",
-                            Role = "user",
-                            Salt = "somesalt789",
-                            UserName = "michaeljohnson"
-                        },
-                        new
-                        {
-                            Id = 4,
-                            CreatedAt = new DateTime(2023, 12, 3, 18, 56, 21, 314, DateTimeKind.Local).AddTicks(2155),
-                            Dob = new DateTime(1995, 11, 5, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "emilydavis@example.com",
-                            FirstName = "Emily",
-                            LastName = "Davis",
-                            Password = "password456",
-                            Phone = "1112223333",
-                            Role = "user",
-                            Salt = "somesaltabc",
-                            UserName = "emilydavis"
-                        },
-                        new
-                        {
-                            Id = 5,
-                            CreatedAt = new DateTime(2023, 12, 3, 18, 56, 21, 314, DateTimeKind.Local).AddTicks(2156),
-                            Dob = new DateTime(1998, 7, 25, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "andrewwilson@example.com",
-                            FirstName = "Andrew",
-                            LastName = "Wilson",
-                            Password = "pass1234",
-                            Phone = "7778889999",
-                            Role = "admin",
-                            Salt = "somesaltxyz",
-                            UserName = "andrewwilson"
-                        },
-                        new
-                        {
-                            Id = 6,
-                            CreatedAt = new DateTime(2023, 12, 3, 18, 56, 21, 314, DateTimeKind.Local).AddTicks(2158),
-                            Dob = new DateTime(1989, 1, 15, 0, 0, 0, 0, DateTimeKind.Unspecified),
-                            Email = "emmabrown@example.com",
-                            FirstName = "Emma",
-                            LastName = "Brown",
-                            Password = "abc123",
-                            Phone = "4445556666",
-                            Role = "user",
-                            Salt = "somesalt789",
-                            UserName = "emmabrown"
-                        });
+                    b.ToTable("AppStaffAccounts", (string)null);
                 });
 
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.AppStaffRole", b =>
                 {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+                    b.Property<string>("ConcurrencyStamp")
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Description")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<int>("Id")
+                        .HasColumnType("int");
+
                     b.Property<string>("Name")
-                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.HasKey("Id");
+                    b.Property<string>("NormalizedName")
+                        .HasColumnType("nvarchar(max)");
 
-                    b.ToTable("AppStaffRoles");
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            Description = "Administrator role with full access",
-                            Name = "Quản trị"
-                        },
-                        new
-                        {
-                            Id = 2,
-                            Description = "Standard user role with limited access",
-                            Name = "Nhân viên bán hàng"
-                        },
-                        new
-                        {
-                            Id = 3,
-                            Description = "Tư vấn đơn thuốc",
-                            Name = "Dược sĩ"
-                        });
+                    b.ToTable("AppStaffRoles", (string)null);
                 });
 
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.AttributeInfo", b =>
@@ -415,11 +438,15 @@ namespace NhaThuocOnline.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<bool>("Active")
-                        .HasColumnType("bit");
+                    b.Property<string>("AvatarImagePath")
+                        .IsRequired()
+                        .HasMaxLength(200)
+                        .HasColumnType("nvarchar(200)");
 
                     b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("datetime2")
+                        .HasDefaultValueSql("GETDATE()");
 
                     b.Property<string>("Email")
                         .IsRequired()
@@ -443,9 +470,40 @@ namespace NhaThuocOnline.Data.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<bool>("isActive")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("bit")
+                        .HasDefaultValue(true);
+
                     b.HasKey("Id");
 
                     b.ToTable("Customers", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            AvatarImagePath = "/img/default-avt",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "abc@example.com",
+                            FirstName = "Tran",
+                            LastName = "The",
+                            PasswordHash = "Abcd@123",
+                            PhoneNumber = "0987932132",
+                            isActive = true
+                        },
+                        new
+                        {
+                            Id = 2,
+                            AvatarImagePath = "/img/default-avt",
+                            CreatedAt = new DateTime(1, 1, 1, 0, 0, 0, 0, DateTimeKind.Unspecified),
+                            Email = "def@example.com",
+                            FirstName = "Hoang",
+                            LastName = "Huynh",
+                            PasswordHash = "Abcd@123",
+                            PhoneNumber = "03456789",
+                            isActive = true
+                        });
                 });
 
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.CustomerAddress", b =>

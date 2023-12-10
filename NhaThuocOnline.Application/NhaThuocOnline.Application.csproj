@@ -6,4 +6,10 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\NhaThuocOnline.Data\NhaThuocOnline.Data.csproj" />
+    <ProjectReference Include="..\NhaThuocOnline.Utilities\NhaThuocOnline.Utilities.csproj" />
+    <ProjectReference Include="..\NhaThuocOnline.ViewModel\NhaThuocOnline.ViewModel.csproj" />
+  </ItemGroup>
+
 </Project>
