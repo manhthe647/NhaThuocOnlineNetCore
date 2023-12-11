@@ -4,7 +4,7 @@
 - .NET 6.0
 # Kiến trúc sử dụng: N-Tier
 # Cấu hình và chạy dự án
-- git clone về
+- git clone https://github.com/manhthe647/NhaThuocOnlineNetCore.git
 - mở file sln
 - set startup cho nhathuoconline.data
 - chỉnh cấu hình kết nối tại appsettings.json
