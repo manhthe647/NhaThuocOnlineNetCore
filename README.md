@@ -1,7 +1,7 @@
 # Nhà Thuốc Online
 # Đồ án công nghệ web nâng cao - Kì 1 năm 3
 # Công nghệ sử dụng
-## .NET 6.0
+- .NET 6.0
 # Kiến trúc sử dụng: N-Tier
 # Cấu hình và chạy dự án
 - git clone về
