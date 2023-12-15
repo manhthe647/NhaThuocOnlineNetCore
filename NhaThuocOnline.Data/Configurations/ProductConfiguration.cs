@@ -21,21 +21,19 @@ namespace NhaThuocOnline.Data.Configurations
             builder.Property(x => x.SKU).IsRequired();
 
             builder.Property(x => x.RegularPrice).IsRequired();
-            builder.Property(x => x.Quantity).IsRequired();
 
             builder.Property(x => x.Description).HasMaxLength(200).IsRequired();
             builder.Property(x => x.ImagePath).HasMaxLength(200).IsRequired();
 
             builder.Property(x => x.SeoTitle).HasMaxLength(200);
             builder.Property(x => x.SeoAlias).HasMaxLength(200);
-            builder.Property(x => x.SeoShortDescription).HasMaxLength(200);
+            //builder.Property(x => x.SeoShortDescription).HasMaxLength(200);
 
             builder.Property(x => x.IsPublished).IsRequired();
 
             builder.Property(x => x.CreatedAt).IsRequired();
             builder.Property(x => x.UpdatedAt).IsRequired();
-            builder.Property(x => x.CreatedBy).IsRequired();
-            builder.Property(x => x.UpdatedBy).IsRequired();
+        
 
         }
     }

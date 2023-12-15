@@ -169,9 +169,12 @@
 
                 <div class="banner-prescription_buy-now ">
                     <img class="img-fluid h-75 w-100" src="/assets/img/page-img/higlight-title.webp">
-                    <img class="img-fluid h-25" src="/assets/img/page-img/btn-buy-now.webp">
+                    <a class="h-25"  asp-action="Prescriptions" asp-controller="Home">  
+                    <img class="img-fluid h-100 cursor" src="/assets/img/page-img/btn-buy-now.webp">
+
+                    </a>
            
-                    <a asp-action="Prescriptions" asp-controller="Home">Đặt ngay</a>
+
                 </div>
 
                 <div class="banner-prescription_footer-content">
@@ -439,6 +442,8 @@
         <!--  -->
         <div class="row bg-secondary p-3"></div>
         <!--  -->
+         
+        
 @section ScriptsLazyLoading{
     <script>
         // Lấy tất cả các phần tử <img> có thuộc tính data-src

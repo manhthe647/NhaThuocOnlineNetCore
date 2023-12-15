@@ -7,6 +7,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Hosting" Version="2.2.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Hosting.Abstractions" Version="2.2.0" />
+  </ItemGroup>
+	<ItemGroup>
+		<FrameworkReference Include="Microsoft.AspNetCore.App" />
+	</ItemGroup>
+  <ItemGroup>
     <ProjectReference Include="..\NhaThuocOnline.Data\NhaThuocOnline.Data.csproj" />
     <ProjectReference Include="..\NhaThuocOnline.Utilities\NhaThuocOnline.Utilities.csproj" />
     <ProjectReference Include="..\NhaThuocOnline.ViewModel\NhaThuocOnline.ViewModel.csproj" />

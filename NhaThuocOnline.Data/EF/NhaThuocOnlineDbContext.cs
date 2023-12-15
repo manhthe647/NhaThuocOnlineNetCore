@@ -21,8 +21,7 @@ namespace NhaThuocOnline.Data.EF
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
-            modelBuilder.ApplyConfiguration(new AttributeInfoConfiguration());
-            modelBuilder.ApplyConfiguration(new BannerConfiguration());
+            
             modelBuilder.ApplyConfiguration(new CartConfiguration());
 
             modelBuilder.ApplyConfiguration(new CartItemConfiguration());
@@ -38,12 +37,12 @@ namespace NhaThuocOnline.Data.EF
 
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new ProductCouponConfiguration());
-            modelBuilder.ApplyConfiguration(new ProductAttributeConfiguration());
+          
             modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
 
             modelBuilder.ApplyConfiguration(new TransactionConfiguration());
-            modelBuilder.ApplyConfiguration(new VarientConfiguration());
-            modelBuilder.ApplyConfiguration(new VarientValueConfiguration());
+            modelBuilder.ApplyConfiguration(new InventoryConfiguration());
+            modelBuilder.ApplyConfiguration(new BatchConfiguration());
 
 
             modelBuilder.ApplyConfiguration(new AppStaffAccountConfiguration());
@@ -60,8 +59,7 @@ namespace NhaThuocOnline.Data.EF
         }
 
         public DbSet<AppStaffAccount> AppStaffAccounts { get; set; }
-        public DbSet<AttributeInfo> Attributes { get; set; }
-        public DbSet<Banner> Banners { get; set; }
+      
         public DbSet<Cart> Carts { get; set; }
         public DbSet<CartItem> CartItems { get; set; }
         public DbSet<Category> Categories { get; set; }
@@ -73,12 +71,12 @@ namespace NhaThuocOnline.Data.EF
         public DbSet<OrderItem> OrderItems { get; set; }
 
         public DbSet<Product> Products { get; set; }
-        public DbSet<ProductAttribute> ProductAttributes { get; set; }
         public DbSet<ProductCoupon> ProductCoupons { get; set; }
         public DbSet<ProductInCategory> ProductInCategories { get; set; }
         public DbSet<Transaction> Transactions { get; set; }
-        public DbSet<Variant> Variants { get; set; }
-        public DbSet<VariantValue> VariantValues { get; set; }
+        public DbSet<Batch> Batches { get; set; }
+        public DbSet<Inventory> Inventories { get; set; }
+
 
 
 

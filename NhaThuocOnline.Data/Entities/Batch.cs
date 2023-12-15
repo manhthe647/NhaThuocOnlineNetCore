@@ -6,18 +6,17 @@ using System.Threading.Tasks;
 
 namespace NhaThuocOnline.Data.Entities
 {
-    public class VariantValue
+    public class Batch
     {
         public int Id { get; set; }
-        public int VarientId { get; set; }
-        public double OriginPrice { get; set; }
-        public int Quantity { get; set; }
+        public int ProductId { get; set; }
+        public double OriginPrice { get; set; }    
+
         public DateTime ManufacturingDate { get; set; }
         public DateTime ExpireDate { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public int CreatedBy { get; set; }
-        public int UpdatedBy { get; set; }
+
 
     }
 }

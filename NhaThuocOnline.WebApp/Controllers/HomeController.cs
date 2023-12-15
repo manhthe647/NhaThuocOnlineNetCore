@@ -32,12 +32,15 @@ namespace EShopSolution.WebAppMvc.Controllers
             return View();
         }
 
-        public IActionResult ProductDetail()
+    
+
+        public IActionResult Prescriptions()
         {
             return View();
         }
 
-        public IActionResult Prescriptions()
+      
+        public IActionResult ProductDetails()
         {
             return View();
         }

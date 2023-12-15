@@ -9,16 +9,18 @@ using System.Threading.Tasks;
 
 namespace NhaThuocOnline.Data.Configurations
 {
-    public class VarientConfiguration : IEntityTypeConfiguration<Variant>
+    public class InventoryConfiguration : IEntityTypeConfiguration<Inventory>
     {
-        public void Configure(EntityTypeBuilder<Variant> builder)
+        public void Configure(EntityTypeBuilder<Inventory> builder)
         {
-            builder.ToTable("Varients");
+            builder.ToTable("Inventories");
             builder.HasKey(x => x.Id);
             builder.Property(x => x.Id).UseIdentityColumn();
        
-            builder.Property(x => x.AttributeId).IsRequired();
-            builder.Property(x => x.ProductId).IsRequired();
+            builder.Property(x => x.BatchId).IsRequired();
+            builder.Property(x => x.Name).IsRequired();
+
+            builder.Property(x => x.Quantity).IsRequired();
         }
     }
 }

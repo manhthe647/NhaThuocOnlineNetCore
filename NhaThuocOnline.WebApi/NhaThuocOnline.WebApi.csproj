@@ -15,4 +15,8 @@
     <ProjectReference Include="..\NhaThuocOnline.Application\NhaThuocOnline.Application.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="wwwroot\user-content\" />
+  </ItemGroup>
+
 </Project>

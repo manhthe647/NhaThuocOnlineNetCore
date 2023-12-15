@@ -1,7 +1,19 @@
+using NhaThuocOnline.ApiIntergration;
+using System.Security.Policy;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
-builder.Services.AddControllersWithViews();
+
+builder.Services.AddHttpClient();
+
+//DI
+builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
+builder.Services.AddTransient<IProductApiClient, ProductApiClient>();
+
+builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
+
+
 
 var app = builder.Build();
 
@@ -20,8 +32,11 @@ app.UseRouting();
 
 app.UseAuthorization();
 
+
+
 app.MapControllerRoute(
     name: "default",
     pattern: "{controller=Home}/{action=Index}/{id?}");
+
 
 app.Run();

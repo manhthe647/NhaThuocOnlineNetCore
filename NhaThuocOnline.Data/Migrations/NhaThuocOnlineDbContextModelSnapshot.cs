@@ -223,42 +223,7 @@ namespace NhaThuocOnline.Data.Migrations
                     b.ToTable("AppStaffRoles", (string)null);
                 });
 
-            modelBuilder.Entity("NhaThuocOnline.Data.Entities.AttributeInfo", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<string>("AttributeName")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("AttributeValue")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UpdatedBy")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("AttributeInfo", (string)null);
-                });
-
-            modelBuilder.Entity("NhaThuocOnline.Data.Entities.Banner", b =>
+            modelBuilder.Entity("NhaThuocOnline.Data.Entities.Batch", b =>
                 {
                     b.Property<int>("Id")
                         .ValueGeneratedOnAdd()
@@ -269,40 +234,24 @@ namespace NhaThuocOnline.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatedBy")
+                    b.Property<DateTime>("ExpireDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<DateTime>("ManufacturingDate")
+                        .HasColumnType("datetime2");
+
+                    b.Property<double>("OriginPrice")
+                        .HasColumnType("float");
+
+                    b.Property<int>("ProductId")
                         .HasColumnType("int");
-
-                    b.Property<string>("Description")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("ImagePath")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<string>("Name")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
-                    b.Property<int>("Sorted")
-                        .HasColumnType("int");
-
-                    b.Property<string>("Status")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UpdatedBy")
-                        .HasColumnType("int");
-
                     b.HasKey("Id");
 
-                    b.ToTable("Banners", (string)null);
+                    b.ToTable("Batches", (string)null);
                 });
 
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.Cart", b =>
@@ -357,9 +306,6 @@ namespace NhaThuocOnline.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
-
                     b.Property<string>("ImagePath")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
@@ -372,9 +318,6 @@ namespace NhaThuocOnline.Data.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("UpdatedBy")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -407,9 +350,6 @@ namespace NhaThuocOnline.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
-
                     b.Property<int>("MaxUsage")
                         .HasColumnType("int");
 
@@ -418,9 +358,6 @@ namespace NhaThuocOnline.Data.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("UpdatedBy")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -541,6 +478,29 @@ namespace NhaThuocOnline.Data.Migrations
                     b.ToTable("CustomerAddresses", (string)null);
                 });
 
+            modelBuilder.Entity("NhaThuocOnline.Data.Entities.Inventory", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<int>("BatchId")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Name")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("Quantity")
+                        .HasColumnType("int");
+
+                    b.HasKey("Id");
+
+                    b.ToTable("Inventories", (string)null);
+                });
+
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.Order", b =>
                 {
                     b.Property<int>("Id")
@@ -579,9 +539,6 @@ namespace NhaThuocOnline.Data.Migrations
 
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("UpdatedBy")
-                        .HasColumnType("int");
 
                     b.HasKey("Id");
 
@@ -624,11 +581,12 @@ namespace NhaThuocOnline.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
+                    b.Property<string>("Brand")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
-
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
 
                     b.Property<string>("Description")
                         .IsRequired()
@@ -643,16 +601,33 @@ namespace NhaThuocOnline.Data.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
+                    b.Property<string>("Ingredients")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
                     b.Property<bool>("IsPublished")
                         .HasColumnType("bit");
+
+                    b.Property<string>("Manufacturer")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Origin")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<string>("Packaging")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("ProductName")
                         .IsRequired()
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
+                    b.Property<string>("ProductionLocation")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<double>("RegularPrice")
                         .HasColumnType("float");
@@ -666,11 +641,6 @@ namespace NhaThuocOnline.Data.Migrations
                         .HasMaxLength(200)
                         .HasColumnType("nvarchar(200)");
 
-                    b.Property<string>("SeoShortDescription")
-                        .IsRequired()
-                        .HasMaxLength(200)
-                        .HasColumnType("nvarchar(200)");
-
                     b.Property<string>("SeoTitle")
                         .IsRequired()
                         .HasMaxLength(200)
@@ -679,23 +649,102 @@ namespace NhaThuocOnline.Data.Migrations
                     b.Property<DateTime>("UpdatedAt")
                         .HasColumnType("datetime2");
 
-                    b.Property<int>("UpdatedBy")
-                        .HasColumnType("int");
+                    b.Property<bool>("isPrescriptionRequired")
+                        .HasColumnType("bit");
 
                     b.HasKey("Id");
 
                     b.ToTable("Products", (string)null);
-                });
 
-            modelBuilder.Entity("NhaThuocOnline.Data.Entities.ProductAttribute", b =>
-                {
-                    b.Property<int>("AttributeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.ToTable("ProductAttribute", (string)null);
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Brand = "Stada",
+                            CreatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5697),
+                            Description = "Paracetamol 500mg là một loại thuốc giảm đau và hạ sốt thông thường được sử dụng. Nó phù hợp để giảm đau nhẹ đến vừa và hạ sốt.",
+                            DiscountPrice = 38000.0,
+                            ImagePath = "img/products/paracetamol500mg.jpg",
+                            Ingredients = "Paracetamol",
+                            IsPublished = true,
+                            Manufacturer = "STADA",
+                            Origin = "Việt Nam",
+                            Packaging = "Hộp 10 Vỉ x 10 Viên",
+                            ProductName = "Paracetamol 500mg",
+                            ProductionLocation = "Việt Nam",
+                            RegularPrice = 48000.0,
+                            SKU = "SKU001",
+                            SeoAlias = "paracetamol-500mg",
+                            SeoTitle = "Paracetamol 500mg",
+                            UpdatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5711),
+                            isPrescriptionRequired = false
+                        },
+                        new
+                        {
+                            Id = 2,
+                            Brand = "Nadyphar",
+                            CreatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5714),
+                            Description = "Ibuprofen 200mg là một loại thuốc giảm đau, hạ sốt và chống viêm thông thường được sử dụng. Nó phù hợp để giảm đau nhẹ đến vừa, hạ sốt và giảm viêm.",
+                            DiscountPrice = 45000.0,
+                            ImagePath = "img/products/ibuprofen200mg.jpg",
+                            Ingredients = "Ibuprofen",
+                            IsPublished = true,
+                            Manufacturer = "ABC Company",
+                            Origin = "Việt Nam",
+                            Packaging = "Hộp 20 Vỉ x 10 Viên",
+                            ProductName = "Ibuprofen 200mg",
+                            ProductionLocation = "Việt Nam",
+                            RegularPrice = 55000.0,
+                            SKU = "SKU002",
+                            SeoAlias = "ibuprofen-200mg",
+                            SeoTitle = "Ibuprofen 200mg",
+                            UpdatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5714),
+                            isPrescriptionRequired = false
+                        },
+                        new
+                        {
+                            Id = 3,
+                            Brand = "KUDOS",
+                            CreatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5716),
+                            Description = "Vitamin C 1000mg là một loại vitamin tổng hợp thường được sử dụng để bổ sung nhu cầu vitamin C hàng ngày. Nó giúp tăng cường hệ miễn dịch và chống oxy hóa.",
+                            DiscountPrice = 20000.0,
+                            ImagePath = "img/products/vitaminc1000mg.jpg",
+                            Ingredients = "Vitamin C",
+                            IsPublished = true,
+                            Manufacturer = "ABC Company",
+                            Origin = "Mỹ",
+                            Packaging = "Hộp 30 Viên",
+                            ProductName = "Vitamin C 1000mg",
+                            ProductionLocation = "Mỹ",
+                            RegularPrice = 25000.0,
+                            SKU = "SKU003",
+                            SeoAlias = "vitamin-c-1000mg",
+                            SeoTitle = "Vitamin C 1000mg",
+                            UpdatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5716),
+                            isPrescriptionRequired = false
+                        },
+                        new
+                        {
+                            Id = 4,
+                            Brand = "Sirio Pharma",
+                            CreatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5718),
+                            Description = "Omega-3 Fish Oil là một loại bổ sung dầu cá chứa các axit béo omega-3. Nó có lợi cho sức khỏe tim mạch, não bộ và khớp.",
+                            DiscountPrice = 100000.0,
+                            ImagePath = "img/products/omega3fishoil.jpg",
+                            Ingredients = "Dầu cá omega-3",
+                            IsPublished = true,
+                            Manufacturer = "XYZ Company",
+                            Origin = "Na Uy",
+                            Packaging = "Chai 60 Viên",
+                            ProductName = "Omega-3 Fish Oil",
+                            ProductionLocation = "Na Uy",
+                            RegularPrice = 120000.0,
+                            SKU = "SKU004",
+                            SeoAlias = "omega-3-fish-oil",
+                            SeoTitle = "Omega-3 Fish Oil",
+                            UpdatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5718),
+                            isPrescriptionRequired = false
+                        });
                 });
 
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.ProductCoupon", b =>
@@ -750,65 +799,6 @@ namespace NhaThuocOnline.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Transactions", (string)null);
-                });
-
-            modelBuilder.Entity("NhaThuocOnline.Data.Entities.Variant", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<int>("AttributeId")
-                        .HasColumnType("int");
-
-                    b.Property<int>("ProductId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("Varients", (string)null);
-                });
-
-            modelBuilder.Entity("NhaThuocOnline.Data.Entities.VariantValue", b =>
-                {
-                    b.Property<int>("Id")
-                        .ValueGeneratedOnAdd()
-                        .HasColumnType("int");
-
-                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
-
-                    b.Property<DateTime>("CreatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("CreatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("ExpireDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<DateTime>("ManufacturingDate")
-                        .HasColumnType("datetime2");
-
-                    b.Property<double>("OriginPrice")
-                        .HasColumnType("float");
-
-                    b.Property<int>("Quantity")
-                        .HasColumnType("int");
-
-                    b.Property<DateTime>("UpdatedAt")
-                        .HasColumnType("datetime2");
-
-                    b.Property<int>("UpdatedBy")
-                        .HasColumnType("int");
-
-                    b.Property<int>("VarientId")
-                        .HasColumnType("int");
-
-                    b.HasKey("Id");
-
-                    b.ToTable("VariantValues", (string)null);
                 });
 #pragma warning restore 612, 618
         }

@@ -10,6 +10,7 @@ builder.Services.AddControllersWithViews();
 
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddTransient<ICustomerApiClient, CustomerApiClient>();
+builder.Services.AddTransient<IProductApiClient, ProductApiClient>();
 
 var app = builder.Build();
 

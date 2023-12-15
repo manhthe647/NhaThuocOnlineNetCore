@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
-using NhaThuocOnline.Application.Interfaces;
+using NhaThuocOnline.Application.Interface;
 using NhaThuocOnline.Application.ViewModels.Customer;
 using NhaThuocOnline.Data.EF;
 using NhaThuocOnline.Data.Entities;
@@ -13,7 +13,7 @@ using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NhaThuocOnline.Application.Implementation
+namespace NhaThuocOnline.Application.Service
 {
     public class CustomerService : ICustomerService
     {
@@ -33,8 +33,8 @@ namespace NhaThuocOnline.Application.Implementation
             var customer = await _dbContext.Customers.SingleOrDefaultAsync(x => x.Id == id);
             if (customer != null)
             {
-               
-                customer.IsActive=false;
+
+                customer.IsActive = false;
                 await _dbContext.SaveChangesAsync();
                 return true;
             }
@@ -43,7 +43,7 @@ namespace NhaThuocOnline.Application.Implementation
 
         public async Task<CustomerVm> GetCustomerById(int id)
         {
-           
+
             var customer = _dbContext.Customers.FirstOrDefault(x => x.Id == id);
             if (customer != null)
             {
@@ -59,27 +59,27 @@ namespace NhaThuocOnline.Application.Implementation
                 };
                 return result;
             }
-             return new CustomerVm();
+            return new CustomerVm();
 
         }
 
         public async Task<List<CustomerVm>> GetCustomerPaging()
         {
-           var customersVm= await _dbContext.Customers.Select(x=> new CustomerVm
-           {
-               Id = x.Id,
-               FirstName=x.FirstName,
-               LastName=x.LastName,
-               Email = x.Email,
-               PhoneNumber = x.PhoneNumber,
-               IsActive = x.IsActive
+            var customersVm = await _dbContext.Customers.Select(x => new CustomerVm
+            {
+                Id = x.Id,
+                FirstName = x.FirstName,
+                LastName = x.LastName,
+                Email = x.Email,
+                PhoneNumber = x.PhoneNumber,
+                IsActive = x.IsActive
 
-           }).ToListAsync();
+            }).ToListAsync();
             return new List<CustomerVm>(customersVm);
         }
-        public async Task<bool> Update(int id,CustomerUpdateRequest request)
+        public async Task<bool> Update(int id, CustomerUpdateRequest request)
         {
-            var hasCustomer= await _dbContext.Customers.AnyAsync(x=>x.Email== request.Email && x.Id==id);
+            var hasCustomer = await _dbContext.Customers.AnyAsync(x => x.Email == request.Email && x.Id == id);
             if (!hasCustomer)
             {
                 return false;
@@ -92,9 +92,9 @@ namespace NhaThuocOnline.Application.Implementation
                 customer.Email = request.Email;
                 customer.FirstName = request.FirstName;
                 customer.LastName = request.LastName;
-                customer.PhoneNumber= request.PhoneNumber;
+                customer.PhoneNumber = request.PhoneNumber;
                 customer.AvatarImagePath = request.AvatarImagePath;
-                 await _dbContext.SaveChangesAsync();
+                await _dbContext.SaveChangesAsync();
                 return true;
             }
             return false;

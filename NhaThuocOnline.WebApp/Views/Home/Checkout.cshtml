@@ -112,8 +112,8 @@
                                          src="https://png.pngtree.com/png-vector/20191028/ourlarge/pngtree-pack-cash-icon-cartoon-style-png-image_1893446.jpg"
                                          class="img-fluid rounded-start" alt="...">
                                 </div>
-                                <label for="cash1" class="w-75 d-flex align-items-center">
-                                    <div class="col-md-10">
+                                <label for="cash1" class="w-75  d-flex align-items-center">
+                                    <div class="col-md-10 ">
                                         <h5 class="m-0">Tiền mặt</h5>
                                         <span style="font-size: 12px;">
                                             Thanh toán bằng tiền mặt khi nhận
@@ -121,12 +121,12 @@
                                         </span>
                                     </div>
                                     <span class="col-md-2 text-end ">
-                                        <input type="radio" name="cashMethod" id="cash1">
+                                        <input type="radio" name="cashMethod" id="cash1" checked>
                                     </span>
                                 </label>
                             </div>
 
-                            <div class=" d-flex align-items-center mt-4 p-2 border rounded-custom " >
+                            <div class=" d-flex align-items-center mt-4 p-2 border rounded-custom ">
                                 <div class="w-25">
                                     <img style="width: 30px;"
                                          src="https://cdn.dribbble.com/users/1374258/screenshots/2963930/debit_card_animation.gif"
@@ -134,14 +134,14 @@
                                 </div>
                                 <label for="cash2" class="w-75 d-flex align-items-center">
                                     <div class="col-md-10">
-                                        <h5 class="m-0">Thẻ ATM</h5>
+                                        <h5 class="m-0">Thẻ ATM <small>( đang bảo trì )</small></h5>
                                         <span style="font-size: 12px;">
                                             Bạn sẽ thanh toán trước số tiền của đơn hàng
-                                            qua thẻ ATM nội địa
+                                            qua thẻ ATM nội địa 
                                         </span>
                                     </div>
                                     <span class="col-md-2 text-end ">
-                                        <input type="radio" name="cashMethod" id="cash2">
+                                        <input type="radio" name="cashMethod" id="cash2" disabled>
                                     </span>
                                 </label>
                             </div>
@@ -205,14 +205,16 @@
                         <hr>
                         <div class="row mt-4">
                             <div class="col col-12">
-                                <input type="checkbox" name="" id="">
+                                <input type="checkbox" checked name="" id="">
                                 Bằng cách tích vào ô chọn, bạn đồng ý mua hàng theo các <a class="text-primary text-decoration-none " href="">Điều khoản của Pharmacy</a>
                             </div>
                         </div>
                         <div class="row mt-4">
                             <div class="col col-md-12 ">
-                                <div class="btn btn-primary  w-100 ">
+                                <div class="btn btn-primary cursor w-100 " onclick="SuccessModal()">
+                             
                                     Đặt hàng
+                                   
                                 </div>
                                 
                             </div>
@@ -220,18 +222,32 @@
                     </div>
 
                 </div>
-                <div class="mt-4">
-                <a class=" w-100  text-primary" asp-action="Index" asp-controller="Home">
-                    Bỏ qua thanh toán
-                </a>
-                <br />
-                <small>Đây là chức năng cho web demo,<br /> khi bấm sẽ bỏ qua thanh toán <br /> và đặt hàng thành công !</small>
-
-                </div>
+             
              
 
             </div>
         </div>
     </div>
+    <div class="success-modal modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div style="top: 130px;" class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-body">
+                    <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                        <circle class="checkmark__circle" cx="26" cy="26" r="25" fill="none" />
+                        <path class="checkmark__check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+                    </svg>
+                    <h4 class="modal-title text-center mb-1" id="">Đặt hàng thành công</h4>
+                    <h6 class="text-center text-muted ">Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ của chúng tôi!</h6>
+                    <div class="text-center mt-3">
+                        <button type="button" class="px-4 py-1 my-1 button" data-bs-dismiss="modal">OK</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
     <div class="col-2"></div>
 </div>
+
+<script>
+ 
+</script>

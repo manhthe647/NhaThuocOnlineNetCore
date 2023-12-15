@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NhaThuocOnline.Application.Interfaces
+namespace NhaThuocOnline.Application.Interface
 {
     public interface IStaffAccountService
     {

@@ -6,10 +6,11 @@ using System.Threading.Tasks;
 
 namespace NhaThuocOnline.Data.Entities
 {
-    public class Variant
+    public class Inventory
     {
         public int Id { get; set; }
-        public int ProductId { get; set; }
-        public int AttributeId { get; set; }
+        public int BatchId { get; set; }
+        public string Name { get; set; }
+        public int Quantity { get; set; }
     }
 }

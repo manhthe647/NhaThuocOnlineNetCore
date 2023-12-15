@@ -13,6 +13,5 @@ namespace NhaThuocOnline.Data.Entities
         public int OrderId { get; set; }
         public OrderStatus Status { get; set; }
         public DateTime UpdatedAt { get; set; }
-        public int UpdatedBy { get; set; }
     }
 }

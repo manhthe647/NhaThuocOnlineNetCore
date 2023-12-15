@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using NhaThuocOnline.Application.Interfaces;
+using NhaThuocOnline.Application.Interface;
 using NhaThuocOnline.Application.ViewModels.Customer;
 using NhaThuocOnline.Utilities.Exceptions;
 using NhaThuocOnline.ViewModel.Customer;

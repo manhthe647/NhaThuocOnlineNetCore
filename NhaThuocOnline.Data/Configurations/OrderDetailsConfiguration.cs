@@ -21,7 +21,6 @@ namespace NhaThuocOnline.Data.Configurations
             builder.Property(x => x.Status).IsRequired();
 
             builder.Property(x => x.UpdatedAt).IsRequired();
-            builder.Property(x => x.UpdatedBy).IsRequired();
 
 
         }

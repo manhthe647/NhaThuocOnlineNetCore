@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NhaThuocOnline.Application.Interfaces
+namespace NhaThuocOnline.Application.Interface
 {
     public interface ICustomerService
     {
@@ -16,7 +16,7 @@ namespace NhaThuocOnline.Application.Interfaces
         Task<CustomerVm> GetCustomerById(int id);
 
         //Task<bool> ChangePassword(ChangePasswordRequest request);
-        Task<bool> Update(int id,CustomerUpdateRequest request);
+        Task<bool> Update(int id, CustomerUpdateRequest request);
         Task<bool> SoftDelete(int id);
     }
 }
