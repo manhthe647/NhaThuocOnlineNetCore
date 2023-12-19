@@ -2,8 +2,8 @@
 
 <div class="prescription-upload row">
     <div class="col-2"></div>
-    <div class="col-8 d-flex justify-content-between ">
-        <div class="prescription-upload_area bg-white p-4">
+    <div class="col-8 d-flex justify-content-between flex-wrap ">
+        <div class="prescription-upload_area bg-white p-3">
             <div class="prescription-upload_content">
                 <h4><span class="badge badge-primary badge-pill  mr-2">1 </span>Chụp ảnh toa thuốc</h4>
                 <p>
@@ -16,9 +16,17 @@
 
                         <h6>Đăng ảnh toa thuốc ở đây</h6>
                         <p>Kéo hình ảnh hoặc bấm vào đây để đăng tải hình ảnh toa thuốc lên đây</p>
-                        <a class="btn btn-primary text-white">Chọn ảnh</a>
+                        
+                        <p class="w-100 text-center mt-2">
+                         <a class="btn btn-primary text-white ">Chọn ảnh</a>
+
+                        </p>
+                       
 
                     </label>
+                    <div id="fileList"></div>
+                    <input type="file" name="files[]" id="upload" multiple hidden>
+
                 </div>
                 <div class="file-upload_list-items d-flex">
                     <div class="file-upload_item position-relative">
@@ -39,7 +47,6 @@
                     </div>
 
                 </div>
-                <input type="file" name="" id="upload" hidden>
                 <div class="form w-100 mt-3">
                     <label>Ghi chú</label>
                     <input class="note-input w-100" type="text" placeholder="Vui lòng nhập để lại thông tin ghi chú cho dược sĩ Pharmacity">
@@ -86,3 +93,19 @@
 <div class="row p-4"></div>
 
 <div class="row p-4"></div>
+
+<script>
+    const fileInput = document.getElementById('upload');
+    const fileList = document.getElementById('fileList');
+
+    fileInput.addEventListener('change', function () {
+        fileList.innerHTML = '';
+        const files = Array.from(fileInput.files);
+
+        files.forEach(function (file) {
+            const fileName = document.createElement('p');
+            fileName.textContent = file.name;
+            fileList.appendChild(fileName);
+        });
+    });
+</script>

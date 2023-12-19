@@ -13,3 +13,4 @@ function SuccessModal() {
     myModal.show();
     console.log(myModal);
 };
+

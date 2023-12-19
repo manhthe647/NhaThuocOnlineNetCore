@@ -1,6 +1,8 @@
-﻿using Microsoft.AspNetCore.Http;
+﻿using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NhaThuocOnline.Application.Interface;
+using NhaThuocOnline.Application.Service;
 using NhaThuocOnline.ViewModel.Product;
 
 namespace NhaThuocOnline.WebApi.Controllers
@@ -16,11 +18,20 @@ namespace NhaThuocOnline.WebApi.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetProductsPaging()
+        public async Task<IActionResult> GetAllProducts([FromQuery] GetManageProductPagingRequest request)
         {
-            var products = await _productService.GetProductsPaging();
+            var products = await _productService.GetAllProductsPaging(request);
             return Ok(products);
         }
+
+        [HttpGet("public")]
+        public async Task<IActionResult> GetProductsByCategoryId([FromQuery] GetPublicProductPagingRequest request)
+        {
+            var products = await _productService.GetAllByCategoryIdPaging(request);
+            return Ok(products);
+        }
+
+     
 
 
         [HttpGet("{productId}")]
@@ -49,6 +60,31 @@ namespace NhaThuocOnline.WebApi.Controllers
                return BadRequest();
             var product= await _productService.GetProductById(newProductId);
             return CreatedAtAction(nameof(GetProductById), new { productId= newProductId}, product);
+        }
+
+        [HttpPut("{id}/categories")]
+        public async Task<IActionResult> CategoryAssign(int id, [FromBody] CategoryAssignRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var result = await _productService.CategoryAssign(id, request);
+            if (!result.IsSuccessed)
+            {
+                return BadRequest(result);
+            }
+            return Ok(result);
+        }
+
+        [HttpPatch("{productId}/softdelete")]
+        public async Task<IActionResult> SoftDeleteProduct(int productId)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var result = await _productService.SoftDelete(productId);
+            if (result)
+                return Ok(result);
+            return BadRequest();
         }
     }
 }

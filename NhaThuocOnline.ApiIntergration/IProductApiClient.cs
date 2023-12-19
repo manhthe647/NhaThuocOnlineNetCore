@@ -1,4 +1,5 @@
-﻿using NhaThuocOnline.ViewModel.Product;
+﻿using NhaThuocOnline.ViewModel.Common;
+using NhaThuocOnline.ViewModel.Product;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,7 +13,7 @@ namespace NhaThuocOnline.ApiIntergration
 
         Task<bool> Create(ProductCreateRequest request);
 
-        Task<List<ProductBasicVm>> GetProductsPaging();
+        Task<PagedResult<ProductBasicVm>> GetProductsPaging(GetPublicProductPagingRequest request);
         Task<ProductVm> GetProductById(int id);
 
         //Task<bool> Update(int id, ProductUpdateRequest request);

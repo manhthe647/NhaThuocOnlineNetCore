@@ -1,8 +1,12 @@
-﻿@model IEnumerable<NhaThuocOnline.ViewModel.Product.ProductBasicVm>
+﻿﻿@using NhaThuocOnline.ViewModel.Common;
+@model PagedResult<NhaThuocOnline.ViewModel.Product.ProductBasicVm>
 
 @{
     ViewData["Title"] = "Index";
 }
+
+<div class="row p-4"></div>
+<div class="ml-4">
 
 <h1>Index</h1>
 
@@ -13,25 +17,25 @@
     <thead>
         <tr>
             <th>
-                @Html.DisplayNameFor(model => model.Id)
+                ID
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.ProductName)
+                Product Name
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.RegularPrice)
+               Regular Price
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.DiscountPrice)
+                Discount Price
             </th>
             <th>
-                @Html.DisplayNameFor(model => model.isPrescriptionRequired)
+               Yêu cầu đơn thuốc
             </th>
             <th></th>
         </tr>
     </thead>
     <tbody>
-@foreach (var item in Model) {
+@foreach (var item in Model.Items) {
         <tr>
             <td>
                 @Html.DisplayFor(modelItem => item.Id)
@@ -57,3 +61,4 @@
 }
     </tbody>
 </table>
+</div>

@@ -8,7 +8,7 @@ namespace NhaThuocOnline.Data.Entities
 {
     public class Cart
     {
-        public int CartId { get; set; }
+        public string CartId { get; set; }
         public int CustomerId { get; set; }
 
     }

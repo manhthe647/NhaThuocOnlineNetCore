@@ -14,7 +14,8 @@ namespace NhaThuocOnline.Data.Configurations
         public void Configure(EntityTypeBuilder<ProductInCategory> builder)
         {
             builder.ToTable("ProductInCategories");
-            builder.HasNoKey();
+            builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id).UseIdentityColumn();
             builder.Property(x => x.ProductId).IsRequired();
             builder.Property(x => x.CategoryId).IsRequired();
 

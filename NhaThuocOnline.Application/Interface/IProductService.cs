@@ -1,5 +1,4 @@
-﻿using NhaThuocOnline.Application.ViewModels.Customer;
-using NhaThuocOnline.ViewModel.Common;
+﻿using NhaThuocOnline.ViewModel.Common;
 using NhaThuocOnline.ViewModel.Product;
 using System;
 using System.Collections.Generic;
@@ -13,13 +12,16 @@ namespace NhaThuocOnline.Application.Interface
     {
         Task<int> Create(ProductCreateRequest request);
 
-        Task<List<ProductBasicVm>> GetProductsPaging();
+        //Task<int> Update(ProductUpdateRequest request);
+        Task<bool> SoftDelete(int id);
 
-        Task<List<ProductBasicVm>> Search(SearchParams param);
+        Task<PagedResult<ProductBasicVm>> GetAllByCategoryIdPaging(GetPublicProductPagingRequest request);
+
+        Task<PagedResult<ProductVm>> GetAllProductsPaging (GetManageProductPagingRequest request);
 
         Task<ProductVm> GetProductById(int id);
 
-        //Task<bool> Update(int id, ProductUpdateRequest request);
-        Task<bool> SoftDelete(int id);
+        Task<ApiResult<bool>> CategoryAssign(int id, CategoryAssignRequest request);
+
     }
 }

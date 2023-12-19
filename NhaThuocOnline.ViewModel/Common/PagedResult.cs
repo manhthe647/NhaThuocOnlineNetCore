@@ -8,6 +8,6 @@ namespace NhaThuocOnline.ViewModel.Common
 {
     public class PagedResult<T>: PagedResultBase
     {
-        public List<T> Result { get; set; }
+        public List<T> Items { get; set; }
     }
 }

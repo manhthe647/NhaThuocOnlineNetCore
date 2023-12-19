@@ -1,4 +1,5 @@
 ﻿using NhaThuocOnline.Application.ViewModels.Customer;
+using NhaThuocOnline.ViewModel.Common;
 using NhaThuocOnline.ViewModel.Customer;
 using System;
 using System.Collections.Generic;
@@ -15,8 +16,13 @@ namespace NhaThuocOnline.Application.Interface
         Task<List<CustomerVm>> GetCustomerPaging();
         Task<CustomerVm> GetCustomerById(int id);
 
-        //Task<bool> ChangePassword(ChangePasswordRequest request);
         Task<bool> Update(int id, CustomerUpdateRequest request);
         Task<bool> SoftDelete(int id);
+
+        Task<bool> CreateCustomerAddress(int id,CustomerAddressCreateRequest request);
+
+        //Task<ApiResult<bool>> CreateCustomerAddress(CustomerAddressCreateRequest request); 
+
+        //Task<ApiResult<bool>> ChangePassword(ChangePasswordRequest request);
     }
 }

@@ -5,6 +5,7 @@ using NhaThuocOnline.Application.ViewModels.Customer;
 using NhaThuocOnline.Data.EF;
 using NhaThuocOnline.Data.Entities;
 using NhaThuocOnline.Utilities.Exceptions;
+using NhaThuocOnline.ViewModel.Common;
 using NhaThuocOnline.ViewModel.Customer;
 using System;
 using System.Collections.Generic;
@@ -133,6 +134,32 @@ namespace NhaThuocOnline.Application.Service
             return true; // Đăng ký thành công
         }
 
+        public async Task<bool> CreateCustomerAddress(int id, CustomerAddressCreateRequest request)
+        {
+            var existingCustomer = await _dbContext.Customers.FirstOrDefaultAsync(c => c.Id == request.CustomerId);
+            if (existingCustomer == null)
+            {
+                return false;
+            }
+            var customerAddress = new CustomerAddress()
+            {
+                CustomerId = request.CustomerId,
+                AddressLine1 = request.AddressLine1,
+                AddressLine2 = request.AddressLine2,
+                City = request.City,
+                District = request.District,
+                ReceiverName = request.ReceiverName,
+                ReceiverPhone = request.ReceiverPhone,
+            };
+            
+             _dbContext.CustomerAddresses.Add(customerAddress);
+            await _dbContext.SaveChangesAsync();
+
+            return true;
+
+
+        }
+
         private string HashPassword(string password)
         {
             using (SHA256 hash = SHA256.Create())
@@ -143,6 +170,6 @@ namespace NhaThuocOnline.Application.Service
             }
         }
 
-
+      
     }
 }

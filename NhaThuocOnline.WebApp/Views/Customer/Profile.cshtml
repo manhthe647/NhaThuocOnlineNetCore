@@ -1,5 +1,5 @@
-﻿<div class="account row py-4 g-0 ">
-    <div class="col col-2"></div>
+﻿<div class="account no-gutter row py-4">
+    <div class="col col-md-2 d-none d-md-block "></div>
     <div class="col col-md-8">
         <div class="pagetitle mt-4">
             <h1>Trang cá nhân</h1>
@@ -18,39 +18,45 @@
                             <h4 class="mt-2">Manh Cuong</h4>
                         </div>
                     </div>
+                    <!-- Navigation -->
+
                     <div class="nav mt-3 flex-column nav-pills" id="v-pills-tab" role="tablist"
                          aria-orientation="vertical">
-                        <a class="nav-link d-flex align-items-center  p-3  active" id="purchase-history-tab"
-                           data-bs-toggle="pill" href="#purchase-history" role="tab"
+                        <a class="nav-link d-flex align-items-center p-3 active" id="purchase-history-tab"
+                           data-toggle="pill" href="#purchase-history" role="tab"
                            aria-controls="purchase-history" aria-selected="true">
-                            <span class="fw-bold small text-uppercase">Lịch sử đơn hàng</span>
-                            <div class="ms-auto  ">
-                                <i class=" bi bi-chevron-right"></i>
+                            <span class="font-weight-bold small text-uppercase">Lịch sử đơn hàng</span>
+                            <div class="ml-auto">
+                                <i class="bi bi-chevron-right"></i>
                             </div>
                         </a>
 
-                        <a class="nav-link d-flex align-items-center  p-3  " id="profile-tab"
-                           data-bs-toggle="pill" href="#profile" role="tab" aria-controls="profile"
-                           aria-selected="false">
-                            <span class="fw-bold small text-uppercase">Chỉnh sửa thông tin cá nhân</span>
-                            <div class="ms-auto ">
-                                <i class=" bi bi-chevron-right"></i>
+                        <a class="nav-link d-flex align-items-center p-3" id="profile-tab" data-toggle="pill"
+                           href="#profile" role="tab" aria-controls="profile" aria-selected="false">
+                            <span class="font-weight-bold small text-uppercase">
+                                Chỉnh sửa thông tin cá
+                                nhân
+                            </span>
+                            <div class="ml-auto">
+                                <i class="bi bi-chevron-right"></i>
                             </div>
                         </a>
 
-                        <a class="nav-link d-flex align-items-center  p-3  " id="delivery-address-tab"
-                           data-bs-toggle="pill" href="#delivery-address" role="tab"
+                        <a class="nav-link d-flex align-items-center p-3" id="delivery-address-tab"
+                           data-toggle="pill" href="#delivery-address" role="tab"
                            aria-controls="delivery-address" aria-selected="false">
-                            <span class="fw-bold small text-uppercase">Địa chỉ nhận hàng</span>
-                            <div class="ms-auto ">
-                                <i class=" bi bi-chevron-right"></i>
+                            <span class="font-weight-bold small text-uppercase">Địa chỉ nhận hàng</span>
+                            <div class="ml-auto">
+                                <i class="bi bi-chevron-right"></i>
                             </div>
                         </a>
 
-                        <button class="btn btn-light py-2 mt-4">
+                        <button class="btn btn-danger  py-2 mt-4">
                             Đăng xuất
                         </button>
                     </div>
+
+
 
 
                 </div>
@@ -59,53 +65,48 @@
 
                     <div class="card">
                         <!-- parent 1  -->
-                        <div class="tab-pane fade  rounded bg-white show active p-0" id="purchase-history"
+                        <div class="tab-pane fade rounded bg-white show active p-0" id="purchase-history"
                              role="tabpanel" aria-labelledby="purchase-history-tab">
                             <!-- item1  -->
                             <div class="card-body pt-3">
                                 <!-- Bordered Tabs -->
                                 <h5>Lịch sử đơn hàng</h5>
-                                <ul class="nav nav-tabs nav-tabs-bordered mt-3">
+                                <ul class="nav nav-tabs mt-3">
 
                                     <li class="nav-item">
-                                        <button class="nav-link active" data-bs-toggle="tab"
-                                                data-bs-target="#processing">
-                                            Đang xử lí
-                                        </button>
+                                        <a class="nav-link active" data-toggle="tab" href="#processing">
+                                            Đang xử
+                                            lí
+                                        </a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <button class="nav-link" data-bs-toggle="tab"
-                                                data-bs-target="#packed">
-                                            Đã đóng gói
-                                        </button>
+                                        <a class="nav-link" data-toggle="tab" href="#packed">Đã đóng gói</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <button class="nav-link" data-bs-toggle="tab"
-                                                data-bs-target="#delivering">
-                                            Đang giao
-                                        </button>
+                                        <a class="nav-link" data-toggle="tab" href="#delivering">Đang giao</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <button class="nav-link" data-bs-toggle="tab"
-                                                data-bs-target="#delivered">
-                                            Đã giao
-                                        </button>
+                                        <a class="nav-link" data-toggle="tab" href="#delivered">Đã giao</a>
                                     </li>
 
                                     <li class="nav-item">
-                                        <button class="nav-link" data-bs-toggle="tab"
-                                                data-bs-target="#cancel">
-                                            Đã hủy
-                                        </button>
+                                        <a class="nav-link" data-toggle="tab" href="#cancel">Đã hủy</a>
                                     </li>
 
                                 </ul>
+
+
+
+
                                 <div class="tab-content pt-2">
+
+
                                     <!-- Đang xử lí -->
-                                    <div class="tab-pane fade show active profile-overview mt-3" id="processing">
+                                    <div class="tab-pane fade show active profile-overview mt-3"
+                                         id="processing">
                                         <div class="item1 row align-items-center ">
                                             <div style="width: 10.666667%;;" class="col-2">
                                                 <img style="width: 60px; height: 60px;"
@@ -115,16 +116,16 @@
                                             </div>
                                             <div class="col">
                                                 <div>
-                                                    <div class="row g-0 justify-content-between mb-0">
+                                                    <div class="row justify-content-between mb-0">
                                                         <div class="col-8">Chuột Không Dây Logitech M171</div>
-                                                        <strong class="col text-end ">Đang xử lí</strong>
+                                                        <strong class="col text-right text-primary">Đang xử lí</strong>
                                                     </div>
-                                                    <div class="d-flex justify-content-between align-items-center ">
+                                                    <div class="d-flex justify-content-between align-items-center mt-2 ">
                                                         <span class="border-danger text-danger  border px-1">
                                                             7
                                                             ngày trả hàng
                                                         </span>
-                                                        <span class="ms-auto me-3">
+                                                        <span class="ml-auto mr-3 price-old-and-new">
                                                             <del class="">289.000đ</del>
                                                             <span class="h5">174.000đ</span>
                                                         </span>
@@ -142,31 +143,30 @@
                                                      alt="">
                                             </div>
                                             <div class="col">
-                                                <div>
-                                                    <div class="row g-0 justify-content-between mb-0">
-                                                        <div class="col-8">
-                                                            Chuột Không Dây Siêu êm Inphic PX2 -
-                                                            Wireless Silent Mouse
-                                                        </div>
-                                                        <strong class="col text-end ">Đang xử lí</strong>
+                                                <div class="row justify-content-between mb-0">
+                                                    <div class="col-8">
+                                                        Chuột Không Dây Siêu êm Inphic PX2 -
+                                                        Wireless Silent Mouse
                                                     </div>
-                                                    <div class="d-flex justify-content-between align-items-center ">
-                                                        <span class="border-danger text-danger  border px-1">
-                                                            7
-                                                            ngày trả hàng
-                                                        </span>
-                                                        <span class="ms-auto me-3">
-                                                            <del class="">389.000đ</del>
-                                                            <span class="h5">274.000đ</span>
-                                                        </span>
-                                                        <button class="btn btn-warning ">Hủy</button>
-                                                    </div>
+                                                    <strong class="col text-right text-primary">Đang xử lí</strong>
+                                                </div>
+                                                <div class="d-flex justify-content-between align-items-center mt-2">
+                                                    <span class="border border-danger text-danger px-1">
+                                                        7 ngày
+                                                        trả hàng
+                                                    </span>
+                                                    <span class="ml-auto mr-3 price-old-and-new">
+                                                        <del>389.000đ</del>
+                                                        <span class="h5">274.000đ</span>
+                                                    </span>
+                                                    <button class="btn btn-warning">Hủy</button>
                                                 </div>
                                             </div>
                                         </div>
 
                                     </div>
 
+                                    <!-- Đã đóng gói -->
                                     <div class="tab-pane fade profile-edit pt-3" id="packed">
                                         <div class="item1 row align-items-center ">
                                             <div style="width: 10.666667%;" class="col-2">
@@ -177,16 +177,16 @@
                                             </div>
                                             <div class="col">
                                                 <div>
-                                                    <div class="row g-0 justify-content-between mb-0">
+                                                    <div class="row justify-content-between mb-0">
                                                         <div class="col-8">Chuột Không Dây Logitech M171</div>
-                                                        <strong class="col text-end ">Đã đóng gói</strong>
+                                                        <strong class="col text-right text-primary">Đã đóng gói</strong>
                                                     </div>
-                                                    <div class="d-flex justify-content-between align-items-center ">
+                                                    <div class="d-flex justify-content-between align-items-center mt-2 ">
                                                         <span class="border-danger text-danger  border px-1">
                                                             7
                                                             ngày trả hàng
                                                         </span>
-                                                        <span class="ms-auto me-3">
+                                                        <span class="ml-auto mr-3 price-old-and-new">
                                                             <del class="">289.000đ</del>
                                                             <span class="h5">174.000đ</span>
                                                         </span>
@@ -205,19 +205,18 @@
                                             </div>
                                             <div class="col">
                                                 <div>
-                                                    <div class="row g-0 justify-content-between mb-0">
+                                                    <div class="row justify-content-between mb-0">
                                                         <div class="col-8">
-                                                            Chuột Không Dây Siêu êm Inphic PX2 -
-                                                            Wireless Silent Mouse
+                                                            Chuột Không Dây Siêu êm Inphic PX2
                                                         </div>
-                                                        <strong class="col text-end ">Đã đóng gói</strong>
+                                                        <strong class="col text-right text-primary ">Đã đóng gói</strong>
                                                     </div>
-                                                    <div class="d-flex justify-content-between align-items-center ">
+                                                    <div class="d-flex justify-content-between align-items-center mt-2 ">
                                                         <span class="border-danger text-danger  border px-1">
                                                             7
                                                             ngày trả hàng
                                                         </span>
-                                                        <span class="ms-auto me-3">
+                                                        <span class="ml-auto mr-3 price-old-and-new">
                                                             <del class="">389.000đ</del>
                                                             <span class="h5">274.000đ</span>
                                                         </span>
@@ -229,8 +228,8 @@
                                     </div>
 
 
+                                    <!-- Đang giao  -->
                                     <div class="tab-pane fade pt-3" id="delivering">
-                                        <!-- Đang giao  -->
                                         <div class="item1 row align-items-center ">
                                             <div style="width: 10.666667%;" class="col-2">
                                                 <img style="width: 60px; height: 60px;"
@@ -240,19 +239,19 @@
                                             </div>
                                             <div class="col">
                                                 <div>
-                                                    <div class="row g-0 justify-content-between mb-0">
-                                                        <div class="col-8">Chuột Không Dây Logitech M171</div>
-                                                        <strong class="col text-end ">
-                                                            Đơn hàng đang được
+                                                    <div class="row justify-content-between mb-0">
+                                                        <div class="col-7">Chuột Không Dây Logitech M171</div>
+                                                        <strong class="col text-right text-primary ">
+                                                            Đang được
                                                             giao
                                                         </strong>
                                                     </div>
-                                                    <div class="d-flex justify-content-between align-items-center ">
+                                                    <div class="d-flex justify-content-between align-items-center mt-2 ">
                                                         <span class="border-danger text-danger  border px-1">
                                                             7
                                                             ngày trả hàng
                                                         </span>
-                                                        <span class="ms-auto me-3">
+                                                        <span class="ml-auto mr-3 price-old-and-new">
                                                             <del class="">289.000đ</del>
                                                             <span class="h5">174.000đ</span>
                                                         </span>
@@ -272,22 +271,21 @@
                                             </div>
                                             <div class="col">
                                                 <div>
-                                                    <div class="row g-0 justify-content-between mb-0">
-                                                        <div class="col-8">
-                                                            Chuột Không Dây Siêu êm Inphic PX2 -
-                                                            Wireless Silent Mouse
+                                                    <div class="row justify-content-between mb-0">
+                                                        <div class="col-7">
+                                                            Chuột Không Dây Siêu êm Inphic PX2
                                                         </div>
-                                                        <strong class="col text-end ">
-                                                            Đơn hàng đang được
+                                                        <strong class="col text-right text-primary">
+                                                            Đang được
                                                             giao
                                                         </strong>
                                                     </div>
-                                                    <div class="d-flex justify-content-between align-items-center ">
+                                                    <div class="d-flex justify-content-between align-items-center mt-2 ">
                                                         <span class="border-danger text-danger  border px-1">
                                                             7
                                                             ngày trả hàng
                                                         </span>
-                                                        <span class="ms-auto me-3">
+                                                        <span class="ml-auto mr-3 price-old-and-new">
                                                             <del class="">389.000đ</del>
                                                             <span class="h5">274.000đ</span>
                                                         </span>
@@ -299,8 +297,10 @@
                                         </div>
                                     </div>
 
+
+
+                                    <!--Đã giao  -->
                                     <div class="tab-pane fade pt-3" id="delivered">
-                                        <!--Đã giao  -->
                                         <div class="item1 row align-items-center ">
                                             <div style="width: 10.666667%;" class="col-2">
                                                 <img style="width: 60px; height: 60px;"
@@ -310,19 +310,19 @@
                                             </div>
                                             <div class="col">
                                                 <div>
-                                                    <div class="row g-0 justify-content-between mb-0">
+                                                    <div class="row justify-content-between mb-0">
                                                         <div class="col-8">Chuột Không Dây Logitech M171</div>
-                                                        <strong class="col text-end text-primary ">
-                                                            Đơn hàng đã
+                                                        <strong class="col text-right text-primary ">
+                                                            Đã
                                                             được giao
                                                         </strong>
                                                     </div>
-                                                    <div class="d-flex justify-content-between align-items-center ">
+                                                    <div class="d-flex justify-content-between align-items-center mt-2 ">
                                                         <span class="border-danger text-danger  border px-1">
                                                             7
                                                             ngày trả hàng
                                                         </span>
-                                                        <span class="ms-auto me-3">
+                                                        <span class="ml-auto mr-3 price-old-and-new">
                                                             <del class="">289.000đ</del>
                                                             <span class="h5">174.000đ</span>
                                                         </span>
@@ -341,22 +341,21 @@
                                             </div>
                                             <div class="col">
                                                 <div>
-                                                    <div class="row g-0 justify-content-between mb-0">
+                                                    <div class="row justify-content-between mb-0">
                                                         <div class="col-8">
-                                                            Chuột Không Dây Siêu êm Inphic PX2 -
-                                                            Wireless Silent Mouse
+                                                            Chuột Không Dây Siêu êm Inphic PX
                                                         </div>
-                                                        <strong class="col text-end text-primary ">
-                                                            Đơn hàng đã
+                                                        <strong class="col text-right text-primary ">
+                                                            Đã
                                                             được giao
                                                         </strong>
                                                     </div>
-                                                    <div class="d-flex justify-content-between align-items-center ">
+                                                    <div class="d-flex justify-content-between align-items-center mt-2 ">
                                                         <span class="border-danger text-danger  border px-1">
                                                             7
                                                             ngày trả hàng
                                                         </span>
-                                                        <span class="ms-auto me-3">
+                                                        <span class="ml-auto mr-3 price-old-and-new">
                                                             <del class="">389.000đ</del>
                                                             <span class="h5">274.000đ</span>
                                                         </span>
@@ -366,83 +365,89 @@
                                             </div>
                                         </div>
                                     </div>
-                                </div>
 
-                                <div class="tab-pane fade pt-3" id="cancel">
+
+
+
                                     <!-- Đã hủy -->
-                                    <div class="item1 row align-items-center ">
-                                        <div style="width: 10.666667%;" class="col-2">
-                                            <img style="width: 60px; height: 60px;"
-                                                 class="card-img img-thumbnail "
-                                                 src="https://cdn.tgdd.vn/Products/Images/86/311113/chuot-bluetooth-silent-logitech-m240-thumb-600x600.jpg"
-                                                 alt="">
-                                        </div>
-                                        <div class="col">
-                                            <div>
-                                                <div class="row g-0 justify-content-between mb-0">
-                                                    <div class="col-8">Chuột Không Dây Logitech M171</div>
-                                                    <strong class="col text-end text-danger ">
-                                                        Đơn hàng đã bị
-                                                        hủy
-                                                    </strong>
-                                                </div>
-                                                <div class="d-flex justify-content-between align-items-center ">
-                                                    <span class="border-danger text-danger  border px-1">
-                                                        7
-                                                        ngày trả hàng
-                                                    </span>
-                                                    <span class="ms-auto me-3">
-                                                        <del class="">289.000đ</del>
-                                                        <span class="h5">174.000đ</span>
-                                                    </span>
-                                                    <button class="btn btn-warning bg-danger text-white">
-                                                        Mua
-                                                        lại
-                                                    </button>
+                                    <div class="tab-pane fade pt-3" id="cancel">
+                                        <div class="item1 row align-items-center ">
+                                            <div style="width: 10.666667%;" class="col-2">
+                                                <img style="width: 60px; height: 60px;"
+                                                     class="card-img img-thumbnail "
+                                                     src="https://cdn.tgdd.vn/Products/Images/86/311113/chuot-bluetooth-silent-logitech-m240-thumb-600x600.jpg"
+                                                     alt="">
+                                            </div>
+                                            <div class="col">
+                                                <div>
+                                                    <div class="row justify-content-between mb-0">
+                                                        <div class="col-8">Chuột Không Dây Logitech M171</div>
+                                                        <strong class="col text-right text-danger ">
+                                                            Đã
+                                                            bị
+                                                            hủy
+                                                        </strong>
+                                                    </div>
+                                                    <div class="d-flex justify-content-between align-items-center mt-2 ">
+                                                        <span class="border-danger text-danger  border px-1">
+                                                            7
+                                                            ngày trả hàng
+                                                        </span>
+                                                        <span class="ml-auto mr-3 price-old-and-new">
+                                                            <del class="">289.000đ</del>
+                                                            <span class="h5">174.000đ</span>
+                                                        </span>
+                                                        <button class="btn btn-warning bg-danger text-white">
+                                                            Mua
+                                                            lại
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
-                                    </div>
-                                    <hr>
-                                    <div class="item1 row align-items-center ">
-                                        <div style="width: 10.666667%;" class="col-2">
-                                            <img style="width: 60px; height: 60px;"
-                                                 class="card-img img-thumbnail "
-                                                 src="https://zpro.vn/images/product/500x500/chuot-khong-day-inphic-px2-mouse-wireless.1612346723.jpg"
-                                                 alt="">
-                                        </div>
-                                        <div class="col">
-                                            <div>
-                                                <div class="row g-0 justify-content-between mb-0">
-                                                    <div class="col-8">
-                                                        Chuột Không Dây Siêu êm Inphic PX2 -
-                                                        Wireless Silent Mouse
+                                        <hr>
+                                        <div class="item1 row align-items-center ">
+                                            <div style="width: 10.666667%;" class="col-2">
+                                                <img style="width: 60px; height: 60px;"
+                                                     class="card-img img-thumbnail "
+                                                     src="https://zpro.vn/images/product/500x500/chuot-khong-day-inphic-px2-mouse-wireless.1612346723.jpg"
+                                                     alt="">
+                                            </div>
+                                            <div class="col">
+                                                <div>
+                                                    <div class="row justify-content-between mb-0">
+                                                        <div class="col-8">
+                                                            Chuột Không Dây Siêu êm Inphic PX2
+                                                        </div>
+                                                        <strong class="col text-right text-danger ">
+                                                            Đã
+                                                            bị
+                                                            hủy
+                                                        </strong>
                                                     </div>
-                                                    <strong class="col text-end text-danger ">
-                                                        Đơn hàng đã bị
-                                                        hủy
-                                                    </strong>
-                                                </div>
-                                                <div class="d-flex justify-content-between align-items-center ">
-                                                    <span class="border-danger text-danger  border px-1">
-                                                        7
-                                                        ngày trả hàng
-                                                    </span>
-                                                    <span class="ms-auto me-3">
-                                                        <del class="">389.000đ</del>
-                                                        <span class="h5">274.000đ</span>
-                                                    </span>
-                                                    <button class="btn btn-warning bg-danger text-white">
-                                                        Mua
-                                                        lại
-                                                    </button>
+                                                    <div class="d-flex justify-content-between align-items-center mt-2 ">
+                                                        <span class="border-danger text-danger  border px-1">
+                                                            7
+                                                            ngày trả hàng
+                                                        </span>
+                                                        <span class="ml-auto mr-3 price-old-and-new">
+                                                            <del class="">389.000đ</del>
+                                                            <span class="h5">274.000đ</span>
+                                                        </span>
+                                                        <button class="btn btn-warning bg-danger text-white">
+                                                            Mua
+                                                            lại
+                                                        </button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
                                 </div>
 
-                            </div><!-- End Bordered Tabs -->
+
+
+                            </div><!-- End history puchased -->
 
                         </div>
 
@@ -454,33 +459,26 @@
                                 <!-- Profile -->
                                 <h5>Thông tin cá nhân</h5>
                                 <ul class="nav nav-tabs nav-tabs-bordered mt-3">
-
-
                                     <li class="nav-item">
-                                        <button class="nav-link active" data-bs-toggle="tab"
-                                                data-bs-target="#profile-edit">
+                                        <button class="nav-link active" data-toggle="tab"
+                                                data-target="#profile-edit">
                                             Chỉnh sửa thông tin
                                         </button>
                                     </li>
-
-
-
                                     <li class="nav-item">
-                                        <button class="nav-link" data-bs-toggle="tab"
-                                                data-bs-target="#profile-change-password">
+                                        <button class="nav-link" data-toggle="tab"
+                                                data-target="#profile-change-password">
                                             Đổi mật khẩu
                                         </button>
                                     </li>
-
                                 </ul>
+
+
+
                                 <div class="tab-content pt-2">
 
 
-
-
-
-
-                                    <div class="tab-pane fade show active profile-edit pt-3" id="profile-edit">
+                                    <div class="tab-pane show active profile-edit pt-3" id="profile-edit">
 
                                         <!-- Profile Edit Form -->
                                         <form>
@@ -488,8 +486,14 @@
                                                 <label for="profileImage"
                                                        class="col-md-4 col-lg-3 col-form-label">Ảnh</label>
                                                 <div class="col-md-8 col-lg-9">
-                                                    <input type="file">
-
+                                                    <div class="custom-file">
+                                                        <input type="file" class="custom-file-input"
+                                                               id="profileImage">
+                                                        <label class="custom-file-label" for="profileImage">
+                                                            Chọn
+                                                            file
+                                                        </label>
+                                                    </div>
                                                 </div>
                                             </div>
                                             <div class="row mb-3">
@@ -521,9 +525,6 @@
                                                 </div>
                                             </div>
 
-
-
-
                                             <div class="row mb-3">
                                                 <label for="address"
                                                        class="col-md-4 col-lg-3 col-form-label">Địa chỉ</label>
@@ -534,11 +535,10 @@
                                             </div>
 
 
-
-
                                             <div class="row mb-3">
                                                 <label for="Phone" class="col-md-4 col-lg-3 col-form-label">
-                                                    Số điện
+                                                    Số
+                                                    điện
                                                     thoại
                                                 </label>
                                                 <div class="col-md-8 col-lg-9">
@@ -546,12 +546,6 @@
                                                            id="Phone" value="0345678999">
                                                 </div>
                                             </div>
-
-
-
-
-
-
 
                                             <div class="text-center">
                                                 <button type="submit" class="btn btn-primary">
@@ -614,7 +608,7 @@
 
                                     </div>
 
-                                </div><!-- End Bordered Tabs -->
+                                </div><!-- End edit profile -->
 
                             </div>
                         </div>
@@ -625,36 +619,38 @@
                             <!-- item 3 -->
                             <div class="card-body pt-3">
                                 <div class="row">
-                                    <div class="col col-md-7  lead fw-bold ">Địa chỉ của tôi</div>
-                                    <div class="col-md-5 col-12 text-md-end mt-3 mt-md-0 ">
-                                        <button class="btn btn-warning " data-bs-toggle="modal"
-                                                data-bs-target="#add-location">
-                                            <i class="bi bi-geo-alt"></i>
+                                    <div class="col-md-7 font-weight-bold lead">Địa chỉ của tôi</div>
+                                    <div class="col-md-5 col-12 text-right mt-3 mt-md-0">
+                                        <button type="button" class="btn btn-warning" data-toggle="modal"
+                                                data-target="#add-location">
+                                            <i class="glyphicon glyphicon-map-marker"></i>
                                             Thêm địa chỉ mới
                                         </button>
                                     </div>
                                 </div>
+
                                 <hr>
-                                <div class="lead fw-bold ">Địa chỉ</div>
+                                <div class="lead font-weight-bold ">Địa chỉ</div>
                                 <div class="row mt-3">
-                                    <div class="col position-relative  col-7">
+                                    <div class="col-7 position-relative">
                                         <span class="locationName h6">Nguyễn Mạnh Cường</span>
                                         <small>0917005178</small>
                                     </div>
-                                    <div class="col text-end ">
-                                        <a class="me-2 text-decoration-none" href="" data-bs-toggle="modal"
-                                           data-bs-target="#update-location">Cập nhật</a>
-                                        <a class="text-decoration-none" href="">Xóa</a>
+                                    <div class="col text-right">
+                                        <a class="mr-2 text-muted" href="" data-toggle="modal"
+                                           data-target="#update-location">Cập nhật</a>
+                                        <a class="text-muted" href="">Xóa</a>
                                     </div>
                                 </div>
-                                <div class="row align-items-center  mt-2">
+
+                                <div class="row align-items-center mt-2">
                                     <div class="col col-6">
                                         <small>
                                             Số 204, Đường Võ Thanh Long, Tổ 8 Khóm Vĩnh Quí
                                             Thị Trấn Vĩnh Thạnh Trung, Huyện Châu Phú, An Giang
                                         </small>
                                     </div>
-                                    <div class="col text-end">
+                                    <div class="col text-right">
                                         <button class="btn btn-sm btn-outline-secondary disabled ">
                                             Thiết lập mặc
                                             định
@@ -669,13 +665,18 @@
                 </div>
 
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
+    <div class="col col-md-2 d-none d-md-block "></div>
 </div>
-<div class="col col-2"></div>
+
+
+
+
 <!-- add location -->
-<div class="modal fade" id="add-location" tabindex="-1" role="dialog" aria-labelledby="enrollLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
+<div class="modal fade" id="add-location" tabindex="-1" role="dialog" aria-labelledby="enrollLabel"
+     aria-hidden="true">
+    <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="enrollLabel">Địa chỉ mới</h5>
@@ -685,38 +686,30 @@
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="row">
+                    <div class="form-group row">
                         <div class="col-6 mb-3">
-                            <label for="location-name" class="col-form-label">
-                                Họ và tên
-                            </label>
+                            <label for="location-name" class="col-form-label">Họ và tên</label>
                             <input type="text" class="form-control" id="location-name">
                         </div>
 
                         <div class="col mb-3">
-                            <label for="phone-number" class="col-form-label">
-                                SĐT
-                            </label>
+                            <label for="phone-number" class="col-form-label">SĐT</label>
                             <input type="text" class="form-control" id="phone-number">
                         </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="form-group">
                         <label for="location" class="col-form-label">Địa chỉ cụ thể</label>
                         <input type="text" class="form-control" id="location">
                     </div>
-                    <div class="mb-3 d-flex align-items-center">
-                        <label for="set-location" class="col-form-label py-0 m-2">
-                            Đặt làm địa chỉ mặc định
-                        </label>
-                        <input type="checkbox" class="form-check-input" id="set-location">
+                    <div class="form-group d-flex align-items-center mb-3">
+                        <label for="set-location" class="col-form-label mr-2">Đặt làm địa chỉ mặc định</label>
+                        <input type="checkbox" class="" id="set-location">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">
-                    Close
-                </button>
-                <button type="button" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-primary px-4">Submit</button>
+                <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>
@@ -724,52 +717,51 @@
 
 
 
+
 <!-- update location -->
 
-<div class="modal fade" id="update-location" tabindex="-1" aria-labelledby="enrollLabel" aria-hidden="true">
+<div class="modal fade" id="update-location" tabindex="-1" role="dialog" aria-labelledby="enrollLabel"
+     aria-hidden="true">
     <div class="modal-dialog">
         <div class="modal-content">
             <div class="modal-header">
                 <h5 class="modal-title" id="enrollLabel">Cập nhật địa chỉ</h5>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
             </div>
             <div class="modal-body">
                 <form>
-                    <div class="row">
-                        <div class="col col-6 mb-3">
-                            <label for="location-name" class="col-form-label">
-                                Họ và tên
-                            </label>
+                    <div class="form-group row">
+                        <div class="col-6 mb-3">
+                            <label for="location-name" class="col-form-label">Họ và tên</label>
                             <input type="text" class="form-control" value="Nguyễn Mạnh Cường"
-                                   id="location-name" />
+                                   id="location-name">
                         </div>
 
                         <div class="col mb-3">
-                            <label for="phone-number" class="col-form-label">
-                                SĐT
-                            </label>
-                            <input type="text" class="form-control" value="0917005178" id="phone-number" />
+                            <label for="phone-number" class="col-form-label">SĐT</label>
+                            <input type="text" class="form-control" value="0917005178" id="phone-number">
                         </div>
                     </div>
-                    <div class="mb-3">
+                    <div class="form-group">
                         <label for="location" class="col-form-label">Địa chỉ cụ thể</label>
-                        <input type="text" class="form-control" id="location"
-                               value="Số 204, Đường Võ Thanh Long, Tổ 8 Khóm Vĩnh Quí Thị Trấn Vĩnh Thạnh Trung, Huyện Châu Phú, An Giang" />
+                        <input type="text" class="form-control"
+                               value="Số 204, Đường Võ Thanh Long, Tổ 8 Khóm Vĩnh Quí Thị Trấn Vĩnh Thạnh Trung, Huyện Châu Phú, An Giang"
+                               id="location">
                     </div>
-                    <div class="mb-3 d-flex align-items-center">
-                        <label for="set-location" class="col-form-label py-0  me-2">
+                    <div class="form-group d-flex align-items-center mb-3">
+                        <label for="set-location" class="col-form-label py-0 mr-2">
                             Đặt làm địa chỉ mặc
                             định
                         </label>
-                        <input type="checkbox" checked class="form-check-input" id="set-location" />
+                        <input type="checkbox" checked class="" id="set-location">
                     </div>
                 </form>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">
-                    Close
-                </button>
-                <button type="button" class="btn btn-primary">Submit</button>
+                <button type="button" class="btn btn-primary px-4">Submit</button>
+                <button type="button" class="btn btn-secondary px-4" data-dismiss="modal">Close</button>
             </div>
         </div>
     </div>

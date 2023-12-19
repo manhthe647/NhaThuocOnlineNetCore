@@ -14,6 +14,7 @@ namespace NhaThuocOnline.ViewModel.Product
         public double RegularPrice { get; set; }
         public double DiscountPrice { get; set; }
         public string Description { get; set; }
+        public string CategoryName { get; set; }
 
         public string Brand { get; set; }
         public string Packaging { get; set; }
@@ -27,6 +28,6 @@ namespace NhaThuocOnline.ViewModel.Product
         public string SeoAlias { get; set; }
         //public string SeoShortDescription { get; set; }
 
-        public bool isPrescriptionRequired { get; set; }
+        public bool IsPrescriptionRequired { get; set; }
     }
 }

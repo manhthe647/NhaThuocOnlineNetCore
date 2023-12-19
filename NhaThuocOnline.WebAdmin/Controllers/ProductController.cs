@@ -2,6 +2,8 @@
 using NhaThuocOnline.ApiIntergration;
 using NhaThuocOnline.Application.ViewModels.Customer;
 using NhaThuocOnline.ViewModel.Product;
+using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
+using System.Drawing.Printing;
 
 namespace NhaThuocOnline.WebAdmin.Controllers
 {
@@ -12,9 +14,17 @@ namespace NhaThuocOnline.WebAdmin.Controllers
         {
             _productApiClient = productApiClient;
         }
-        public async Task<IActionResult> Index()
+        public async Task<IActionResult> Index(string? keyword, string? orderBy, int? categoryId, int pageIndex = 1, int pageSize = 8)
         {
-            var result = await _productApiClient.GetProductsPaging();
+            var request = new GetPublicProductPagingRequest()
+            {
+                Keyword = keyword,
+                OrderBy = orderBy,
+                PageIndex = pageIndex,
+                PageSize = pageSize,
+                CategoryId = categoryId
+            };
+            var result = await _productApiClient.GetProductsPaging(request);
             return View(result);
         }
 

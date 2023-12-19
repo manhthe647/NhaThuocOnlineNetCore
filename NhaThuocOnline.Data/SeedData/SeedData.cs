@@ -47,30 +47,30 @@ namespace NhaThuocOnline.Data.SeedData
             modelBuilder.Entity<Product>().HasData(
                 new Product()
                 {
-                    Id= 1,
+                    Id = 1,
                     ProductName = "Paracetamol 500mg",
-                    SKU="SKU001",
-                    RegularPrice= 48000,
-                    DiscountPrice= 38000,
-                    
-                    Description="Paracetamol 500mg là một loại thuốc giảm đau và hạ sốt thông thường được sử dụng. Nó phù hợp để giảm đau nhẹ đến vừa và hạ sốt.",
-                    ImagePath= "img/products/paracetamol500mg.jpg",
+                    SKU = "SKU001",
+                    RegularPrice = 48000,
+                    DiscountPrice = 38000,
+
+                    Description = "Paracetamol 500mg là một loại thuốc giảm đau và hạ sốt thông thường được sử dụng. Nó phù hợp để giảm đau nhẹ đến vừa và hạ sốt.",
+                    ImagePath = "img/products/paracetamol500mg.jpg",
                     Brand = "Stada",
-                    SeoTitle ="Paracetamol 500mg",
-                    SeoAlias= "paracetamol-500mg",
+                    SeoTitle = "Paracetamol 500mg",
+                    SeoAlias = "paracetamol-500mg",
 
-                    Packaging= "Hộp 10 Vỉ x 10 Viên",
-                    Origin= "Việt Nam",
-                    Manufacturer= "STADA",
-                    ProductionLocation= "Việt Nam",
-                    Ingredients= "Paracetamol",
+                    Packaging = "Hộp 10 Vỉ x 10 Viên",
+                    Origin = "Việt Nam",
+                    Manufacturer = "STADA",
+                    ProductionLocation = "Việt Nam",
+                    Ingredients = "Paracetamol",
 
 
-                    isPrescriptionRequired= false,
-                    IsPublished= true,
+                    isPrescriptionRequired = false,
+                    IsPublished = true,
 
                     CreatedAt = DateTime.Now,
-                    UpdatedAt= DateTime.Now
+                    UpdatedAt = DateTime.Now
                 },
                  new Product()
                  {
@@ -93,7 +93,7 @@ namespace NhaThuocOnline.Data.SeedData
                      IsPublished = true,
                      CreatedAt = DateTime.Now,
                      UpdatedAt = DateTime.Now
-                 }, 
+                 },
                  new Product()
                  {
                      Id = 3,
@@ -103,7 +103,7 @@ namespace NhaThuocOnline.Data.SeedData
                      DiscountPrice = 20000,
                      Description = "Vitamin C 1000mg là một loại vitamin tổng hợp thường được sử dụng để bổ sung nhu cầu vitamin C hàng ngày. Nó giúp tăng cường hệ miễn dịch và chống oxy hóa.",
                      ImagePath = "img/products/vitaminc1000mg.jpg",
-                     Brand= "KUDOS",
+                     Brand = "KUDOS",
                      SeoTitle = "Vitamin C 1000mg",
                      SeoAlias = "vitamin-c-1000mg",
                      Packaging = "Hộp 30 Viên",
@@ -125,7 +125,7 @@ namespace NhaThuocOnline.Data.SeedData
         DiscountPrice = 100000,
         Description = "Omega-3 Fish Oil là một loại bổ sung dầu cá chứa các axit béo omega-3. Nó có lợi cho sức khỏe tim mạch, não bộ và khớp.",
         ImagePath = "img/products/omega3fishoil.jpg",
-        Brand= "Sirio Pharma",
+        Brand = "Sirio Pharma",
         SeoTitle = "Omega-3 Fish Oil",
         SeoAlias = "omega-3-fish-oil",
         Packaging = "Chai 60 Viên",
@@ -156,9 +156,9 @@ namespace NhaThuocOnline.Data.SeedData
     new Category
     {
         Id = 2,
-        ParentId = 1,
-        CategoryName = "Thuốc kê đơn",
-        CategoryDescription = "Thuốc kê đơn",
+        ParentId = 0,
+        CategoryName = "Chăm sóc sức khỏe",
+        CategoryDescription = "Chăm sóc sức khỏe",
         ImagePath = "path/to/image",
         IsActive = true,
         CreatedAt = DateTime.Now,
@@ -167,9 +167,9 @@ namespace NhaThuocOnline.Data.SeedData
     new Category
     {
         Id = 3,
-        ParentId = 1,
-        CategoryName = "Thuốc không kê đơn",
-        CategoryDescription = "Thuốc không kê đơn",
+        ParentId = 0,
+        CategoryName = "Sản phẩm tiện lợi",
+        CategoryDescription = "Sản phẩm tiện lợi",
         ImagePath = "path/to/image",
         IsActive = true,
         CreatedAt = DateTime.Now,
@@ -179,8 +179,8 @@ namespace NhaThuocOnline.Data.SeedData
     {
         Id = 4,
         ParentId = 0,
-        CategoryName = "Chăm sóc cá nhân",
-        CategoryDescription = "Chăm sóc cá nhân",
+        CategoryName = "Thực phẩm chức năng",
+        CategoryDescription = "Thực phẩm chức năng",
         ImagePath = "path/to/image",
         IsActive = true,
         CreatedAt = DateTime.Now,
@@ -189,9 +189,9 @@ namespace NhaThuocOnline.Data.SeedData
     new Category
     {
         Id = 5,
-        ParentId = 4,
-        CategoryName = "Khử mùi",
-        CategoryDescription = "Khử mùi",
+        ParentId = 1,
+        CategoryName = "Thuốc kê đơn",
+        CategoryDescription = "Thuốc kê đơn",
         ImagePath = "path/to/image",
         IsActive = true,
         CreatedAt = DateTime.Now,
@@ -200,9 +200,9 @@ namespace NhaThuocOnline.Data.SeedData
     new Category
     {
         Id = 6,
-        ParentId = 4,
-        CategoryName = "Tóc",
-        CategoryDescription = "Tóc",
+        ParentId = 1,
+        CategoryName = "Thuốc không kê đơn",
+        CategoryDescription = "Thuốc không kê đơn",
         ImagePath = "path/to/image",
         IsActive = true,
         CreatedAt = DateTime.Now,
@@ -211,9 +211,9 @@ namespace NhaThuocOnline.Data.SeedData
     new Category
     {
         Id = 7,
-        ParentId = 4,
-        CategoryName = "Răng miệng",
-        CategoryDescription = "Răng miệng",
+        ParentId = 2,
+        CategoryName = "Thực phẩm dinh dưỡng",
+        CategoryDescription = "Thực phẩm dinh dưỡng",
         ImagePath = "path/to/image",
         IsActive = true,
         CreatedAt = DateTime.Now,
@@ -222,9 +222,9 @@ namespace NhaThuocOnline.Data.SeedData
     new Category
     {
         Id = 8,
-        ParentId = 0,
-        CategoryName = "Sản phẩm tiện lợi",
-        CategoryDescription = "Sản phẩm tiện lợi",
+        ParentId = 2,
+        CategoryName = "Tai mũi họng",
+        CategoryDescription = "Tai mũi họng",
         ImagePath = "path/to/image",
         IsActive = true,
         CreatedAt = DateTime.Now,
@@ -243,10 +243,87 @@ namespace NhaThuocOnline.Data.SeedData
     }
 
                 );
-                      
-         
 
-        
+            modelBuilder.Entity<ProductInCategory>().HasData(
+
+                 new ProductInCategory
+                 {
+                     Id = 1,
+                     CategoryId = 6,
+                     ProductId = 1
+                 },
+    new ProductInCategory
+    {
+        Id = 2,
+        CategoryId = 6,
+        ProductId = 2
+    },
+    new ProductInCategory
+    { Id = 3,
+        CategoryId = 7,
+        ProductId = 3
+    }
+                );
+
+            modelBuilder.Entity<Coupon>().HasData(
+
+                new Coupon()
+                {
+                    Id = 1,
+                    Code = "BANMOI",
+                    CouponDescription = "KHUYEN MAI LAN DAU",
+                    TimesUsed = 0,
+                    MaxUsage = 1,
+                    DiscountType = "co-dinh",
+                    DiscountValue = 50,
+                    CouponStartDate = DateTime.Now,
+                    CouponEndDate = DateTime.Now.AddDays(14),
+                    IsActive = true,
+                    CreatedAt = DateTime.Now,
+                    UpdatedAt = DateTime.Now
+
+                }
+                //,new Coupon()
+                //  {
+                //      Id = 2,
+                //      Code = "NOEL",
+                //      CouponDescription = "KHUYEN MAI THANG 12",
+                //      TimesUsed = 0,
+                //      MaxUsage = 1,
+                //      DiscountType = "phan-tram",
+                //      DiscountValue = 10,
+                //      CouponStartDate = DateTime.Now,
+                //      CouponEndDate = DateTime.Now.AddDays(14),
+                //      IsActive = true,
+                //      CreatedAt = DateTime.Now,
+                //      UpdatedAt = DateTime.Now
+
+                //  }
+                );
+
+            modelBuilder.Entity<CartItem>().HasData(
+                new CartItem()
+                {
+                    Id = 1,
+                    CartId= "3c2efd8f-d0f9-4719-ae61-755b5b2226fc",
+                    ProductId=1,
+                    Quantity=2,
+                },
+                 new CartItem()
+                 {
+                     Id = 2,
+                     CartId = "3c2efd8f-d0f9-4719-ae61-755b5b2226fc",
+                     ProductId = 2,
+                     Quantity = 3,
+                 }
+
+
+                );
+
+
+
+
+
         }
     }
 }

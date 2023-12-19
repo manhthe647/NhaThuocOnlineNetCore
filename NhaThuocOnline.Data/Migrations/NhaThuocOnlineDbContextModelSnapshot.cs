@@ -256,8 +256,9 @@ namespace NhaThuocOnline.Data.Migrations
 
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.Cart", b =>
                 {
-                    b.Property<int>("CartId")
-                        .HasColumnType("int");
+                    b.Property<string>("CartId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
@@ -273,8 +274,9 @@ namespace NhaThuocOnline.Data.Migrations
 
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
-                    b.Property<int>("CartId")
-                        .HasColumnType("int");
+                    b.Property<string>("CartId")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
@@ -285,6 +287,22 @@ namespace NhaThuocOnline.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("CartItems", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CartId = "3c2efd8f-d0f9-4719-ae61-755b5b2226fc",
+                            ProductId = 1,
+                            Quantity = 2
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CartId = "3c2efd8f-d0f9-4719-ae61-755b5b2226fc",
+                            ProductId = 2,
+                            Quantity = 3
+                        });
                 });
 
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.Category", b =>
@@ -322,6 +340,107 @@ namespace NhaThuocOnline.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Categories", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryDescription = "Dược phẩm",
+                            CategoryName = "Dược phẩm",
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4854),
+                            ImagePath = "path/to/image",
+                            IsActive = true,
+                            ParentId = 0,
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4855)
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryDescription = "Chăm sóc sức khỏe",
+                            CategoryName = "Chăm sóc sức khỏe",
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4856),
+                            ImagePath = "path/to/image",
+                            IsActive = true,
+                            ParentId = 0,
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4856)
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryDescription = "Sản phẩm tiện lợi",
+                            CategoryName = "Sản phẩm tiện lợi",
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4857),
+                            ImagePath = "path/to/image",
+                            IsActive = true,
+                            ParentId = 0,
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4858)
+                        },
+                        new
+                        {
+                            Id = 4,
+                            CategoryDescription = "Thực phẩm chức năng",
+                            CategoryName = "Thực phẩm chức năng",
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4859),
+                            ImagePath = "path/to/image",
+                            IsActive = true,
+                            ParentId = 0,
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4859)
+                        },
+                        new
+                        {
+                            Id = 5,
+                            CategoryDescription = "Thuốc kê đơn",
+                            CategoryName = "Thuốc kê đơn",
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4860),
+                            ImagePath = "path/to/image",
+                            IsActive = true,
+                            ParentId = 1,
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4860)
+                        },
+                        new
+                        {
+                            Id = 6,
+                            CategoryDescription = "Thuốc không kê đơn",
+                            CategoryName = "Thuốc không kê đơn",
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4861),
+                            ImagePath = "path/to/image",
+                            IsActive = true,
+                            ParentId = 1,
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4861)
+                        },
+                        new
+                        {
+                            Id = 7,
+                            CategoryDescription = "Thực phẩm dinh dưỡng",
+                            CategoryName = "Thực phẩm dinh dưỡng",
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4862),
+                            ImagePath = "path/to/image",
+                            IsActive = true,
+                            ParentId = 2,
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4863)
+                        },
+                        new
+                        {
+                            Id = 8,
+                            CategoryDescription = "Tai mũi họng",
+                            CategoryName = "Tai mũi họng",
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4863),
+                            ImagePath = "path/to/image",
+                            IsActive = true,
+                            ParentId = 2,
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4864)
+                        },
+                        new
+                        {
+                            Id = 9,
+                            CategoryDescription = "Hàng tổng hợp",
+                            CategoryName = "Hàng tổng hợp",
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4865),
+                            ImagePath = "path/to/image",
+                            IsActive = true,
+                            ParentId = 8,
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4865)
+                        });
                 });
 
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.Coupon", b =>
@@ -350,6 +469,16 @@ namespace NhaThuocOnline.Data.Migrations
                     b.Property<DateTime>("CreatedAt")
                         .HasColumnType("datetime2");
 
+                    b.Property<string>("DiscountType")
+                        .IsRequired()
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<decimal>("DiscountValue")
+                        .HasColumnType("decimal(18,2)");
+
+                    b.Property<bool>("IsActive")
+                        .HasColumnType("bit");
+
                     b.Property<int>("MaxUsage")
                         .HasColumnType("int");
 
@@ -362,6 +491,23 @@ namespace NhaThuocOnline.Data.Migrations
                     b.HasKey("Id");
 
                     b.ToTable("Coupons", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            Code = "BANMOI",
+                            CouponDescription = "KHUYEN MAI LAN DAU",
+                            CouponEndDate = new DateTime(2024, 1, 3, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4898),
+                            CouponStartDate = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4897),
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4915),
+                            DiscountType = "co-dinh",
+                            DiscountValue = 50m,
+                            IsActive = true,
+                            MaxUsage = 1,
+                            TimesUsed = 0,
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4915)
+                        });
                 });
 
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.Customer", b =>
@@ -661,7 +807,7 @@ namespace NhaThuocOnline.Data.Migrations
                         {
                             Id = 1,
                             Brand = "Stada",
-                            CreatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5697),
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4815),
                             Description = "Paracetamol 500mg là một loại thuốc giảm đau và hạ sốt thông thường được sử dụng. Nó phù hợp để giảm đau nhẹ đến vừa và hạ sốt.",
                             DiscountPrice = 38000.0,
                             ImagePath = "img/products/paracetamol500mg.jpg",
@@ -676,14 +822,14 @@ namespace NhaThuocOnline.Data.Migrations
                             SKU = "SKU001",
                             SeoAlias = "paracetamol-500mg",
                             SeoTitle = "Paracetamol 500mg",
-                            UpdatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5711),
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4826),
                             isPrescriptionRequired = false
                         },
                         new
                         {
                             Id = 2,
                             Brand = "Nadyphar",
-                            CreatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5714),
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4829),
                             Description = "Ibuprofen 200mg là một loại thuốc giảm đau, hạ sốt và chống viêm thông thường được sử dụng. Nó phù hợp để giảm đau nhẹ đến vừa, hạ sốt và giảm viêm.",
                             DiscountPrice = 45000.0,
                             ImagePath = "img/products/ibuprofen200mg.jpg",
@@ -698,14 +844,14 @@ namespace NhaThuocOnline.Data.Migrations
                             SKU = "SKU002",
                             SeoAlias = "ibuprofen-200mg",
                             SeoTitle = "Ibuprofen 200mg",
-                            UpdatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5714),
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4830),
                             isPrescriptionRequired = false
                         },
                         new
                         {
                             Id = 3,
                             Brand = "KUDOS",
-                            CreatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5716),
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4831),
                             Description = "Vitamin C 1000mg là một loại vitamin tổng hợp thường được sử dụng để bổ sung nhu cầu vitamin C hàng ngày. Nó giúp tăng cường hệ miễn dịch và chống oxy hóa.",
                             DiscountPrice = 20000.0,
                             ImagePath = "img/products/vitaminc1000mg.jpg",
@@ -720,14 +866,14 @@ namespace NhaThuocOnline.Data.Migrations
                             SKU = "SKU003",
                             SeoAlias = "vitamin-c-1000mg",
                             SeoTitle = "Vitamin C 1000mg",
-                            UpdatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5716),
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4832),
                             isPrescriptionRequired = false
                         },
                         new
                         {
                             Id = 4,
                             Brand = "Sirio Pharma",
-                            CreatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5718),
+                            CreatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4833),
                             Description = "Omega-3 Fish Oil là một loại bổ sung dầu cá chứa các axit béo omega-3. Nó có lợi cho sức khỏe tim mạch, não bộ và khớp.",
                             DiscountPrice = 100000.0,
                             ImagePath = "img/products/omega3fishoil.jpg",
@@ -742,7 +888,7 @@ namespace NhaThuocOnline.Data.Migrations
                             SKU = "SKU004",
                             SeoAlias = "omega-3-fish-oil",
                             SeoTitle = "Omega-3 Fish Oil",
-                            UpdatedAt = new DateTime(2023, 12, 13, 22, 54, 52, 320, DateTimeKind.Local).AddTicks(5718),
+                            UpdatedAt = new DateTime(2023, 12, 20, 1, 22, 58, 531, DateTimeKind.Local).AddTicks(4833),
                             isPrescriptionRequired = false
                         });
                 });
@@ -760,13 +906,41 @@ namespace NhaThuocOnline.Data.Migrations
 
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.ProductInCategory", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<int>("CategoryId")
                         .HasColumnType("int");
 
                     b.Property<int>("ProductId")
                         .HasColumnType("int");
 
+                    b.HasKey("Id");
+
                     b.ToTable("ProductInCategories", (string)null);
+
+                    b.HasData(
+                        new
+                        {
+                            Id = 1,
+                            CategoryId = 6,
+                            ProductId = 1
+                        },
+                        new
+                        {
+                            Id = 2,
+                            CategoryId = 6,
+                            ProductId = 2
+                        },
+                        new
+                        {
+                            Id = 3,
+                            CategoryId = 7,
+                            ProductId = 3
+                        });
                 });
 
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.Transaction", b =>

@@ -11,6 +11,16 @@ builder.Services.AddHttpClient();
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddTransient<IProductApiClient, ProductApiClient>();
 
+//add sessions
+//builder.Services.AddSession(option =>
+//{
+//    option.Cookie.Name = "NtoCookie";
+//    option.IdleTimeout = TimeSpan.FromHours(2);
+
+//});
+
+
+
 builder.Services.AddControllersWithViews().AddRazorRuntimeCompilation();
 
 
@@ -32,7 +42,7 @@ app.UseRouting();
 
 app.UseAuthorization();
 
-
+//app.UseSession();
 
 app.MapControllerRoute(
     name: "default",

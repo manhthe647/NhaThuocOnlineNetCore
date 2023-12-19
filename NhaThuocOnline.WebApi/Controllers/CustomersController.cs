@@ -63,6 +63,18 @@ namespace NhaThuocOnline.WebApi.Controllers
 
         }
 
+        [HttpPut("{customerId}/addresses")]
+        public async Task<IActionResult> AddCustomerAddress(int customerId, [FromBody] CustomerAddressCreateRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var result = await _customerService.CreateCustomerAddress(customerId, request);
+            if (result)
+                return Ok(result);
+            return BadRequest(result);
+        }
+
+
         [HttpPatch("{customerId}/softdelete")]
         public async Task<IActionResult> SoftDeleteCustomer(int customerId)
         {

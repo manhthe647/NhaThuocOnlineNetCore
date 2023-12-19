@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using NhaThuocOnline.Application.ViewModels.Customer;
+using NhaThuocOnline.ViewModel.Common;
 using NhaThuocOnline.ViewModel.Product;
 using System;
 using System.Collections.Generic;
@@ -61,13 +62,14 @@ namespace NhaThuocOnline.ApiIntergration
             return product;
         }
 
-        public async Task<List<ProductBasicVm>> GetProductsPaging()
+        public async Task<PagedResult<ProductBasicVm>> GetProductsPaging(GetPublicProductPagingRequest request)
         {
             var client = _httpClientFactory.CreateClient();
 
-            var response = await client.GetAsync($"https://localhost:7128/api/products/");
+            var response = await client.GetAsync($"https://localhost:7128/api/products?CategoryId={request.CategoryId}&Keyword={request.Keyword}&OrderBy={request.OrderBy}" +
+                $"&PageIndex={request.PageIndex}&PageSize={request.PageSize}");
             var body = await response.Content.ReadAsStringAsync();
-            var products = JsonConvert.DeserializeObject<List<ProductBasicVm>>(body);
+            var products = JsonConvert.DeserializeObject<PagedResult<ProductBasicVm>>(body);
             return products;
         }
 
