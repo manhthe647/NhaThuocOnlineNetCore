@@ -10,10 +10,10 @@ using System.Threading.Tasks;
         public interface ICartService
         {
         Task<string> CreateCartItem(CartCreateRequest request);
-        //Task<int> UpdateQuantity(CartUpdateQuantityRequest request);
 
         Task<List<CartItemVm>> GetByCartId(string cartId);
-        //Task<bool> DeleteItem(int productId);
+        Task<bool> UpdateQuantity(CartUpdateQuantityRequest request);
+        Task<bool> DeleteItem(int id);
         //Task<bool> ClearCart(int cartId);
-        }
+    }
     }

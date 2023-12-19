@@ -43,6 +43,18 @@ namespace NhaThuocOnline.Application.Service
             
         }
 
+        public async Task<bool> DeleteItem(int id)
+        {
+            var cartItem= await _dbContext.CartItems.FirstOrDefaultAsync(x => x.Id == id);
+            if(cartItem != null)
+            {
+                _dbContext.CartItems.Remove(cartItem);
+                await _dbContext.SaveChangesAsync();
+                return true;
+            }
+            return false;
+        }
+
         public async Task<List<CartItemVm>> GetByCartId (string cartId)
         {
             var data = await _dbContext.CartItems.Where(x => x.CartId == cartId).ToListAsync();
@@ -56,6 +68,19 @@ namespace NhaThuocOnline.Application.Service
             }).ToList();
 
             return cartDetails;
+        }
+
+        public  async Task<bool> UpdateQuantity(CartUpdateQuantityRequest request)
+        {
+            var existingProductInCartItem = await _dbContext.CartItems.FirstOrDefaultAsync(x => x.CartId == request.CartId && x.ProductId == request.ProductId);
+            if (existingProductInCartItem == null)
+            {
+                return false;
+            }
+            existingProductInCartItem.Quantity = request.Quantity;
+            await _dbContext.SaveChangesAsync();
+            return true;
+            
         }
     }
 }

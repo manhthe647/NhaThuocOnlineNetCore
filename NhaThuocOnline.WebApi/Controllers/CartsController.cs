@@ -37,5 +37,29 @@ namespace NhaThuocOnline.WebApi.Controllers
 
           
         }
+
+        [HttpPatch("{id}/quantity")]
+        public async Task<IActionResult> UpdateQuantityProduct(int id, [FromForm]CartUpdateQuantityRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var data = await _cartService.UpdateQuantity(request);
+            return Ok(data);
+        }
+
+        [HttpDelete]
+        public async Task<IActionResult> Delete(int id)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var data= await _cartService.DeleteItem(id);
+            return Ok(data);
+        }
+
+       
     }
 }
