@@ -19,6 +19,8 @@ namespace NhaThuocOnline.Data.Configurations
 
             builder.Property(x => x.ProductId).IsRequired();
             builder.Property(x => x.OriginPrice).IsRequired();
+            builder.Property(x => x.Quantity).IsRequired();
+            builder.Property(x => x.IsDeleted).IsRequired();
 
             builder.Property(x => x.ManufacturingDate).IsRequired();
             builder.Property(x => x.ExpireDate).IsRequired();

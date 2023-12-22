@@ -20,7 +20,6 @@ namespace NhaThuocOnline.Data.Configurations
           
             builder.Property(x => x.CouponId).IsRequired();
             builder.Property(x => x.CustomerId).IsRequired();
-            builder.Property(x => x.TransactionId).IsRequired();
             
 
         }

@@ -38,8 +38,8 @@ namespace NhaThuocOnline.WebApi.Controllers
           
         }
 
-        [HttpPatch("{id}/quantity")]
-        public async Task<IActionResult> UpdateQuantityProduct(int id, [FromForm]CartUpdateQuantityRequest request)
+        [HttpPatch("quantity")]
+        public async Task<IActionResult> UpdateQuantityProduct([FromForm]CartUpdateQuantityRequest request)
         {
             if (!ModelState.IsValid)
             {

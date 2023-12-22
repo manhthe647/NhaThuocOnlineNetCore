@@ -10,6 +10,9 @@ builder.Services.AddHttpClient();
 //DI
 builder.Services.AddSingleton<IHttpContextAccessor, HttpContextAccessor>();
 builder.Services.AddTransient<IProductApiClient, ProductApiClient>();
+builder.Services.AddTransient<IPrescriptionApiClient, PrescriptionApiClient>();
+builder.Services.AddTransient<ICustomerApiClient, CustomerApiClient>();
+
 
 //add sessions
 //builder.Services.AddSession(option =>

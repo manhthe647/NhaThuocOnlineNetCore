@@ -4,6 +4,7 @@ using NhaThuocOnline.Application.Interface;
 using NhaThuocOnline.Application.ViewModels.Customer;
 using NhaThuocOnline.Data.EF;
 using NhaThuocOnline.Data.Entities;
+using NhaThuocOnline.ViewModel.Batch;
 using NhaThuocOnline.ViewModel.Common;
 using NhaThuocOnline.ViewModel.Product;
 using System;
@@ -256,7 +257,7 @@ namespace NhaThuocOnline.Application.Service
         private async Task<string> SaveFile(IFormFile file)
         {
             var originalFileName = ContentDispositionHeaderValue.Parse(file.ContentDisposition).FileName.Trim('"');
-            var fileName = $"{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
+            var fileName = $"product{Guid.NewGuid()}{Path.GetExtension(originalFileName)}";
             await _storageService.SaveFileAsync(file.OpenReadStream(), fileName);
             return fileName;
         }
@@ -285,6 +286,52 @@ namespace NhaThuocOnline.Application.Service
             }
             await _dbContext.SaveChangesAsync();
             return new ApiSuccessResult<bool>();
+        }
+
+        public async Task<bool> CreateBatch(BatchCreateRequest request)
+        {
+            var newBatch = new Batch()
+            {
+                ProductId = request.ProductId,
+                OriginPrice = request.OriginPrice,
+                Quantity = request.Quantity,
+                Stock = request.Stock,
+                ManufacturingDate = request.ManufacturingDate,
+                ExpireDate = request.ExpireDate,
+                IsDeleted = true,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+            };
+            _dbContext.Batches.Add(newBatch);
+            await _dbContext.SaveChangesAsync();
+            return true;
+        }
+
+        public async Task<List<BatchVm>> GetAllBatch(int productId)
+        {
+            var batchProduct = await _dbContext.Batches.Where(x => x.ProductId == productId).ToListAsync();
+            var result = batchProduct.Select(x => new BatchVm()
+            {
+                Id = x.Id,
+                ProductId = x.ProductId,
+                OriginPrice = x.Quantity,
+                Quantity = x.Quantity,
+                Stock = x.Stock,
+                ManufacturingDate = x.ManufacturingDate,
+                ExpireDate = x.ExpireDate,
+                IsDeleted = false,
+                CreatedAt = DateTime.Now,
+                UpdatedAt = DateTime.Now,
+            });
+            return new List<BatchVm>(result);
+        }
+
+        public async Task<bool> UpdateStock(BatchUpdateStockRequest request)
+        {
+            var existingBatchProduct= await _dbContext.Batches.FirstOrDefaultAsync(x => x.Id == request.Id && x.ProductId == request.ProductId);
+            existingBatchProduct.Stock = request.Stock;
+            await _dbContext.SaveChangesAsync();
+            return true;
         }
     }
 }

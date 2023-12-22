@@ -11,6 +11,5 @@ namespace NhaThuocOnline.Data.Entities
         public int Id { get; set; }
         public int CouponId { get; set; }
         public int CustomerId { get; set; }
-        public int TransactionId { get; set; }
     }
 }

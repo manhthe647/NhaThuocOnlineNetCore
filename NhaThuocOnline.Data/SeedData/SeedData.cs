@@ -320,6 +320,24 @@ namespace NhaThuocOnline.Data.SeedData
 
                 );
 
+            modelBuilder.Entity<Batch>().HasData(
+                new Batch()
+                {
+                    Id=1,
+                    ProductId= 1,
+                    OriginPrice= 50000,
+                    Quantity= 100,
+                    Stock = 100,
+                    ExpireDate = DateTime.Now,
+                    ManufacturingDate = DateTime.Now.AddMonths(12),
+                    CreatedAt= DateTime.Now,
+                    UpdatedAt = DateTime.Now,
+                    IsDeleted = false,
+                    
+
+                }
+                );
+
 
 
 

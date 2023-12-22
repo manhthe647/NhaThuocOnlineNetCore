@@ -10,14 +10,17 @@ namespace NhaThuocOnline.Application.Interface
 {
     public interface IStaffService
     {
-        Task<string> Authencate(LoginRequest request);
-        Task<bool> Register(RegisterRequest request);
-        Task<List<CustomerVm>> GetStaffPaging();
-        Task<CustomerVm> GetStaffById(int id);
-        Task<bool> RoleAssign(int id, CustomerAddressCreateRequest request);
+        //Task<string> Authencate(LoginRequest request);
+        //Task<bool> Register(RegisterRequest request);
+        //Task<List<StaffVm>> GetStaffPaging();
+        //Task<StaffVm> GetStaffById(int id);
 
-        //Task<bool> Update(int id, CustomerUpdateRequest request);
+        //Task<bool> Update(int id, StaffUpdateRequest request);
         //Task<bool> SoftDelete(int id);
+
+        //Task<bool> RoleAssign(int id, StaffAssignRoleRequest request);
+
+      
 
     }
 }

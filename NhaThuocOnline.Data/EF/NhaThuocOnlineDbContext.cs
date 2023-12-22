@@ -37,12 +37,12 @@ namespace NhaThuocOnline.Data.EF
 
             modelBuilder.ApplyConfiguration(new ProductConfiguration());
             modelBuilder.ApplyConfiguration(new ProductCouponConfiguration());
-          
+            modelBuilder.ApplyConfiguration(new ProductReturnConfiguration());
+
             modelBuilder.ApplyConfiguration(new ProductInCategoryConfiguration());
 
-            modelBuilder.ApplyConfiguration(new TransactionConfiguration());
-            modelBuilder.ApplyConfiguration(new InventoryConfiguration());
             modelBuilder.ApplyConfiguration(new BatchConfiguration());
+            modelBuilder.ApplyConfiguration(new PrescriptionConfiguration());
 
 
             modelBuilder.ApplyConfiguration(new AppStaffAccountConfiguration());
@@ -73,16 +73,10 @@ namespace NhaThuocOnline.Data.EF
         public DbSet<Product> Products { get; set; }
         public DbSet<ProductCoupon> ProductCoupons { get; set; }
         public DbSet<ProductInCategory> ProductInCategories { get; set; }
-        public DbSet<Transaction> Transactions { get; set; }
         public DbSet<Batch> Batches { get; set; }
-        public DbSet<Inventory> Inventories { get; set; }
+        public DbSet<ProductReturn> ProductReturns { get; set; }
 
-
-
-
-
-
-
+        public DbSet<Prescription> Prescriptions { get; set; }
 
 
     }

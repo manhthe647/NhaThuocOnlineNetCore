@@ -35,6 +35,9 @@ builder.Services.AddTransient<IFileStorageService, FileStorageService>();
 builder.Services.AddTransient<ICategoryService, CategoryService>();
 builder.Services.AddTransient<ICouponService, CouponService>();
 builder.Services.AddTransient<ICartService, CartService>();
+builder.Services.AddTransient<IPrescriptionService, PrescriptionService>();
+
+
 
 builder.Services.AddControllers();
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle

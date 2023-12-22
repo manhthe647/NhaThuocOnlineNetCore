@@ -3,6 +3,7 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NhaThuocOnline.Application.Interface;
 using NhaThuocOnline.Application.Service;
+using NhaThuocOnline.ViewModel.Batch;
 using NhaThuocOnline.ViewModel.Product;
 
 namespace NhaThuocOnline.WebApi.Controllers
@@ -85,6 +86,28 @@ namespace NhaThuocOnline.WebApi.Controllers
             if (result)
                 return Ok(result);
             return BadRequest();
+        }
+
+        [HttpGet("{productId}/batches")]
+        public async Task<IActionResult> GetBatchByProductId(int productId)
+        {
+            var data = await _productService.GetAllBatch(productId);
+            return Ok(data);
+        }
+
+
+        [HttpPost("{productId}/batches")]
+        public async Task<IActionResult> Create([FromForm] BatchCreateRequest request)
+        {
+            var data = await _productService.CreateBatch(request);
+            return Ok(data);
+        }
+
+        [HttpPatch("{productId}/stock")]
+        public async Task<IActionResult> UpdateStock([FromForm] BatchUpdateStockRequest request)
+        {
+            var data = await _productService.UpdateStock(request);
+            return Ok(data);
         }
     }
 }

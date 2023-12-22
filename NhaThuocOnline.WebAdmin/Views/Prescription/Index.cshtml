@@ -1,0 +1,28 @@
+﻿@model IEnumerable<NhaThuocOnline.ViewModel.Prescription.PrescriptionVm>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div style="margin: 100px 0 0 24px">
+    <div>
+        <h3 class="ml-3">Đơn thuốc mới tải lên</h3>
+        <ul class="d-flex flex-wrap">
+            @foreach (var item in Model)
+            {
+            <li class="m-3">
+                <img width="200px" height="250px" src="https://photo-baomoi.zadn.vn/w700_r1/2022_03_10_114_41976992/4e0df6a064e28dbcd4f3.jpg" />
+                <p><b>Khách hàng:</b> @item.CustomerName</p>
+                    <p><b>Số điện thoại:</b> @item.CustomerPhone</p>
+                    <p><b>Thời gian tạo:</b> @item.CreatedDate</p>
+                <p><b>Ghi chú:</b> @item.CustomerNote    </p>
+
+            </li>
+                
+            }
+      
+        </ul>
+    </div>
+</div>
+
+

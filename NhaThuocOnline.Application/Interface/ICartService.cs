@@ -1,4 +1,5 @@
 ﻿using NhaThuocOnline.ViewModel.Cart;
+using NhaThuocOnline.ViewModel.Common;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -14,6 +15,7 @@ using System.Threading.Tasks;
         Task<List<CartItemVm>> GetByCartId(string cartId);
         Task<bool> UpdateQuantity(CartUpdateQuantityRequest request);
         Task<bool> DeleteItem(int id);
+
         //Task<bool> ClearCart(int cartId);
     }
     }
