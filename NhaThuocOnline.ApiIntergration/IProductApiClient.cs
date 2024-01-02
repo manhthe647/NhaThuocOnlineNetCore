@@ -13,7 +13,9 @@ namespace NhaThuocOnline.ApiIntergration
 
         Task<bool> Create(ProductCreateRequest request);
 
-        Task<PagedResult<ProductBasicVm>> GetProductsPaging(GetPublicProductPagingRequest request);
+        Task<PagedResult<ProductBasicVm>> GetProductByCategoryIdPaging(GetPublicProductPagingRequest request);
+        Task<PagedResult<ProductVm>> GetAllProductsPaging(GetManageProductPagingRequest request);
+
         Task<ProductVm> GetProductById(int id);
 
         //Task<bool> Update(int id, ProductUpdateRequest request);

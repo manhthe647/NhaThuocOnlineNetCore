@@ -1,4 +1,5 @@
-﻿using System;
+﻿using NhaThuocOnline.ViewModel.Order;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,10 +9,12 @@ namespace NhaThuocOnline.Application.Interface
 {
     public interface IOrderService
     {
-        Task<int> CreateOrder();
-        Task GetOrderRecently(int orderId);
+        Task<bool> CreateOrder(OrderCreateRequest request);
 
-        Task GetOrderById(int orderId);
+        Task<OrderVm> GetOrderById(int orderId);
+        Task<List<OrderVm>> GetOrderRecently();
+        Task<bool> ChangeStatusOrder(ChangeStatusRequest request);
+
         Task GetOrderByCustomerId(int customerId);
         Task<bool> UpdateOrder();
         Task<bool> DeleteOrder();

@@ -1,9 +1,12 @@
-﻿using Newtonsoft.Json;
-using NhaThuocOnline.Application.ViewModels.Customer;
+﻿using Microsoft.Extensions.Configuration;
+using Newtonsoft.Json;
+using NhaThuocOnline.Utilities.Exceptions;
+using NhaThuocOnline.ViewModel.Common;
 using NhaThuocOnline.ViewModel.Customer;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net.Http.Headers;
 using System.Text;
 using System.Text.Json.Serialization;
 using System.Threading.Tasks;
@@ -13,13 +16,30 @@ namespace NhaThuocOnline.ApiIntergration
     public class CustomerApiClient : ICustomerApiClient
     {
         private readonly IHttpClientFactory _httpClientFactory;
+        private readonly IConfiguration _configuration;
 
-        public CustomerApiClient(IHttpClientFactory httpClientFactory) { 
+        public CustomerApiClient(IHttpClientFactory httpClientFactory, IConfiguration configuration) { 
             _httpClientFactory = httpClientFactory;
+            _configuration = configuration;
         }
-        public Task<string> Authencate(LoginRequest request)
+
+
+
+        public async Task<ApiResult<string>> Authenticate(LoginRequest request)
         {
-            throw new NotImplementedException();
+            var json = JsonConvert.SerializeObject(request);
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+
+            var client = _httpClientFactory.CreateClient();
+            client.BaseAddress = new Uri("https://localhost:7128");
+            var response = await client.PostAsync("/api/customers/login", httpContent);
+
+            if (response.IsSuccessStatusCode)
+            {
+                return JsonConvert.DeserializeObject<ApiSuccessResult<string>>(await response.Content.ReadAsStringAsync());
+            }
+
+            return JsonConvert.DeserializeObject<ApiErrorResult<string>>(await response.Content.ReadAsStringAsync());
         }
 
         public async Task<CustomerVm> GetCustomerById(int id)

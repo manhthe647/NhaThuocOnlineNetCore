@@ -1,7 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.EntityFrameworkCore;
 using NhaThuocOnline.Application.Interface;
-using NhaThuocOnline.Application.ViewModels.Customer;
 using NhaThuocOnline.Data.EF;
 using NhaThuocOnline.Data.Entities;
 using NhaThuocOnline.ViewModel.Batch;
@@ -52,11 +51,11 @@ namespace NhaThuocOnline.Application.Service
                 SeoAlias = "product",
                 isPrescriptionRequired =false,
 
-                //isPrescriptionRequired = request.IsPrescriptionRequired,
                 CreatedAt = DateTime.Now,
                 UpdatedAt = DateTime.Now,
                 IsPublished = true,
-                ImagePath = imagePath
+                ImagePath = imagePath,
+                
             };
              _dbContext.Products.Add(product);
              await _dbContext.SaveChangesAsync();
@@ -143,6 +142,7 @@ namespace NhaThuocOnline.Application.Service
                   {
                       Id= x.p.Id,
                       ProductName = x.p.ProductName,
+                      ImagePath = x.p.ImagePath,
                       DiscountPrice = x.p.DiscountPrice,
                       RegularPrice = x.p.RegularPrice,
                       isPrescriptionRequired = x.p.isPrescriptionRequired

@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NhaThuocOnline.ApiIntergration;
-using NhaThuocOnline.Application.ViewModels.Customer;
 using NhaThuocOnline.ViewModel.Product;
 using static Microsoft.Extensions.Logging.EventSource.LoggingEventSource;
 using System.Drawing.Printing;
@@ -16,7 +15,7 @@ namespace NhaThuocOnline.WebAdmin.Controllers
         }
         public async Task<IActionResult> Index(string? keyword, string? orderBy, int? categoryId, int pageIndex = 1, int pageSize = 8)
         {
-            var request = new GetPublicProductPagingRequest()
+            var request = new GetManageProductPagingRequest()
             {
                 Keyword = keyword,
                 OrderBy = orderBy,
@@ -24,7 +23,11 @@ namespace NhaThuocOnline.WebAdmin.Controllers
                 PageSize = pageSize,
                 CategoryId = categoryId
             };
-            var result = await _productApiClient.GetProductsPaging(request);
+            var result = await _productApiClient.GetAllProductsPaging(request);
+            ViewBag.TotalRecords = result.TotalRecords;
+            ViewBag.PageSize = result.PageSize;
+            ViewBag.PageCount = result.PagedCount;
+            ViewBag.PageIndex = result.PageIndex;
             return View(result);
         }
 
@@ -34,8 +37,6 @@ namespace NhaThuocOnline.WebAdmin.Controllers
             var result = await _productApiClient.GetProductById(id);
             return View(result);
         }
-
-  
 
         [HttpGet]
         public IActionResult Create()

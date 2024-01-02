@@ -14,7 +14,9 @@ namespace NhaThuocOnline.Data.Configurations
         public void Configure(EntityTypeBuilder<Cart> builder)
         {
             builder.ToTable("Carts");
-            builder.HasNoKey();
+            builder.HasKey(x => x.Id);
+            builder.Property(x => x.Id).UseIdentityColumn();
+
             builder.Property(x=>x.CartId).IsRequired();
             builder.Property(x=>x.CustomerId).IsRequired();
         }

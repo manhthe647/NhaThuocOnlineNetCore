@@ -1,9 +1,10 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NhaThuocOnline.WebApp.Controllers;
 using System.Diagnostics;
 
 namespace EShopSolution.WebAppMvc.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : ClientBaseController
     {
         private readonly ILogger<HomeController> _logger;
 
@@ -22,10 +23,7 @@ namespace EShopSolution.WebAppMvc.Controllers
             return View();
         }
 
-        public IActionResult Cart()
-        {
-            return View();
-        }
+      
 
         public IActionResult Checkout()
         {

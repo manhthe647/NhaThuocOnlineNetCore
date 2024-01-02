@@ -1,18 +1,36 @@
-﻿﻿@using NhaThuocOnline.ViewModel.Common;
-@model PagedResult<NhaThuocOnline.ViewModel.Product.ProductBasicVm>
+﻿@using NhaThuocOnline.ViewModel.Common;
+@model PagedResult<NhaThuocOnline.ViewModel.Product.ProductVm>
 
 @{
     ViewData["Title"] = "Index";
 }
 
-<div class="row p-4"></div>
-<div class="ml-4">
+<div class="row mt-4 p-4"></div>
 
-<h1>Index</h1>
 
+
+<div class="mt-4 ml-4">
+
+<h3 class="mt-4">Danh sách sản phẩm</h3>
 <p>
-    <a asp-action="Create">Create New</a>
+    <a asp-action="Create" class="btn btn-success" >Thêm mới</a>
 </p>
+    <div class="my-4 ">
+        <ul class="pagination">
+            <li class="page-item @(ViewBag.PageIndex == 1 ? "disabled" : "")">
+                <a href="@Url.Action("Index", new { pageIndex = ViewBag.PageIndex -1  })" class="page-link rounded">Trước</a>
+            </li>
+            @for (int i = 1; i <= ViewBag.PageCount; i++)
+            {
+                <li class="page-item @(i == ViewBag.PageIndex ? "active" : "") ">
+                    <a href="@Url.Action("Index", new { pageIndex = i })" class="page-link rounded">@i</a>
+                </li>
+            }
+            <li class="page-item @(ViewBag.PageIndex == ViewBag.PageCount ? "disabled" : "")">
+                <a href="@Url.Action("Index", new { pageIndex = ViewBag.PageIndex + 1  })" class="page-link rounded">Sau</a>
+            </li>
+        </ul>
+    </div>
 <table class="table">
     <thead>
         <tr>
@@ -20,45 +38,50 @@
                 ID
             </th>
             <th>
-                Product Name
+                Tên
             </th>
             <th>
-               Regular Price
+              Giá gốc
             </th>
             <th>
-                Discount Price
+               Giá khuyến mại
             </th>
-            <th>
-               Yêu cầu đơn thuốc
-            </th>
-            <th></th>
+            <th>Tồn kho</th>
+                <th>Đã bán</th>
+
+            <th>Thao tác</th>
         </tr>
     </thead>
     <tbody>
 @foreach (var item in Model.Items) {
         <tr>
             <td>
-                @Html.DisplayFor(modelItem => item.Id)
+                @item.Id
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ProductName)
+                @item.ProductName
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.RegularPrice)
+                @item.RegularPrice
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.DiscountPrice)
+                @item.DiscountPrice
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.isPrescriptionRequired)
+                100
             </td>
+                    <td>
+                        100
+                    </td>
             <td>
-                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-            </td>
+                        @Html.ActionLink("Xem chi tiết", "Details", new {  id=item.Id }) 
+
+
+
+                    </td>
         </tr>
 }
     </tbody>
 </table>
+   
 </div>

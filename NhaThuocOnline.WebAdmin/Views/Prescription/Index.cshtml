@@ -2,6 +2,7 @@
 
 @{
     ViewData["Title"] = "Index";
+    var imageFolderUrl = "https://localhost:7128/user-content/";
 }
 
 <div style="margin: 100px 0 0 24px">
@@ -11,7 +12,7 @@
             @foreach (var item in Model)
             {
             <li class="m-3">
-                <img width="200px" height="250px" src="https://photo-baomoi.zadn.vn/w700_r1/2022_03_10_114_41976992/4e0df6a064e28dbcd4f3.jpg" />
+                <img width="220px" height="250px" src="@imageFolderUrl@item.ImagePath" />
                 <p><b>Khách hàng:</b> @item.CustomerName</p>
                     <p><b>Số điện thoại:</b> @item.CustomerPhone</p>
                     <p><b>Thời gian tạo:</b> @item.CreatedDate</p>

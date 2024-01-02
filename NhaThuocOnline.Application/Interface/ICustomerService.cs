@@ -1,5 +1,4 @@
-﻿using NhaThuocOnline.Application.ViewModels.Customer;
-using NhaThuocOnline.ViewModel.Common;
+﻿using NhaThuocOnline.ViewModel.Common;
 using NhaThuocOnline.ViewModel.Customer;
 using System;
 using System.Collections.Generic;
@@ -11,7 +10,7 @@ namespace NhaThuocOnline.Application.Interface
 {
     public interface ICustomerService
     {
-        Task<string> Authencate(LoginRequest request);
+        Task<ApiResult<string>> Authenticate(LoginRequest request);
         Task<bool> Register(RegisterRequest request);
         Task<List<CustomerVm>> GetCustomerPaging();
         Task<CustomerVm> GetCustomerById(int id);

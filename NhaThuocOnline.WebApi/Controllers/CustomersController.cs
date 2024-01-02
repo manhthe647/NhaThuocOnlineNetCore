@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.Extensions.Configuration;
 using NhaThuocOnline.Application.Interface;
-using NhaThuocOnline.Application.ViewModels.Customer;
+using NhaThuocOnline.Data.Entities;
 using NhaThuocOnline.Utilities.Exceptions;
 using NhaThuocOnline.ViewModel.Customer;
 
@@ -13,8 +14,10 @@ namespace NhaThuocOnline.WebApi.Controllers
     public class CustomersController : ControllerBase
     {
         private readonly ICustomerService _customerService;
-        public CustomersController(ICustomerService customerService) {
+        private readonly IConfiguration _configuration;
+        public CustomersController(ICustomerService customerService, IConfiguration configuration) {
             _customerService = customerService;
+            _configuration = configuration;
         }
 
         [HttpGet]
@@ -86,7 +89,19 @@ namespace NhaThuocOnline.WebApi.Controllers
             return BadRequest();
         }
 
-    
+        [HttpPost("login")]
+        [AllowAnonymous]
+        public async Task<IActionResult> Login([FromBody]LoginRequest request)
+        {
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+            var result = await _customerService.Authenticate(request);
+            if (result != null)
+                return Ok(result);
+            return BadRequest();
+        }
+
+
 
 
     }

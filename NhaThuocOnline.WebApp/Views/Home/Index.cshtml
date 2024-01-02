@@ -7,7 +7,15 @@
 <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
 
 <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-
+<style>
+    .product-item_title {
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+</style>
    <!-- -->
 <div class="row p-2"></div>
         <!--  -->
@@ -113,55 +121,55 @@
                 <div class="category-body  w-100">
                     <ul class="w-100 m-0 p-0 d-flex flex-wrap justify-content-between">
                         <li >
-                            <a>
-                                <img class="img-fluid skeleton" loading="lazy" data-src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/category-icons/MicrosoftTeams-image_24.png">
+                    <a class="cursor">
+                        <img class="img-fluid skeleton" loading="lazy" data-src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/category-icons/MicrosoftTeams-image_24.png">
                                 <p>Dược phẩm</p>
                             </a>
                         </li>
                         <li >
-                            <a>
-                                <img class="img-fluid skeleton" loading="lazy" data-src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/category-icons/Group_10378.png"">
+                    <a class="cursor">
+                        <img class="img-fluid skeleton" loading="lazy" data-src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/category-icons/Group_10378.png" ">
                                 <p>Chăm sóc sức khỏe</p>
                             </a>
                         </li>
                         <li >
-                            <a>
-                                <img class="img-fluid skeleton" loading="lazy" data-src="/assets/img/category-img/Group_10378-1.webp">
+                    <a class="cursor">
+                        <img class="img-fluid skeleton" loading="lazy" data-src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/category-icons/Group_10378-1.png">
                                 <p>Chăm sóc cá nhân</p>
                             </a>
                         </li>
                         <li >
-                            <a>
-                                <img class="img-fluid skeleton" loading="lazy" data-src="/assets/img/category-img/Group_10378-1.webp">
+                    <a class="cursor">
+                        <img class="img-fluid skeleton" loading="lazy" data-src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/category-icons/Group_10378-2.png">
                                 <p>Sản phẩm tiện lợi</p>
                             </a>
                         </li>
 
                         <li >
-                            <a>
-                                <img class="img-fluid skeleton" loading="lazy" data-src="/assets/img/category-img/Group_10378-1.webp">
+                    <a class="cursor">
+                        <img class="img-fluid skeleton" loading="lazy" data-src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/category-icons/Group_10378-3.png">
                                 <p>Thực phẩm chức năng</p>
                             </a>
                         </li>
 
 
                         <li >
-                            <a>
-                                <img class="img-fluid skeleton" loading="lazy" data-src="/assets/img/category-img/Group_10378-1.webp">
+                    <a class="cursor">
+                        <img class="img-fluid skeleton" loading="lazy" data-src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/category-icons/Group_10378-4.png">
                                 <p>Mẹ và Bé</p>
                             </a>
                         </li>
 
                         <li >
-                            <a>
-                                <img class="img-fluid skeleton" loading="lazy" data-src="/assets/img/category-img/Group_10378-1.webp">
+                    <a class="cursor">
+                        <img class="img-fluid skeleton" loading="lazy" data-src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/category-icons/Group_10378-5.png">
                                 <p>Chăm sóc sắc đẹp</p>
                             </a>
                         </li>
 
                         <li >
-                            <a>
-                                <img class="img-fluid skeleton" loading="lazy" data-src="/assets/img/category-img/Group_10378-1.webp">
+                    <a class="cursor">
+                        <img class="img-fluid skeleton" loading="lazy" data-src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/category-icons/Group_10378-6.png">
                                 <p>Thiết bị y tế</p>
                             </a>
                         </li>
@@ -178,7 +186,7 @@
 <div class="row p-1 "></div>
 
 <div class="row p-2 split-content"></div>
-<div class="product-carousel-container row pt-4 " >
+<div class="product-carousel-container row py-4 " >
     <div class="col-2"></div>
     <div class="product-carousel col-xl-8 ">
         <div class="product_header my-4">
@@ -186,187 +194,106 @@
                Top sản phẩm bán chạy
             </h5>
         </div>
-        <div class="product_list-items w-100 ">
+        <div class="product_list-items w-100  ">
             <div class="product-item my-2 ">
-                <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
+                <img class="img-fluid w-100" loading="lazy" src="/assets/img/products/sp1.jpg">
                 <div class="product-item_body m-2">
                     <div class="product-item_title">
                         Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
                     </div>
+                    <div class="product-item_price text-primary" style="font-weight: 600">
+                        8000đ /Chai
+                    </div>
                     <div class="product-item_originalPrice">
-                        10.500đ
+                        <del>10.500đ</del>
                     </div>
-                    <div class="product-item_price">
-                        8000 đ/Chai
-                    </div>
-                    <button class="product-item_add-to-cart btn btn-success my-2 w-100">
+                   
+                    <button class="product-item_add-to-cart btn btn-success my-2 w-100 cursor">
                         Thêm vào giỏ
                         hàng
                     </button>
                 </div>
             </div>
             <div class="product-item my-2 ">
-                <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
+                <img class="img-fluid w-100" loading="lazy" src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/__sized__/products/P17953_11-thumbnail-510x510-70.jpg">
                 <div class="product-item_body m-2">
                     <div class="product-item_title">
-                        Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
+                        Nhụy hoa nghệ tây đỏ hữu cơ Krokos Kozanis
+                    </div>
+                    <div class="product-item_price text-primary" style="font-weight: 600">
+                        344.000đ /Chai
                     </div>
                     <div class="product-item_originalPrice">
-                        10.500đ
+                        <del>388.500đ</del>
                     </div>
-                    <div class="product-item_price">
-                        8000 đ/Chai
-                    </div>
-                    <button class="product-item_add-to-cart btn btn-success mt-2 w-100">
+
+                    <button class="product-item_add-to-cart btn btn-success my-2 w-100 cursor">
                         Thêm vào giỏ
                         hàng
                     </button>
                 </div>
             </div>
             <div class="product-item my-2 ">
-                <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
+                <img class="img-fluid w-100" loading="lazy" src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/__sized__/products/P15652_11-thumbnail-510x510-70.jpg">
                 <div class="product-item_body m-2">
                     <div class="product-item_title">
-                        Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
+                        Dung dịch bổ sung lợi khuẩn tiêu hóa 
+                    </div>
+                    <div class="product-item_price text-primary" style="font-weight: 600">
+                        415.000đ /Lọ
                     </div>
                     <div class="product-item_originalPrice">
-                        10.500đ
+                        <del>450.000đ</del>
                     </div>
-                    <div class="product-item_price">
-                        8000 đ/Chai
-                    </div>
-                    <button class="product-item_add-to-cart btn btn-success mt-2 w-100">
+
+                    <button class="product-item_add-to-cart btn btn-success my-2 w-100 cursor">
                         Thêm vào giỏ
                         hàng
                     </button>
                 </div>
             </div>
             <div class="product-item my-2 ">
-                <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
+                <img class="img-fluid w-100" loading="lazy" src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/__sized__/products/P18601_7-thumbnail-510x510-70.jpg">
                 <div class="product-item_body m-2">
                     <div class="product-item_title">
-                        Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
+                        Thực phẩm bảo vệ sức khỏe LineaBon K2+D3
+                    </div>
+                    <div class="product-item_price text-primary" style="font-weight: 600">
+                        300.000đ /Lọ
                     </div>
                     <div class="product-item_originalPrice">
-                        10.500đ
+                        <del>295.000đ</del>
                     </div>
-                    <div class="product-item_price">
-                        8000 đ/Chai
-                    </div>
-                    <button class="product-item_add-to-cart btn btn-success mt-2 w-100">
+
+                    <button class="product-item_add-to-cart btn btn-success my-2 w-100 cursor">
                         Thêm vào giỏ
                         hàng
                     </button>
                 </div>
             </div>
             <div class="product-item my-2 ">
-                <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
+                <img class="img-fluid w-100" loading="lazy" src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/__sized__/products/P22606_21-thumbnail-510x510-70.jpg">
                 <div class="product-item_body m-2">
                     <div class="product-item_title">
-                        Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
+                        Nước uống Collagen Goodlife Collagen
+                    </div>
+                    <div class="product-item_price text-primary" style="font-weight: 600">
+                        300.000đ /Lọ
                     </div>
                     <div class="product-item_originalPrice">
-                        10.500đ
+                        <del>295.000đ</del>
                     </div>
-                    <div class="product-item_price">
-                        8000 đ/Chai
-                    </div>
-                    <button class="product-item_add-to-cart btn btn-success mt-2 w-100">
+
+                    <button class="product-item_add-to-cart btn btn-success my-2 w-100 cursor">
                         Thêm vào giỏ
                         hàng
                     </button>
                 </div>
             </div>
-            <div class="product-item my-2 ">
-                <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
-                <div class="product-item_body m-2">
-                    <div class="product-item_title">
-                        Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
-                    </div>
-                    <div class="product-item_originalPrice">
-                        10.500đ
-                    </div>
-                    <div class="product-item_price">
-                        8000 đ/Chai
-                    </div>
-                    <button class="product-item_add-to-cart btn btn-success my-2 w-100">
-                        Thêm vào giỏ
-                        hàng
-                    </button>
-                </div>
-            </div>
-            <div class="product-item my-2 ">
-                <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
-                <div class="product-item_body m-2">
-                    <div class="product-item_title">
-                        Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
-                    </div>
-                    <div class="product-item_originalPrice">
-                        10.500đ
-                    </div>
-                    <div class="product-item_price">
-                        8000 đ/Chai
-                    </div>
-                    <button class="product-item_add-to-cart btn btn-success mt-2 w-100">
-                        Thêm vào giỏ
-                        hàng
-                    </button>
-                </div>
-            </div>
-            <div class="product-item my-2 ">
-                <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
-                <div class="product-item_body m-2">
-                    <div class="product-item_title">
-                        Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
-                    </div>
-                    <div class="product-item_originalPrice">
-                        10.500đ
-                    </div>
-                    <div class="product-item_price">
-                        8000 đ/Chai
-                    </div>
-                    <button class="product-item_add-to-cart btn btn-success mt-2 w-100">
-                        Thêm vào giỏ
-                        hàng
-                    </button>
-                </div>
-            </div>
-            <div class="product-item my-2 ">
-                <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
-                <div class="product-item_body m-2">
-                    <div class="product-item_title">
-                        Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
-                    </div>
-                    <div class="product-item_originalPrice">
-                        10.500đ
-                    </div>
-                    <div class="product-item_price">
-                        8000 đ/Chai
-                    </div>
-                    <button class="product-item_add-to-cart btn btn-success mt-2 w-100">
-                        Thêm vào giỏ
-                        hàng
-                    </button>
-                </div>
-            </div>
-            <div class="product-item my-2 ">
-                <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
-                <div class="product-item_body m-2">
-                    <div class="product-item_title">
-                        Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
-                    </div>
-                    <div class="product-item_originalPrice">
-                        10.500đ
-                    </div>
-                    <div class="product-item_price">
-                        8000 đ/Chai
-                    </div>
-                    <button class="product-item_add-to-cart btn btn-success mt-2 w-100">
-                        Thêm vào giỏ
-                        hàng
-                    </button>
-                </div>
-            </div>
+
+
+
+           
         </div>
         <!--  -->
         <div class="row p-2"></div>
@@ -431,7 +358,7 @@
                Giảm giá cực sốc !!!
             </h5>
         </div>
-        <div class="product_list-items w-100 ">
+        <div class="product_list-items w-100  ">
             <div class="product-item my-2 ">
                 <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
                 <div class="product-item_body m-2">
@@ -533,104 +460,7 @@
 </div>
 
 
-        <div class="product-carousel-container row pb-4 ">
-            <div class="col-2"></div>
-            <div class="product-carousel col-xl-8 ">
-                <div class="product_header my-4">
-                    <h5>
-                        Giao hàng siêu tốc !!!
-                    </h5>
-                </div>
-                <div class="product_list-items w-100 ">
-                    <div class="product-item my-2 ">
-                        <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
-                        <div class="product-item_body m-2">
-                            <div class="product-item_title">
-                                Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
-                            </div>
-                            <div class="product-item_originalPrice">
-                                10.500đ
-                            </div>
-                            <div class="product-item_price">
-                                8000 đ/Chai
-                            </div>
-                            <button class="product-item_add-to-cart btn btn-success my-2 w-100">Thêm vào giỏ
-                                hàng</button>
-                        </div>
-                    </div>
-                    <div class="product-item my-2 ">
-                        <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
-                        <div class="product-item_body m-2">
-                            <div class="product-item_title">
-                                Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
-                            </div>
-                            <div class="product-item_originalPrice">
-                                10.500đ
-                            </div>
-                            <div class="product-item_price">
-                                8000 đ/Chai
-                            </div>
-                            <button class="product-item_add-to-cart btn btn-success mt-2 w-100">Thêm vào giỏ
-                                hàng</button>
-                        </div>
-                    </div>
-                    <div class="product-item my-2 ">
-                        <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
-                        <div class="product-item_body m-2">
-                            <div class="product-item_title">
-                                Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
-                            </div>
-                            <div class="product-item_originalPrice">
-                                10.500đ
-                            </div>
-                            <div class="product-item_price">
-                                8000 đ/Chai
-                            </div>
-                            <button class="product-item_add-to-cart btn btn-success mt-2 w-100">Thêm vào giỏ
-                                hàng</button>
-                        </div>
-                    </div>
-                    <div class="product-item my-2 ">
-                        <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
-                        <div class="product-item_body m-2">
-                            <div class="product-item_title">
-                                Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
-                            </div>
-                            <div class="product-item_originalPrice">
-                                10.500đ
-                            </div>
-                            <div class="product-item_price">
-                                8000 đ/Chai
-                            </div>
-                            <button class="product-item_add-to-cart btn btn-success mt-2 w-100">Thêm vào giỏ
-                                hàng</button>
-                        </div>
-                    </div>
-                    <div class="product-item my-2 ">
-                        <img class="img-fluid" loading="lazy" src="/assets/img/products/sp1.jpg">
-                        <div class="product-item_body m-2">
-                            <div class="product-item_title">
-                                Nước muối Pharmacity 0,9%asaddddddddddfsddddddddddsaa
-                            </div>
-                            <div class="product-item_originalPrice">
-                                10.500đ
-                            </div>
-                            <div class="product-item_price">
-                                8000 đ/Chai
-                            </div>
-                            <button class="product-item_add-to-cart btn btn-success mt-2 w-100">Thêm vào giỏ
-                                hàng</button>
-                        </div>
-                    </div>
-
-                </div>
-                <!--  -->
-                <div class="row p-2"></div>
-                <!--  -->
-
-            </div>
-            <div class="col-2"></div>
-        </div>
+        
         <!--  -->
 <div class="row p-2 split-content"></div>
 
@@ -642,7 +472,7 @@
             <div class="outstanding-brand col-xl-8  ">
                 <h5 class="mb-3">Thương hiệu nổi bật</h5>
                 <div class="outstanding-brand_list-items ">
-                    <ul class="p-0 m-0 d-flex flex-wrap justify-content-start">
+                    <ul class="p-0 m-0 d-flex flex-wrap ">
                         <li class=" mr-4 my-2">
                             <img class="img-fluid skeleton" loading="lazy" data-src="/assets/img/brand-img/pmc.webp">
                             <p class="p-2 mt-2">Thương hiệu</p>
@@ -667,10 +497,12 @@
                             <img class="img-fluid skeleton" loading="lazy" data-src="/assets/img/brand-img/Nutrigen.png">
                             <p class="p-2 mt-2">Thương hiệu</p>
                         </li>
+                
                           <li class="  my-2">
-                            <img class="img-fluid skeleton" loading="lazy" data-src="/assets/img/brand-img/Nutrigen.png">
+                    <img class="img-fluid skeleton" loading="lazy" data-src="https://data-service.pharmacity.io/pmc-upload-media/production/pmc-ecm-core/brand-images/Kudos_logo.png">
                             <p class="p-2 mt-2">Thương hiệu</p>
                         </li>
+           
                       
                        
 

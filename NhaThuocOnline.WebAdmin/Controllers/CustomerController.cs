@@ -1,6 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using NhaThuocOnline.ApiIntergration;
-using NhaThuocOnline.Application.ViewModels.Customer;
 using NhaThuocOnline.ViewModel.Customer;
 
 namespace NhaThuocOnline.WebAdmin.Controllers

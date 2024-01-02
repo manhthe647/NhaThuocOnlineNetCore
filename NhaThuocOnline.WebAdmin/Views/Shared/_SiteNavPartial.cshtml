@@ -23,7 +23,7 @@
                 </a>
                 <ul class="dropdown-menu">
                     <li>
-                        <a href="form-layouts.html">Xác nhận đơn hàng</a>
+                        <a asp-action="Details" asp-controller="Order">Xác nhận đơn hàng</a>
                     </li>
                     <li>
                         <a asp-action="Index" asp-controller="Order">Danh sách đơn đặt hàng</a>
@@ -31,10 +31,10 @@
                     
                   
                     <li>
-                        <a href="form-validation.html">Thêm đổi trả đơn hàng</a>
+                        <a asp-action="AddReturn" asp-controller="Order">Thêm đổi trả đơn hàng</a>
                     </li>
                     <li>
-                        <a href="form-validation.html">Danh sách đổi trả đơn hàng</a>
+                        <a asp-action="ListReturn" asp-controller="Order">Danh sách đổi trả đơn hàng</a>
                     </li>
                 </ul>
             </li>
@@ -128,10 +128,13 @@
                         <a asp-action="Index" asp-controller="Category">Danh sách danh mục</a>
                     </li>
                     <li>
-                        <a href="chartist.html">Thêm quyền truy cập</a>
+                        <a asp-action="Create" asp-controller="Role">Thêm quyền truy cập</a>
                     </li>
                     <li>
-                        <a href="chartjs.html">Danh sách quyền truy cập</a>
+                        <a asp-action="Assign" asp-controller="Staff">Phân quyền truy cập</a>
+                    </li>
+                    <li>
+                        <a asp-action="Index" asp-controller="Page">Quản lý page</a>
                     </li>
                   
                    
@@ -149,19 +152,15 @@
                     </span>
                 </a>
                 <ul class="dropdown-menu">
+                   
                     <li>
-                        <a>Sản phẩm bán chạy</a>
-                    </li>
-                    <li>
-                        <a>Sản phẩm còn tồn kho</a>
+                        <a asp-action="StockReport" asp-controller="Statictis">Sản phẩm còn tồn kho</a>
                     </li>
                    
                     <li>
-                        <a>Số lượng đơn hàng</a>
+                        <a asp-action="SalesReport" asp-controller="Statictis">Báo cáo bán hàng</a>
                     </li>
-                    <li>
-                        <a>Doanh thu theo đợt</a>
-                    </li>
+                 
                 </ul>
             </li>
         </ul>

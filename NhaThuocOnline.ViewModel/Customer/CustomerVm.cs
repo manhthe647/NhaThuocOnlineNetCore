@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NhaThuocOnline.Application.ViewModels.Customer
+namespace NhaThuocOnline.ViewModel.Customer
 {
     public class CustomerVm
     {

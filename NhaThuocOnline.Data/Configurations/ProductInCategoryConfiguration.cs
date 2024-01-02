@@ -19,7 +19,8 @@ namespace NhaThuocOnline.Data.Configurations
             builder.Property(x => x.ProductId).IsRequired();
             builder.Property(x => x.CategoryId).IsRequired();
 
-
+            builder.HasIndex(x => x.ProductId);
+            builder.HasIndex(x => x.CategoryId);
         }
     }
 }

@@ -1,7 +1,8 @@
 ﻿using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.Extensions.Configuration;
+using Microsoft.IdentityModel.Tokens;
 using NhaThuocOnline.Application.Interface;
-using NhaThuocOnline.Application.ViewModels.Customer;
 using NhaThuocOnline.Data.EF;
 using NhaThuocOnline.Data.Entities;
 using NhaThuocOnline.Utilities.Exceptions;
@@ -9,7 +10,9 @@ using NhaThuocOnline.ViewModel.Common;
 using NhaThuocOnline.ViewModel.Customer;
 using System;
 using System.Collections.Generic;
+using System.IdentityModel.Tokens.Jwt;
 using System.Linq;
+using System.Security.Claims;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,15 +22,52 @@ namespace NhaThuocOnline.Application.Service
     public class CustomerService : ICustomerService
     {
         private readonly NhaThuocOnlineDbContext _dbContext;
-
-        public CustomerService(NhaThuocOnlineDbContext dbContext)
+        private readonly IConfiguration _configuration;
+        public CustomerService(NhaThuocOnlineDbContext dbContext, IConfiguration configuration)
         {
             _dbContext = dbContext;
+            _configuration = configuration;
         }
-        public async Task<string> Authencate(LoginRequest request)
+
+        public async Task<ApiResult<string>> Authenticate(LoginRequest request)
         {
-            return "a";
+            //var user = await _dbContext.Customers.SingleOrDefaultAsync(x => x.Email == request.Email && x.PasswordHash == request.Password);
+            //if (user == null)
+            //    return new ApiErrorResult<string>("Sai tên đăng nhập hoặc mật khẩu");
+
+            var user = await _dbContext.Customers
+                                       .AsNoTracking()
+                                       .FirstOrDefaultAsync(x => x.Email == request.Email);
+            if (user == null || user.PasswordHash != request.Password)
+                return new ApiErrorResult<string>("Sai tên đăng nhập hoặc mật khẩu");
+
+
+            var key = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(_configuration["Tokens:Key"]));
+            var creds = new SigningCredentials(key, SecurityAlgorithms.HmacSha256);
+            var expires = DateTime.Now.AddHours(3); 
+
+            var tokenDescriptor = new SecurityTokenDescriptor
+            {
+                Subject = new ClaimsIdentity(new Claim[] {
+                    new Claim(ClaimTypes.NameIdentifier,user.Id.ToString()),
+                  new Claim(ClaimTypes.Email, user.Email),
+        }),
+                Expires = expires,
+                SigningCredentials = creds,
+                Issuer = _configuration["Tokens:Issuer"],
+                Audience = _configuration["Tokens:Issuer"],
+            };
+
+            var tokenHandler = new JwtSecurityTokenHandler();
+            var token = tokenHandler.CreateToken(tokenDescriptor);
+
+            return new ApiSuccessResult<string>(tokenHandler.WriteToken(token));
         }
+
+
+
+
+
 
         public async Task<bool> SoftDelete(int id)
         {
@@ -45,7 +85,7 @@ namespace NhaThuocOnline.Application.Service
         public async Task<CustomerVm> GetCustomerById(int id)
         {
 
-            var customer = _dbContext.Customers.FirstOrDefault(x => x.Id == id);
+            var customer = await _dbContext.Customers.FirstOrDefaultAsync(x => x.Id == id);
             if (customer != null)
             {
                 var result = new CustomerVm()
@@ -170,6 +210,6 @@ namespace NhaThuocOnline.Application.Service
             }
         }
 
-      
+       
     }
 }

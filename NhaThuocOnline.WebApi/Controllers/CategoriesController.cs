@@ -3,7 +3,6 @@ using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NhaThuocOnline.Application.Interface;
 using NhaThuocOnline.Application.Service;
-using NhaThuocOnline.Application.ViewModels.Customer;
 using NhaThuocOnline.ViewModel.Category;
 
 namespace NhaThuocOnline.WebApi.Controllers

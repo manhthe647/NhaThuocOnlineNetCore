@@ -1,6 +1,8 @@
 ﻿@using NhaThuocOnline.ViewModel.Common;
 @model PagedResult<NhaThuocOnline.ViewModel.Product.ProductBasicVm>
-
+@{
+    var imageFolderUrl = "https://localhost:7128/user-content/";
+}
 
 <link href="~/assets/css/dropdown.css" rel="stylesheet">
 <script src="~/js/app.min.js"></script>
@@ -131,7 +133,7 @@
 
                         <div class="product-item col-2 m-0 p-0 card position-relative card-container" data-product-id="@item.Id">
                           
-                            <img src="~/assets/img/products/sp1.jpg" class="card-img-top" alt="...">
+                            <img src="@imageFolderUrl@item.ImagePath" class="card-img-top" alt="...">
                             <div class="card-body p-2">
                                 <h6 class="card-title truncate-text">@item.ProductName</h6>
                                 <div class="price text-primary fw-bold mb-1">@item.DiscountPrice.ToString("N0").Replace(",", ".")<span>đ</span></div>
@@ -146,34 +148,14 @@
                     }
 
                 </div>
-                <div class="ml-2 mt-4">
-                    <ul class="pagination">
-                        <li class="page-item @(ViewBag.PageIndex == 1 ? "disabled" : "")">
-                            <a href="@Url.Action("Search", new { pageIndex = ViewBag.PageIndex -1  })" class="page-link rounded">Trước</a>
-                        </li>
-                        @for (int i = 1; i <= ViewBag.PageCount; i++)
-                        {
-                            <li class="page-item @(i == ViewBag.PageIndex ? "active" : "") ">
-                                <a href="@Url.Action("Search", new { pageIndex = i })" class="page-link rounded">@i</a>
-                            </li>
-                        }
-                        <li class="page-item @(ViewBag.PageIndex == ViewBag.PageCount ? "disabled" : "")">
-                            <a href="@Url.Action("Search", new { pageIndex = ViewBag.PageIndex + 1  })" class="page-link rounded">Sau</a>
-                        </li>
-                    </ul>
-                </div>
+               
+            <div class="ml-2 text-center mt-2">
+                <a class="text-primary border-bottom cursor">Xem thêm</a>
+            </div>
             </div>
         </div>
     </div>
     <div class="col-2"></div>
-
-
-
-
-
-
-
-
 
 
 </div>

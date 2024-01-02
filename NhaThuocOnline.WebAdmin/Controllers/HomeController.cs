@@ -18,6 +18,7 @@ namespace NhaThuocOnline.WebAdmin.Controllers
             return View();
         }
 
+        [HttpGet]
         public IActionResult Privacy()
         {
             return View();

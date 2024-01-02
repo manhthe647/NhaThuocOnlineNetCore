@@ -1,5 +1,4 @@
 ﻿using Newtonsoft.Json;
-using NhaThuocOnline.Application.ViewModels.Customer;
 using NhaThuocOnline.ViewModel.Common;
 using NhaThuocOnline.ViewModel.Product;
 using System;
@@ -52,6 +51,17 @@ namespace NhaThuocOnline.ApiIntergration
             return false;
         }
 
+        public async Task<PagedResult<ProductVm>> GetAllProductsPaging(GetManageProductPagingRequest request)
+        {
+            var client = _httpClientFactory.CreateClient();
+
+            var response = await client.GetAsync($"https://localhost:7128/api/products?CategoryId={request.CategoryId}&Keyword={request.Keyword}&OrderBy={request.OrderBy}" +
+                $"&PageIndex={request.PageIndex}&PageSize={request.PageSize}");
+            var body = await response.Content.ReadAsStringAsync();
+            var products = JsonConvert.DeserializeObject<PagedResult<ProductVm>>(body);
+            return products;
+        }
+
         public async Task<ProductVm> GetProductById(int id)
         {
             var client = _httpClientFactory.CreateClient();
@@ -62,11 +72,11 @@ namespace NhaThuocOnline.ApiIntergration
             return product;
         }
 
-        public async Task<PagedResult<ProductBasicVm>> GetProductsPaging(GetPublicProductPagingRequest request)
+        public async Task<PagedResult<ProductBasicVm>> GetProductByCategoryIdPaging(GetPublicProductPagingRequest request)
         {
             var client = _httpClientFactory.CreateClient();
 
-            var response = await client.GetAsync($"https://localhost:7128/api/products?CategoryId={request.CategoryId}&Keyword={request.Keyword}&OrderBy={request.OrderBy}" +
+            var response = await client.GetAsync($"https://localhost:7128/api/products/public?CategoryId={request.CategoryId}&Keyword={request.Keyword}&OrderBy={request.OrderBy}" +
                 $"&PageIndex={request.PageIndex}&PageSize={request.PageSize}");
             var body = await response.Content.ReadAsStringAsync();
             var products = JsonConvert.DeserializeObject<PagedResult<ProductBasicVm>>(body);

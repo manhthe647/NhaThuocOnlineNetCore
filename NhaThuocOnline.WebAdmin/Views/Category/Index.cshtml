@@ -27,7 +27,7 @@
                 Mô tả
             </th>
             <th>
-                Đường dẫn ảnh
+                Hình ảnh
             </th>
        
          
@@ -50,7 +50,7 @@
                 @Html.DisplayFor(modelItem => item.CategoryDescription)
             </td>
             <td>
-                @Html.DisplayFor(modelItem => item.ImagePath)
+                        <a href="@item.ImagePath" download>Xem</a>
             </td>
          
             <td>

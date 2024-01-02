@@ -8,6 +8,9 @@ namespace NhaThuocOnline.ViewModel.Cart
 {
     public class CartUpdateQuantityRequest
     {
+
+        public int? CustomerId { get; set; }
+
         public string CartId { get; set; }
 
         public int ProductId { get; set; }

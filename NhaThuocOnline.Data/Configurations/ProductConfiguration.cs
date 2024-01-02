@@ -18,6 +18,8 @@ namespace NhaThuocOnline.Data.Configurations
             builder.Property(x => x.Id).UseIdentityColumn();
 
             builder.Property(x => x.ProductName).HasMaxLength(200).IsRequired();
+            builder.HasIndex(x => x.ProductName);
+
             builder.Property(x => x.SKU).IsRequired();
 
             builder.Property(x => x.RegularPrice).IsRequired();

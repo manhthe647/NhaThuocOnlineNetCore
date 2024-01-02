@@ -20,7 +20,11 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\NhaThuocOnline.ApiIntergration\NhaThuocOnline.ApiIntergration.csproj" />
+    <Folder Include="wwwroot\assets2\page\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\NhaThuocOnline.ApiIntergration\NhaThuocOnline.Intergration.csproj" />
   </ItemGroup>
 
 </Project>

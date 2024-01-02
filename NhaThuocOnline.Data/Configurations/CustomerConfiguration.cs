@@ -21,11 +21,13 @@ namespace NhaThuocOnline.Data.Configurations
             builder.Property(x => x.AvatarImagePath).HasMaxLength(200); 
             builder.Property(x => x.PhoneNumber).IsRequired();
             builder.Property(x => x.Email).IsRequired();
+            builder.HasIndex(x => x.Email);
+
             builder.Property(x => x.PasswordHash).IsRequired();
             builder.Property(x => x.IsActive).IsRequired();
             
             builder.Property(x => x.CreatedAt).IsRequired();
-
+            //builder.HasIndex(x => x.Email);
         }
     }
 }

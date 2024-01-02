@@ -266,26 +266,37 @@ namespace NhaThuocOnline.Data.Migrations
                         new
                         {
                             Id = 1,
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6341),
-                            ExpireDate = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6338),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9580),
+                            ExpireDate = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9577),
                             IsDeleted = false,
-                            ManufacturingDate = new DateTime(2024, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6338),
+                            ManufacturingDate = new DateTime(2025, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9577),
                             OriginPrice = 50000.0,
                             ProductId = 1,
                             Quantity = 100,
                             Stock = 100,
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6341)
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9580)
                         });
                 });
 
             modelBuilder.Entity("NhaThuocOnline.Data.Entities.Cart", b =>
                 {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
                     b.Property<string>("CartId")
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
+                    b.Property<DateTime>("CreatedAt")
+                        .HasColumnType("datetime2");
+
                     b.Property<int>("CustomerId")
                         .HasColumnType("int");
+
+                    b.HasKey("Id");
 
                     b.ToTable("Carts", (string)null);
                 });
@@ -371,99 +382,99 @@ namespace NhaThuocOnline.Data.Migrations
                             Id = 1,
                             CategoryDescription = "Dược phẩm",
                             CategoryName = "Dược phẩm",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6260),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9507),
                             ImagePath = "path/to/image",
                             IsActive = true,
                             ParentId = 0,
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6261)
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9507)
                         },
                         new
                         {
                             Id = 2,
                             CategoryDescription = "Chăm sóc sức khỏe",
                             CategoryName = "Chăm sóc sức khỏe",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6262),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9509),
                             ImagePath = "path/to/image",
                             IsActive = true,
                             ParentId = 0,
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6262)
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9509)
                         },
                         new
                         {
                             Id = 3,
                             CategoryDescription = "Sản phẩm tiện lợi",
                             CategoryName = "Sản phẩm tiện lợi",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6263),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9510),
                             ImagePath = "path/to/image",
                             IsActive = true,
                             ParentId = 0,
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6263)
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9510)
                         },
                         new
                         {
                             Id = 4,
                             CategoryDescription = "Thực phẩm chức năng",
                             CategoryName = "Thực phẩm chức năng",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6264),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9511),
                             ImagePath = "path/to/image",
                             IsActive = true,
                             ParentId = 0,
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6264)
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9511)
                         },
                         new
                         {
                             Id = 5,
                             CategoryDescription = "Thuốc kê đơn",
                             CategoryName = "Thuốc kê đơn",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6265),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9512),
                             ImagePath = "path/to/image",
                             IsActive = true,
                             ParentId = 1,
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6266)
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9512)
                         },
                         new
                         {
                             Id = 6,
                             CategoryDescription = "Thuốc không kê đơn",
                             CategoryName = "Thuốc không kê đơn",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6266),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9513),
                             ImagePath = "path/to/image",
                             IsActive = true,
                             ParentId = 1,
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6267)
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9513)
                         },
                         new
                         {
                             Id = 7,
                             CategoryDescription = "Thực phẩm dinh dưỡng",
                             CategoryName = "Thực phẩm dinh dưỡng",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6267),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9514),
                             ImagePath = "path/to/image",
                             IsActive = true,
                             ParentId = 2,
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6268)
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9514)
                         },
                         new
                         {
                             Id = 8,
                             CategoryDescription = "Tai mũi họng",
                             CategoryName = "Tai mũi họng",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6268),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9515),
                             ImagePath = "path/to/image",
                             IsActive = true,
                             ParentId = 2,
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6269)
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9515)
                         },
                         new
                         {
                             Id = 9,
                             CategoryDescription = "Hàng tổng hợp",
                             CategoryName = "Hàng tổng hợp",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6269),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9516),
                             ImagePath = "path/to/image",
                             IsActive = true,
                             ParentId = 8,
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6270)
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9517)
                         });
                 });
 
@@ -522,15 +533,15 @@ namespace NhaThuocOnline.Data.Migrations
                             Id = 1,
                             Code = "BANMOI",
                             CouponDescription = "KHUYEN MAI LAN DAU",
-                            CouponEndDate = new DateTime(2024, 1, 5, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6296),
-                            CouponStartDate = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6295),
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6309),
+                            CouponEndDate = new DateTime(2024, 1, 16, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9543),
+                            CouponStartDate = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9542),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9555),
                             DiscountType = "co-dinh",
                             DiscountValue = 50m,
                             IsActive = true,
                             MaxUsage = 1,
                             TimesUsed = 0,
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6309)
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9555)
                         });
                 });
 
@@ -552,7 +563,7 @@ namespace NhaThuocOnline.Data.Migrations
 
                     b.Property<string>("Email")
                         .IsRequired()
-                        .HasColumnType("nvarchar(max)");
+                        .HasColumnType("nvarchar(450)");
 
                     b.Property<string>("FirstName")
                         .IsRequired()
@@ -576,6 +587,8 @@ namespace NhaThuocOnline.Data.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("Email");
 
                     b.ToTable("Customers", (string)null);
 
@@ -833,6 +846,8 @@ namespace NhaThuocOnline.Data.Migrations
 
                     b.HasKey("Id");
 
+                    b.HasIndex("ProductName");
+
                     b.ToTable("Products", (string)null);
 
                     b.HasData(
@@ -840,7 +855,7 @@ namespace NhaThuocOnline.Data.Migrations
                         {
                             Id = 1,
                             Brand = "Stada",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6227),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9476),
                             Description = "Paracetamol 500mg là một loại thuốc giảm đau và hạ sốt thông thường được sử dụng. Nó phù hợp để giảm đau nhẹ đến vừa và hạ sốt.",
                             DiscountPrice = 38000.0,
                             ImagePath = "img/products/paracetamol500mg.jpg",
@@ -855,14 +870,14 @@ namespace NhaThuocOnline.Data.Migrations
                             SKU = "SKU001",
                             SeoAlias = "paracetamol-500mg",
                             SeoTitle = "Paracetamol 500mg",
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6236),
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9484),
                             isPrescriptionRequired = false
                         },
                         new
                         {
                             Id = 2,
                             Brand = "Nadyphar",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6238),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9488),
                             Description = "Ibuprofen 200mg là một loại thuốc giảm đau, hạ sốt và chống viêm thông thường được sử dụng. Nó phù hợp để giảm đau nhẹ đến vừa, hạ sốt và giảm viêm.",
                             DiscountPrice = 45000.0,
                             ImagePath = "img/products/ibuprofen200mg.jpg",
@@ -877,14 +892,14 @@ namespace NhaThuocOnline.Data.Migrations
                             SKU = "SKU002",
                             SeoAlias = "ibuprofen-200mg",
                             SeoTitle = "Ibuprofen 200mg",
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6239),
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9488),
                             isPrescriptionRequired = false
                         },
                         new
                         {
                             Id = 3,
                             Brand = "KUDOS",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6240),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9489),
                             Description = "Vitamin C 1000mg là một loại vitamin tổng hợp thường được sử dụng để bổ sung nhu cầu vitamin C hàng ngày. Nó giúp tăng cường hệ miễn dịch và chống oxy hóa.",
                             DiscountPrice = 20000.0,
                             ImagePath = "img/products/vitaminc1000mg.jpg",
@@ -899,14 +914,14 @@ namespace NhaThuocOnline.Data.Migrations
                             SKU = "SKU003",
                             SeoAlias = "vitamin-c-1000mg",
                             SeoTitle = "Vitamin C 1000mg",
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6241),
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9490),
                             isPrescriptionRequired = false
                         },
                         new
                         {
                             Id = 4,
                             Brand = "Sirio Pharma",
-                            CreatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6244),
+                            CreatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9491),
                             Description = "Omega-3 Fish Oil là một loại bổ sung dầu cá chứa các axit béo omega-3. Nó có lợi cho sức khỏe tim mạch, não bộ và khớp.",
                             DiscountPrice = 100000.0,
                             ImagePath = "img/products/omega3fishoil.jpg",
@@ -921,7 +936,7 @@ namespace NhaThuocOnline.Data.Migrations
                             SKU = "SKU004",
                             SeoAlias = "omega-3-fish-oil",
                             SeoTitle = "Omega-3 Fish Oil",
-                            UpdatedAt = new DateTime(2023, 12, 22, 19, 37, 38, 646, DateTimeKind.Local).AddTicks(6245),
+                            UpdatedAt = new DateTime(2024, 1, 2, 15, 29, 6, 291, DateTimeKind.Local).AddTicks(9491),
                             isPrescriptionRequired = false
                         });
                 });
@@ -952,6 +967,10 @@ namespace NhaThuocOnline.Data.Migrations
                         .HasColumnType("int");
 
                     b.HasKey("Id");
+
+                    b.HasIndex("CategoryId");
+
+                    b.HasIndex("ProductId");
 
                     b.ToTable("ProductInCategories", (string)null);
 

@@ -4,12 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace NhaThuocOnline.Application.ViewModels.Customer
+namespace NhaThuocOnline.ViewModel.Customer
 {
     public class LoginRequest
     {
         public string Email { get; set; }
         public string Password { get; set; }
-        public string RememberMe { get; set; }
+        public bool RememberMe { get; set; }
     }
 }

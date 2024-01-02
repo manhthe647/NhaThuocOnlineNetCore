@@ -17,7 +17,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhaThuocOnline.WebAdmin", "
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhaThuocOnline.ViewModel", "NhaThuocOnline.ViewModel\NhaThuocOnline.ViewModel.csproj", "{EF3161C0-5B00-431E-9FF1-A81E6280713C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NhaThuocOnline.ApiIntergration", "NhaThuocOnline.ApiIntergration\NhaThuocOnline.ApiIntergration.csproj", "{C0A6716D-6261-4D37-A823-9CFB9C7172CD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NhaThuocOnline.Intergration", "NhaThuocOnline.ApiIntergration\NhaThuocOnline.Intergration.csproj", "{C0A6716D-6261-4D37-A823-9CFB9C7172CD}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

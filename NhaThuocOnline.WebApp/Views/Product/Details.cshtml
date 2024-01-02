@@ -2,12 +2,12 @@
 
 @{
     ViewData["Title"] = Model.SeoTitle;
-   
+    var imageFolderUrl = "https://localhost:7128/user-content/";
 }
 
 <link rel="stylesheet" href="/assets/css/productdetail.css">
 
-
+<body>
 <div class="product-detail row" style="background-color: #F0F2F5; padding: 24px 0 64px 0">
     <div class="col-2 "></div>
     <div class="col-xl-8">
@@ -17,7 +17,7 @@
                     <div class="demo">
                         <ul id="lightSlider">
                             <li>
-                                <img src="~/assets/@Model.ImagePath" class="img-thumbnail" loading="lazy"/>
+                                <img src="@imageFolderUrl@Model.ImagePath" class="img-thumbnail" loading="lazy"/>
                             </li>
 
                         </ul>
@@ -112,6 +112,8 @@
 
 
                         </div>
+                        <input value="@Model.Id" hidden name="ProductId" id="ProductId" />
+
                         <div class="quantity mt-3 d-flex align-items-center ">
                             <small>Chọn số lượng</small>
                             <div style="border-radius: 7px;" class="d-flex border ml-3">
@@ -122,7 +124,7 @@
                                     </svg>
                                 </button>
                                 <input style="width: 40px; height: 35px; border: none; text-align: center; background-color: #F0F0F0; outline: none;"
-                                       value="1">
+                                       value="1" name="Quantity" id="Quantity">
                                 <button style="border: none; border-top-right-radius: 5px; border-left: 1px solid #d5d5d5; border-bottom-right-radius: 5px; width: 30px; height: 35px;">
                                     <svg width="10" height="10" viewBox="0 0 10 10" fill="none">
                                         <path d="M1 5H9" stroke="#0072BC" stroke-width="2"
@@ -134,9 +136,11 @@
                             </div>
                         </div>
 
+                        
+                        
                         <div class="buttons">
                             <button class="btn btn-outline-info btn-long rounded-custom mr-2 my-1">Mua ngay</button>
-                            <button class="btn btn-primary btn-long rounded-custom my-1">Thêm vào giỏ hàng</button>
+                            <button class="btn btn-primary btn-long rounded-custom my-1" type="submit" id="AddToCartBtn">Thêm vào giỏ hàng</button>
 
                         </div>
 
@@ -149,4 +153,32 @@
     </div>
     <div class="col-2 "></div>
 </div>
+
+<script src="~/jquery/jquery.js"></script>
+<script>
+        
+        $(document).ready(function () {
+            $("#AddToCartBtn").click(
+                function AddProductToCart() {
+                    var productId = $('#ProductId').val();
+                    var quantity = $('#Quantity').val();
+
+                    $.ajax({
+                        url: '/Cart/AddProductToCart',
+                        method: 'POST',
+                        data: {
+                            ProductId: productId,
+                            Quantity: quantity,
+                        },
+                        success: function () { 
+                            alert("Thêm sản phẩm thành công");
+                        },
+                        error: function () { }
+
+                    });
+            });
+        });
+</script>
+</body>
+
 

@@ -6,7 +6,7 @@ using NhaThuocOnline.ViewModel.Product;
 
 namespace NhaThuocOnline.WebApp.Controllers
 {
-    public class ProductController : Controller
+    public class ProductController : ClientBaseController
     {
         private readonly IProductApiClient _productApiClient;
         public ProductController(IProductApiClient productApiClient)
@@ -25,7 +25,7 @@ namespace NhaThuocOnline.WebApp.Controllers
                 PageSize = pageSize,
                 CategoryId = categoryId
             };
-            var result = await _productApiClient.GetProductsPaging(request);
+            var result = await _productApiClient.GetProductByCategoryIdPaging(request);
 
             ViewBag.TotalRecords = result.TotalRecords;
             ViewBag.PageSize = result.PageSize;
@@ -42,9 +42,6 @@ namespace NhaThuocOnline.WebApp.Controllers
             return View(result);
         }
 
-        public IActionResult Search()
-        {
-            return View();
-        }
+      
     }
 }

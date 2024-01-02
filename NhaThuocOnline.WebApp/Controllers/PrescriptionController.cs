@@ -4,7 +4,7 @@ using NhaThuocOnline.ViewModel.Prescription;
 
 namespace NhaThuocOnline.WebApp.Controllers
 {
-    public class PrescriptionController : Controller
+    public class PrescriptionController : ClientBaseController
     {
         private readonly IPrescriptionApiClient _prescriptionApiClient;
         public PrescriptionController(IPrescriptionApiClient prescriptionApiClient)

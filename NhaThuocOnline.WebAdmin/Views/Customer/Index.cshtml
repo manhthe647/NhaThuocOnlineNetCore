@@ -1,4 +1,4 @@
-﻿@*@model IEnumerable<NhaThuocOnline.ViewModel.Customer.CustomerVm>;*@
+﻿@model IEnumerable<NhaThuocOnline.ViewModel.Customer.CustomerVm>;
 
 <head>
     <title></title>
@@ -195,6 +195,8 @@
                                             </ul>
                                         </div>
                                     </div>
+                                        @foreach (var item in Model)
+                                        {
                                         <div class="nk-tb-item">
                                             <div class="nk-tb-col nk-tb-col-check">
                                                 <div class="custom-control custom-control-sm custom-checkbox notext">
@@ -205,7 +207,7 @@
                                                 <a href="#">
                                                     <div class="user-card">
                                                         <div class="user-info">
-                                                            <span class="tb-lead">Jane Harris <span class="dot dot-success d-md-none ms-1"></span></span><span>harris@example.com</span>
+                                                            <span class="tb-lead">Jane Harris <span class="dot dot-success d-md-none ms-1"></span></span><span>@item.Email</span>
                                                         </div>
                                                     </div>
                                                 </a>
@@ -241,98 +243,9 @@
                                                 </ul>
                                             </div>
                                         </div>
-                                        <div class="nk-tb-item">
-                                            <div class="nk-tb-col nk-tb-col-check">
-                                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                    <input type="checkbox" class="custom-control-input" id="uid9" /><label class="custom-control-label" for="uid9"></label>
-                                                </div>
-                                            </div>
-                                            <div class="nk-tb-col">
-                                                <a href="#">
-                                                    <div class="user-card">
-                                                        <div class="user-info">
-                                                            <span class="tb-lead">Jane Harris <span class="dot dot-success d-md-none ms-1"></span></span><span>harris@example.com</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="nk-tb-col tb-col-md">
-                                                <a href="#"><span class="fw-medium">#P6993</span></a>
-                                            </div>
-                                            <div class="nk-tb-col tb-col-md"><span>+123 447-2384</span></div>
-                                            <div class="nk-tb-col tb-col-xxl"><span>Near at Mountain college</span></div>
-
-                                            <div class="nk-tb-col tb-col-sm">
-                                                <span class="tb-amount">225.50 <span class="currency">USD</span></span>
-                                            </div>
-                                            <div class="nk-tb-col tb-col-md"><span class="tb-status text-success">Active</span></div>
-                                            <div class="nk-tb-col nk-tb-col-tools">
-                                                <ul class="nk-tb-actions gx-1">
-
-                                                    <li>
-                                                        <div class="drodown">
-                                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li>
-                                                                        <a href="#"><em class="icon ni ni-edit"></em><span>Edit</span></a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a data-bs-toggle="modal" href="#modalDelete"><em class="icon ni ni-trash"></em><span>Remove</span></a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
-                                        <div class="nk-tb-item">
-                                            <div class="nk-tb-col nk-tb-col-check">
-                                                <div class="custom-control custom-control-sm custom-checkbox notext">
-                                                    <input type="checkbox" class="custom-control-input" id="uid9" /><label class="custom-control-label" for="uid9"></label>
-                                                </div>
-                                            </div>
-                                            <div class="nk-tb-col">
-                                                <a href="#">
-                                                    <div class="user-card">
-                                                        <div class="user-info">
-                                                            <span class="tb-lead">Jane Harris <span class="dot dot-success d-md-none ms-1"></span></span><span>harris@example.com</span>
-                                                        </div>
-                                                    </div>
-                                                </a>
-                                            </div>
-                                            <div class="nk-tb-col tb-col-md">
-                                                <a href="#"><span class="fw-medium">#P6993</span></a>
-                                            </div>
-                                            <div class="nk-tb-col tb-col-md"><span>+123 447-2384</span></div>
-                                            <div class="nk-tb-col tb-col-xxl"><span>Near at Mountain college</span></div>
-
-                                            <div class="nk-tb-col tb-col-sm">
-                                                <span class="tb-amount">225.50 <span class="currency">USD</span></span>
-                                            </div>
-                                            <div class="nk-tb-col tb-col-md"><span class="tb-status text-success">Active</span></div>
-                                            <div class="nk-tb-col nk-tb-col-tools">
-                                                <ul class="nk-tb-actions gx-1">
-
-                                                    <li>
-                                                        <div class="drodown">
-                                                            <a href="#" class="dropdown-toggle btn btn-icon btn-trigger" data-bs-toggle="dropdown"><em class="icon ni ni-more-h"></em></a>
-                                                            <div class="dropdown-menu dropdown-menu-end">
-                                                                <ul class="link-list-opt no-bdr">
-                                                                    <li>
-                                                                        <a href="#"><em class="icon ni ni-edit"></em><span>Edit</span></a>
-                                                                    </li>
-                                                                    <li>
-                                                                        <a data-bs-toggle="modal" href="#modalDelete"><em class="icon ni ni-trash"></em><span>Remove</span></a>
-                                                                    </li>
-                                                                </ul>
-                                                            </div>
-                                                        </div>
-                                                    </li>
-                                                </ul>
-                                            </div>
-                                        </div>
+                                            
+                                        }
+                                      
                                     
                                 </div>
 

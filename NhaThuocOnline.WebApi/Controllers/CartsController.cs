@@ -22,8 +22,15 @@ namespace NhaThuocOnline.WebApi.Controllers
             return Ok(result);
         }
 
+        [HttpGet("{customerId}/recently")]
+        public async Task<IActionResult> GetCartIdRecently(int customerId)
+        {
+            var result = await _cartService.GetCartIdRecently(customerId);
+            return Ok(result);
+        }
+
         [HttpPost]
-        public async Task<IActionResult> Create([FromForm]CartCreateRequest request)
+        public async Task<IActionResult> Create([FromBody]CartCreateRequest request)
         {
             if (!ModelState.IsValid)
             {

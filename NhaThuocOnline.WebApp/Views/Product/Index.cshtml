@@ -57,3 +57,19 @@
 }
     </tbody>
 </table>
+<div class="ml-2 mt-4">
+    <ul class="pagination">
+        <li class="page-item @(ViewBag.PageIndex == 1 ? "disabled" : "")">
+            <a href="@Url.Action("Search", new { pageIndex = ViewBag.PageIndex -1  })" class="page-link rounded">Trước</a>
+        </li>
+        @for (int i = 1; i <= ViewBag.PageCount; i++)
+        {
+            <li class="page-item @(i == ViewBag.PageIndex ? "active" : "") ">
+                <a href="@Url.Action("Search", new { pageIndex = i })" class="page-link rounded">@i</a>
+            </li>
+        }
+        <li class="page-item @(ViewBag.PageIndex == ViewBag.PageCount ? "disabled" : "")">
+            <a href="@Url.Action("Search", new { pageIndex = ViewBag.PageIndex + 1  })" class="page-link rounded">Sau</a>
+        </li>
+    </ul>
+</div>

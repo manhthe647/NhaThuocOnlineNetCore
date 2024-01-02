@@ -11,7 +11,7 @@ using System.Threading.Tasks;
         public interface ICartService
         {
         Task<string> CreateCartItem(CartCreateRequest request);
-
+        Task<string> GetCartIdRecently(int customerId);
         Task<List<CartItemVm>> GetByCartId(string cartId);
         Task<bool> UpdateQuantity(CartUpdateQuantityRequest request);
         Task<bool> DeleteItem(int id);
