@@ -1,4 +1,6 @@
+## Video demo nhanh
 
+## Schema
 ## Tên đề tài: Nhà Thuốc Online
 ## Môn học: Đồ án công nghệ web nâng cao ( 1 tín )
 ## Thành viên: Trần Mạnh Thế - 0205266
