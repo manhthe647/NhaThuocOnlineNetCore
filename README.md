@@ -5,6 +5,6 @@
 ## Công nghệ sử dụng: ASP.NET CORE API
 ## Schema
 
-  <img src="https://i.imgur.com/HDGE4wQ.png" alt="" width="100%" style="object-fit: cover">
+  <img src="https://i.imgur.com/HDGE4wQ.png" alt="" width="100%" style="object-fit: cover;  image-rendering: pixelated;">
 
 ## Cách cấu hình và cài đặt
