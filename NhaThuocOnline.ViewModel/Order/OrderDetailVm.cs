@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace NhaThuocOnline.ViewModel.Order
 {
-    public class OrderVm
+    public class OrderDetailVm
     {
         public int Id { get; set; }
         public int OrderId { get; set; }

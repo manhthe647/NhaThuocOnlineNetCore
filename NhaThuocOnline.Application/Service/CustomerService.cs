@@ -210,6 +210,22 @@ namespace NhaThuocOnline.Application.Service
             }
         }
 
-       
+        public async Task<List<CustomerAddressVm>> GetCustomerAddresses(int customerId)
+        {
+            var customerAddressEntities = await _dbContext.CustomerAddresses
+                                              .Where(x => x.CustomerId == customerId)
+                                              .ToListAsync();
+
+            var customerAddressViewModels = customerAddressEntities
+                .Select(addressEntity => new CustomerAddressVm
+                {
+                    CustomerId = addressEntity.CustomerId,
+                    Addresses = customerAddressEntities, 
+                })
+                .ToList();
+
+            return customerAddressViewModels;
+        }
+
     }
 }

@@ -20,6 +20,12 @@ namespace NhaThuocOnline.WebApp.Controllers
             return View();
         }
 
+        [HttpGet]
+        public async Task<IActionResult> CustomerAddresses(int customerId) {
+            var result= await _customerApiClient.GetCustomerAddresses(customerId);
+            return View(result);
+        }
+
         [HttpPost]
         public async Task<IActionResult> Login(LoginRequest request)
         {

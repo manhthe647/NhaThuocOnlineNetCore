@@ -42,6 +42,16 @@ namespace NhaThuocOnline.ApiIntergration
             return JsonConvert.DeserializeObject<ApiErrorResult<string>>(await response.Content.ReadAsStringAsync());
         }
 
+        public async Task<List<CustomerAddressVm>> GetCustomerAddresses(int customerId)
+        {
+            var client = _httpClientFactory.CreateClient();
+
+            var response = await client.GetAsync($"https://localhost:7128/api/customers/{customerId}/addresses");
+            var body = await response.Content.ReadAsStringAsync();
+            var customerAddresses = JsonConvert.DeserializeObject<List<CustomerAddressVm>>(body);
+            return customerAddresses;
+        }
+
         public async Task<CustomerVm> GetCustomerById(int id)
         {
             var client = _httpClientFactory.CreateClient();

@@ -256,6 +256,25 @@
     <div class="col-2"></div>
 </div>
 
+<script src="~/jquery/jquery.js"></script>
 <script>
- 
+    $(document).ready(function () {
+        $("#OrderBtn").click(
+            function () {
+                alert('a');
+                var cartId = $(this).data('id')
+                $.ajax({
+                    url: 'Orders/Checkout',
+                    method: 'POST',
+                    data: {
+                        CartId: cartId
+                    },
+                    success: function () {
+                        window.location.href = "/orders/checkout"
+                    },
+                    error: function () { },
+                });
+            });
+    });
+
 </script>

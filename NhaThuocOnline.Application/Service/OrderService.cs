@@ -1,4 +1,5 @@
 ﻿using Azure.Core;
+using Microsoft.EntityFrameworkCore;
 using NhaThuocOnline.Application.Interface;
 using NhaThuocOnline.Data.EF;
 using NhaThuocOnline.Data.Entities;
@@ -16,9 +17,39 @@ namespace NhaThuocOnline.Application.Service
     {
         private readonly NhaThuocOnlineDbContext _dbContext;
 
-        public Task<bool> CreateOrder(OrderCreateRequest request)
+        public OrderService(NhaThuocOnlineDbContext dbContext) { 
+            _dbContext = dbContext; 
+        }
+
+
+        public async Task<List<OrderItemVm>> GetProductByCartId(string cartId)
+        { 
+            var productInCart = await (from ci in _dbContext.CartItems
+                               join p in _dbContext.Products on ci.ProductId equals p.Id
+                               select new { ci, p }).Where(x => x.ci.CartId == cartId).ToListAsync();
+
+
+
+            var orderItems = productInCart.Select(x=> new OrderItemVm
+            {
+                ProductName = x.p.ProductName,
+                ProductImagePath = x.p.ImagePath,
+                Price = x.p.DiscountPrice,
+                Quantity = x.ci.Quantity,
+                TotalPrice = x.p.DiscountPrice * x.ci.Quantity,
+            }).ToList();
+            return orderItems;
+        }
+
+        public async Task<bool> CreateOrder(OrderCreateRequest request)
         {
-            throw new NotImplementedException();
+            
+            var newOrder= new OrderCreateRequest()
+            {
+
+            };
+            return true;
+
         }
 
         public Task<bool> ChangeStatusOrder(ChangeStatusRequest request)
@@ -26,12 +57,18 @@ namespace NhaThuocOnline.Application.Service
             throw new NotImplementedException();
         }
 
-        public Task<OrderVm> GetOrderById(int orderId)
+        public Task<OrderDetailVm> GetOrderById(int orderId)
         {
+            var query = (from oi in _dbContext.OrderItems
+                         join o in _dbContext.Orders on oi.OrderId equals o.Id
+                         join c in _dbContext.Customers on o.CustomerId equals c.Id
+                         join ca in _dbContext.CustomerAddresses on c.Id equals ca.CustomerId
+                         select new { oi, o, c, ca }).AsQueryable();
+
             throw new NotImplementedException();
         }
 
-        public Task<List<OrderVm>> GetOrderRecently()
+        public Task<List<OrderDetailVm>> GetOrderRecently()
         {
             throw new NotImplementedException();
         }
@@ -52,5 +89,7 @@ namespace NhaThuocOnline.Application.Service
         {
             throw new NotImplementedException();
         }
+
+   
     }
 }

@@ -1,4 +1,5 @@
-﻿using NhaThuocOnline.ViewModel.Order;
+﻿using NhaThuocOnline.ViewModel.Cart;
+using NhaThuocOnline.ViewModel.Order;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,10 +10,11 @@ namespace NhaThuocOnline.Application.Interface
 {
     public interface IOrderService
     {
-        Task<bool> CreateOrder(OrderCreateRequest request);
+        Task<List<OrderItemVm>> GetProductByCartId(string cartId);
 
-        Task<OrderVm> GetOrderById(int orderId);
-        Task<List<OrderVm>> GetOrderRecently();
+        Task<bool> CreateOrder(OrderCreateRequest request);
+        Task<OrderDetailVm> GetOrderById(int orderId);
+        Task<List<OrderDetailVm>> GetOrderRecently();
         Task<bool> ChangeStatusOrder(ChangeStatusRequest request);
 
         Task GetOrderByCustomerId(int customerId);

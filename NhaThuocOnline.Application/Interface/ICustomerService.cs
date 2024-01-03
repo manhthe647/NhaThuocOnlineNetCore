@@ -14,7 +14,7 @@ namespace NhaThuocOnline.Application.Interface
         Task<bool> Register(RegisterRequest request);
         Task<List<CustomerVm>> GetCustomerPaging();
         Task<CustomerVm> GetCustomerById(int id);
-
+        Task<List<CustomerAddressVm>> GetCustomerAddresses(int customerId);
         Task<bool> Update(int id, CustomerUpdateRequest request);
         Task<bool> SoftDelete(int id);
 

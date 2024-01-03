@@ -66,6 +66,13 @@ namespace NhaThuocOnline.WebApi.Controllers
 
         }
 
+        [HttpGet("{customerId}/addresses")]
+        public async Task<IActionResult> GetCustomerAddress(int customerId)
+        {
+            var result= await _customerService.GetCustomerAddresses(customerId);
+            return Ok(result);
+        }
+
         [HttpPut("{customerId}/addresses")]
         public async Task<IActionResult> AddCustomerAddress(int customerId, [FromBody] CustomerAddressCreateRequest request)
         {

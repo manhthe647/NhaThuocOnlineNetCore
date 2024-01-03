@@ -3,6 +3,7 @@ using NhaThuocOnline.Application.Interface;
 using NhaThuocOnline.Data.EF;
 using NhaThuocOnline.Data.Entities;
 using NhaThuocOnline.ViewModel.Cart;
+using NhaThuocOnline.ViewModel.Order;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -76,18 +77,17 @@ namespace NhaThuocOnline.Application.Service
 
         public async Task<List<CartItemVm>> GetByCartId (string cartId)
         {
-            var query = (from ci in _dbContext.CartItems
+            var query = await (from ci in _dbContext.CartItems
                          join p in _dbContext.Products on ci.ProductId equals p.Id
-                         select new { ci,p }).AsQueryable();
+                         select new { ci,p }).Where(x => x.ci.CartId == cartId).ToListAsync(); 
 
-            var data = await query.Where(x => x.ci.CartId == cartId).ToListAsync();
 
-       
+  
 
             var assignedCart = await _dbContext.Carts.Where(x=>x.CartId == cartId).FirstOrDefaultAsync();
             var assignedCartId = assignedCart != null ? Convert.ToInt32(assignedCart.CustomerId) : -1;
 
-            var cartDetails = data.Select(item => new CartItemVm
+            var cartDetails = query.Select(item => new CartItemVm
             {
                 Id = item.ci.Id,
                 CustomerId= assignedCartId,

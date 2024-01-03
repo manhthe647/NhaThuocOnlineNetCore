@@ -13,6 +13,8 @@ namespace NhaThuocOnline.ApiIntergration
         Task<ApiResult<string>> Authenticate(LoginRequest request);
         Task<bool> Register(RegisterRequest request);
         Task<List<CustomerVm>> GetCustomerPaging();
+        Task<List<CustomerAddressVm>> GetCustomerAddresses(int customerId);
+
         Task<CustomerVm> GetCustomerById(int id);
 
         //Task<bool> ChangePassword(ChangePasswordRequest request);

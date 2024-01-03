@@ -18,6 +18,7 @@ builder.Services.AddTransient<IProductApiClient, ProductApiClient>();
 builder.Services.AddTransient<IPrescriptionApiClient, PrescriptionApiClient>();
 builder.Services.AddTransient<ICustomerApiClient, CustomerApiClient>();
 builder.Services.AddTransient<ICartApiClient, CartApiClient>();
+builder.Services.AddTransient<IOrderApiClient, OrderApiClient>();
 
 
 //add sessions
