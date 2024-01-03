@@ -1,28 +1,65 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using NhaThuocOnline.ApiIntergration;
 using NhaThuocOnline.Intergration;
+using NhaThuocOnline.ViewModel.Order;
 
 namespace NhaThuocOnline.WebApp.Controllers
 {
     public class OrderController : ClientBaseController
     {
         private readonly IOrderApiClient _orderApiClient;
-        public OrderController(IOrderApiClient orderApiClient)
+        private readonly ICartApiClient _cartApiClient;
+        private readonly ICustomerApiClient _customerApiClient;
+        private readonly ICouponApiClient _couponApiClient;
+
+        public OrderController(IOrderApiClient orderApiClient, ICartApiClient cartApiClient, ICustomerApiClient customerApiClient, ICouponApiClient couponApiClient)
         {
             _orderApiClient = orderApiClient;
+            _cartApiClient = cartApiClient;
+            _customerApiClient = customerApiClient;
+            _couponApiClient = couponApiClient;
         }
+
 
         [HttpGet]
+        [Route("/checkout")]
         public async Task<IActionResult> Checkout()
         {
-            return View();
-        }
+            if(sessions!= null)
+            {
+                var customerId = GetCustomerIdFromToken(sessions);
+                //lấy địa chỉ giao hàng
+                var customerAddress = await _customerApiClient.GetCustomerAddresses(customerId);
 
-        [HttpPost]
-        public async Task<IActionResult> Checkout(string cartId)
-        {
+                // Lấy sản phẩm từ giỏ hàng
+                var cartId = await _cartApiClient.GetCartIdRecently(customerId);
+                var productItemsInCart = await _orderApiClient.GetProductByCartId(cartId);
+                // tính tổng tiền cần trả
+                double totalPayment = 0;
+                foreach (var item in productItemsInCart)
+                {
+                    totalPayment += item.TotalPrice;
+                }
+                ViewBag.TotalPayment = totalPayment;
 
-            var result = await _orderApiClient.GetProductByCartId(cartId);
-            return RedirectToAction("Checkout","Order",result);
+
+                // dữ liệu trả về
+                var result = new OrderItemCustomerAddress()
+                {
+                    CustomerAddressVm = customerAddress,
+                    OrderItemVm = productItemsInCart,
+                };
+
+                if (result != null)
+                {
+                   
+                    return View(result);
+
+                }
+            }
+            
+            return NotFound();
+
         }
     }
 }

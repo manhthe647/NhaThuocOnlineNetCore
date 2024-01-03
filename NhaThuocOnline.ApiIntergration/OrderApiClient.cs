@@ -21,7 +21,7 @@ namespace NhaThuocOnline.Intergration
         {
             var client = _httpClientFactory.CreateClient();
 
-            var response = await client.GetAsync($"https://localhost:7128/api/orders/checkout");
+            var response = await client.GetAsync($"https://localhost:7128/api/orders/checkout?cartId={cartId}");
             var body = await response.Content.ReadAsStringAsync();
             var items = JsonConvert.DeserializeObject<List<OrderItemVm>>(body);
             return items;

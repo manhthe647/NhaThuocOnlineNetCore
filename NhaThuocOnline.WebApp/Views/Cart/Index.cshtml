@@ -1,9 +1,9 @@
 ﻿@using Microsoft.AspNetCore.Http
 @model IEnumerable<NhaThuocOnline.ViewModel.Cart.CartItemVm>
 @{
+    ViewData["Title"] = "Giỏ hàng";
     var sessions = Context.Session.GetString("Token")?.ToString();
    
-    var cartId = sessions != null ? Model.Select(x=>x.CartId).FirstOrDefault() : null;
     
     var imageFolderUrl = "https://localhost:7128/user-content/";
     var clientUrl = "https://localhost:7286";
@@ -156,15 +156,16 @@
                         <button class="btn btn-primary rounded-custom" onclick="window.location.href='/product/search'">
                                 Mua thêm
                             </button>
-                            
-                            
+                           
                             <button style="background-color: rgb(255, 174, 0);"
-                                class="btn text-white rounded-custom" id="OrderBtn" data-id="@cartId">
+                                    class="btn text-white rounded-custom" onclick="window.location.href='/checkout'">
                                 <div>
                                     Đặt hàng
                                     <i class="bi bi-chevron-right"></i>
                                 </div>
                             </button>
+
+                            
                         </div>
                     </div>
                 </div>
@@ -183,25 +184,4 @@
 <div class="row p-4 primary-bg-color"></div>
 
 <div class="row p-4 primary-bg-color"></div>
-<script src="~/jquery/jquery.js"></script>
-<script>
-    $(document).ready(function () {
-        $("#OrderBtn").click(
-            function () {
-                alert('a');
-                var cartId = $(this).data('id')
-                $.ajax({
-                    url: 'Orders/Checkout',
-                    method: 'POST',
-                    data: {
-                        CartId: cartId
-                    },
-                    success: function () {
-                        alert("b");
-                    },
-                    error: function () { },
-                });
-            });
-    });
 
-</script>

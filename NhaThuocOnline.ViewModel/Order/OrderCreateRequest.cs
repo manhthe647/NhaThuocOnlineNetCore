@@ -1,4 +1,6 @@
-﻿using System;
+﻿using NhaThuocOnline.Data.Entities;
+using NhaThuocOnline.Data.Enums;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,17 +10,21 @@ namespace NhaThuocOnline.ViewModel.Order
 {
     public class OrderCreateRequest
     {
-        public int OrderId { get; set; }
+
         public int? CustomerId { get; set; }
 
-        public string CustomerAddress { get; set; }
+        public string AddressLine1 { get; set; }
+        public string AddressLine2 { get; set; }
+        public string ReceiverName { get; set; }
+        public string ReceiverPhone { get; set; }
+        public string City { get; set; }
+        public string District { get; set; }
 
-        public string ProductName { get; set; }
-        public string ProductImagePath { get; set; }
-        public double Price { get; set; }
+        public OrderStatus Status { get; set; }
+        public List<OrderItem> OrderItemVm { get; set; }
+        public int? CouponId { get; set; }
 
-        public int Quantity { get; set; }
-        public double TotalPrice { get; set; }
+
     }
 
 }

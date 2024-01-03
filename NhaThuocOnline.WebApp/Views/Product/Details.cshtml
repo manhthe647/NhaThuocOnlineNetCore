@@ -153,32 +153,6 @@
     </div>
     <div class="col-2 "></div>
 </div>
-
-<script src="~/jquery/jquery.js"></script>
-<script>
-        
-        $(document).ready(function () {
-            $("#AddToCartBtn").click(
-                function AddProductToCart() {
-                    var productId = $('#ProductId').val();
-                    var quantity = $('#Quantity').val();
-
-                    $.ajax({
-                        url: '/Cart/AddProductToCart',
-                        method: 'POST',
-                        data: {
-                            ProductId: productId,
-                            Quantity: quantity,
-                        },
-                        success: function () { 
-                            alert("Thêm sản phẩm thành công");
-                        },
-                        error: function () { }
-
-                    });
-            });
-        });
-</script>
 </body>
 
 

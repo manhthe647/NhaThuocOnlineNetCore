@@ -18,13 +18,10 @@ namespace NhaThuocOnline.WebApp.Controllers
         {
             if (!string.IsNullOrEmpty(sessions))
             {
-                var handler = new JwtSecurityTokenHandler();
-                var token = handler.ReadJwtToken(sessions);
-
-                var customerIdClaim = token.Claims.FirstOrDefault(c => c.Type == "nameid" || c.Type == ClaimTypes.NameIdentifier);
+                var customerIdClaim = GetCustomerIdFromToken(sessions);
                 if (customerIdClaim != null)
                 {
-                    var cartId = await _cartApiClient.GetCartIdRecently(Convert.ToInt32(customerIdClaim.Value)).ConfigureAwait(false);
+                    var cartId = await _cartApiClient.GetCartIdRecently(customerIdClaim).ConfigureAwait(false);
                     if (!string.IsNullOrEmpty(cartId)) 
                     {
                         var cartCustomer = await _cartApiClient.GetByCartId(cartId).ConfigureAwait(false);
@@ -49,17 +46,15 @@ namespace NhaThuocOnline.WebApp.Controllers
             if (!ModelState.IsValid)
                 return View();
 
-            var handler = new JwtSecurityTokenHandler();
-            var token = handler.ReadJwtToken(sessions);
-            var customerIdClaim = token.Claims.FirstOrDefault(c => c.Type == "nameid" || c.Type == ClaimTypes.NameIdentifier);
+            var customerIdClaim = GetCustomerIdFromToken(sessions);
 
             if (customerIdClaim != null)
             {
-                var cartId = await _cartApiClient.GetCartIdRecently(Convert.ToInt32(customerIdClaim.Value)).ConfigureAwait(false);
+                var cartId = await _cartApiClient.GetCartIdRecently(customerIdClaim).ConfigureAwait(false);
                 var request= new CartCreateRequest()
                 {
                      CartId = cartId,
-                     CustomerId= Convert.ToInt32(customerIdClaim.Value),
+                     CustomerId= Convert.ToInt32(customerIdClaim),
                      ProductId= productId,
                      Quantity = quantity
                 };

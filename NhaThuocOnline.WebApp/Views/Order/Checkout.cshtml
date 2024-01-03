@@ -1,4 +1,15 @@
-﻿<div class="checkout row py-4" style="background-color: #ededed;">
+﻿@using Microsoft.AspNetCore.Http
+@using NhaThuocOnline.ViewModel.Customer;
+@model NhaThuocOnline.ViewModel.Order.OrderItemCustomerAddress
+@{
+    ViewData["Title"] = "Thanh toán";
+    var sessions = Context.Session.GetString("Token")?.ToString();
+
+    var imageFolderUrl = "https://localhost:7128/user-content/";
+    var clientUrl = "https://localhost:7286";
+}
+
+<div class="checkout row py-4" style="background-color: #ededed;">
     <div class="col-2"></div>
 
     <div class="col-xl-8 d-flex ">
@@ -8,37 +19,32 @@
                     <div class="card-body">
                         <h4 class="card-title h2">Thanh toán </h4>
                        
-                        <span>Giỏ hàng <span id="totalProduct">(1 sản phẩm - 37.000đ)</span></span>
+                        <span>Giỏ hàng </span>
                         <a href="#" class="px-2">Nhấn để thay đổi</a>
-                        <div class="w-100  row mt-4 border-bottom border-dark pb-4 ">
+
+                        @if(sessions != null)
+                        {
+                            @foreach(var item in Model.OrderItemVm)
+                            {
+                       <div class="w-100  row mt-4 border-bottom border-dark pb-4 ">
                             <div style="width: 10.666667%;" class="img-product col-md-2">
                                 <img style="width: 60px; height: 70px;"
-                                     src="https://cdn.tgdd.vn/Products/Images/2491/84863/bhx/p-s-ban-chai-long-to-mem-mai-2-700x467.jpg"
+                                     src="@imageFolderUrl@item.ProductImagePath"
                                      alt="Product 1" class="img-thumbnail ">
                             </div>
                             <div style="width: calc( 100% - 10.666667%);"
                                  class="col-md-10 d-flex align-items-center justify-content-between">
-                                <div style="flex: 3;" class="mr-3 py-2"> Hộp khẩu trang kháng khuẩn 4 lớp (100 chiếc)</div>
-                                <div style="flex: 2;" class="mx-3">120.000đ/hộp</div>
-                                <div style="flex: 1;" class="mx-4">x1</div>
-                                <div style="flex: 1; text-align: right;">120.000đ</div>
+                                <div style="flex: 3;" class="mr-3 py-2"> @item.ProductName</div>
+                                        <div style="flex: 2;" class="mx-3">@item.Price.ToString("N0").Replace(",", ".")đ</div>
+                                <div style="flex: 1;" class="mx-4"><span>x</span>@item.Quantity</div>
+                                        <div style="flex: 1; text-align: right;">@item.TotalPrice.ToString("N0").Replace(",", ".")đ</div>
                             </div>
                         </div>
+                                
+                            }
+                        }
 
-                        <div class="w-100  row mt-4 border-bottom border-dark pb-4 ">
-                            <div style="width: 10.666667%;" class="col-md-2 img-product">
-                                <img style="width: 60px; height: 70px;"
-                                     src="https://cdn.tgdd.vn/Products/Images/2491/84863/bhx/p-s-ban-chai-long-to-mem-mai-2-700x467.jpg"
-                                     alt="Product 1" class=" img-thumbnail ">
-                            </div>
-                            <div style="width: calc( 100% - 10.666667%);"
-                                 class="col-md-10 d-flex align-items-center justify-content-between">
-                                <div style="flex: 3;" class="mr-3 py-2">Bàn chải đánh răng cho gia đình</div>
-                                <div style="flex: 2;" class="mx-3">47.000đ/cây</div>
-                                <div style="flex: 1;" class="mx-4">x4</div>
-                                <div style="flex: 1; text-align: right;">188.000đ</div>
-                            </div>
-                        </div>
+                       
 
 
                         <div class="row mt-4 pl-3 w-100 flex-row  justify-content-between ">
@@ -69,17 +75,24 @@
                                     <i class="bi bi-geo-alt"></i>
                                     Địa chỉ nhận hàng
                                 </span>
+                             
                                 <div class="d-flex justify-content-between align-items-baseline mt-2 ">
+                                    @foreach(var item in Model.CustomerAddressVm)
+                                    {
+                                        
                                     <div>
-                                        <span>Cuong dep trai</span>
+                                        <span>Tên người nhận: @item.Addresses[0].ReceiverName</span>
                                         |
-                                        <span>0917005178</span>
-                                        <p>44, Triều Khúc, Thanh Xuân Nam, Hà Nội</p>
+                                        <span>SĐT: @item.Addresses[0].ReceiverPhone</span>
+                                            <p>@item.Addresses[0].AddressLine1, @item.Addresses[0].AddressLine2, @item.Addresses[0].District, @item.Addresses[0].City</p>
                                     </div>
                                     <span>
                                         <i class="bi bi-chevron-right"></i>
                                     </span>
+                                    }
                                 </div>
+                                    
+                                
                             </div>
                            
                             <div class="p-3">
@@ -169,7 +182,7 @@
                                 <p class="mb-0">Tạm tính</p>
                             </div>
                             <div class="text-end  col-md-6">
-                                <p class="h4">298.000đ</p>
+                                <p class="h4">@ViewBag.TotalPayment.ToString("N0").Replace(",", ".")đ</p>
                             </div>
                         </div>
                       @*  <div class="row align-items-center mt-2">
@@ -198,7 +211,7 @@
                                 </span>
                             </div>
                             <div class="col-6 text-end">
-                                <p class="h4 text-danger ">298.000đ</p>
+                                <p class="h4 text-danger ">@ViewBag.TotalPayment.ToString("N0").Replace(",", ".")đ </p>
                             </div>
                         </div>
 
@@ -237,7 +250,7 @@
         </div>
     </div>
     <div class="success-modal modal fade" id="successModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-        <div style="top: 130px;" class="modal-dialog">
+        <div class="modal-dialog" style="top: 130px;">
             <div class="modal-content">
                 <div class="modal-body">
                     <svg class="checkmark" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
@@ -247,7 +260,7 @@
                     <h4 class="modal-title text-center mb-1" id="">Đặt hàng thành công</h4>
                     <h6 class="text-center text-muted ">Cảm ơn bạn đã tin tưởng và sử dụng dịch vụ của chúng tôi!</h6>
                     <div class="text-center mt-3">
-                        <button type="button" class="px-4 py-1 my-1 button" data-bs-dismiss="modal">OK</button>
+                        <button type="button" class="px-4 py-1 my-1 btn btn-success" data-dismiss="modal">OK</button>
                     </div>
                 </div>
             </div>
@@ -255,25 +268,24 @@
     </div>
     <div class="col-2"></div>
 </div>
-
 <script src="~/jquery/jquery.js"></script>
 <script>
     $(document).ready(function () {
         $("#OrderBtn").click(
             function () {
                 alert('a');
-                var cartId = $(this).data('id')
+                var id = $(this).data('id')
                 $.ajax({
-                    url: 'Orders/Checkout',
+                    url: '/Order/Checkout',
                     method: 'POST',
                     data: {
-                        CartId: cartId
+                        cartId: id
                     },
                     success: function () {
-                        window.location.href = "/orders/checkout"
+                        alert("b");
                     },
-                    error: function () { },
-                });
+                    error: function () { }
+                })
             });
     });
 
