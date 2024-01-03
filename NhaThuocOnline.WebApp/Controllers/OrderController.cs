@@ -20,6 +20,13 @@ namespace NhaThuocOnline.WebApp.Controllers
             _couponApiClient = couponApiClient;
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Create(OrderCreateRequest request)
+        {
+            
+            return null;
+        }
+
 
         [HttpGet]
         [Route("/checkout")]

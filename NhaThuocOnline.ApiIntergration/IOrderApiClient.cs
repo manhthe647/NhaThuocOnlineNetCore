@@ -10,6 +10,8 @@ namespace NhaThuocOnline.Intergration
     public interface IOrderApiClient
     {
         Task<List<OrderItemVm>> GetProductByCartId(string cartId);
+        Task<bool> CreateOrder(OrderCreateRequest request);
+
 
     }
 }

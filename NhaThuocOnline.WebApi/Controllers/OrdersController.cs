@@ -1,7 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using NhaThuocOnline.Application.Interface;
+using NhaThuocOnline.Data.Entities;
 using NhaThuocOnline.ViewModel.Cart;
+using NhaThuocOnline.ViewModel.Order;
 
 namespace NhaThuocOnline.WebApi.Controllers
 {
@@ -18,8 +20,13 @@ namespace NhaThuocOnline.WebApi.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create()
+        public async Task<IActionResult> Create(OrderCreateRequest request)
         {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var result = await _orderService.CreateOrder(request);
             return Ok();
         }
 
@@ -30,6 +37,19 @@ namespace NhaThuocOnline.WebApi.Controllers
             return Ok(result);
         }
 
-       
+        [HttpPatch("status")]
+        public async Task<IActionResult> ChangeStatus(ChangeStatusRequest request)
+        {
+            if (!ModelState.IsValid)
+            {
+                return BadRequest(ModelState);
+            }
+            var result = await _orderService.ChangeStatusOrder(request);
+            return Ok(result);
+
+        }
+
+
+
     }
 }
