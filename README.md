@@ -1,5 +1,5 @@
 ## Video demo 
-<p>https://www.youtube.com/watch?v=Xgt3iJ5APsg</p>
+https://www.youtube.com/watch?v=Xgt3iJ5APsg
 ## Tên đề tài: Nhà Thuốc Online
 ## Môn học: Đồ án công nghệ web nâng cao ( 1 tín )
 ## Thành viên: Trần Mạnh Thế - 0205266
