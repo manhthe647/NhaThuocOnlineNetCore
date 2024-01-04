@@ -1,4 +1,4 @@
-## Video demo 
+## Video demo (1p05s)
 https://www.youtube.com/watch?v=Xgt3iJ5APsg
 ## Tên đề tài: Nhà Thuốc Online
 ## Môn học: Đồ án công nghệ web nâng cao ( 1 tín )
