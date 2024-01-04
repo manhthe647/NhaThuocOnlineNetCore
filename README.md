@@ -1,7 +1,6 @@
 ## Video demo 
-[![Demo web nhà thuốc online](link_hình_ảnh_đại_diện)](https://www.youtube.com/watch?v=Xgt3iJ5APsg)
+https://www.youtube.com/watch?v=Xgt3iJ5APsg
 ## Tên đề tài: Nhà Thuốc Online
-
 ## Môn học: Đồ án công nghệ web nâng cao ( 1 tín )
 ## Thành viên: Trần Mạnh Thế - 0205266
 ## Công nghệ sử dụng: ASP.NET CORE API
