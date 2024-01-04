@@ -6,4 +6,8 @@ https://www.youtube.com/watch?v=Xgt3iJ5APsg
 ## Công nghệ sử dụng: ASP.NET CORE API
 ## Schema
   <img src="https://i.imgur.com/PYCTlMZ.png" alt="" width="100%">
+  
 ## Cách cấu hình và cài đặt
+1. Tải repo về máy
+`git clone https://github.com/manhthe647/NhaThuocOnlineNetCore.git`
+2. 
