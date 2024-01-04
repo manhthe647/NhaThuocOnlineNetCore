@@ -18,6 +18,18 @@ namespace NhaThuocOnline.Intergration
             _httpClientFactory = httpClientFactory;
         }
 
+        public async Task<bool> ChangeStatusOrder(ChangeStatusRequest request)
+        {
+            var client = _httpClientFactory.CreateClient();
+            var json = JsonConvert.SerializeObject(request);
+            var httpContent = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await client.PatchAsync("https://localhost:7128/api/orders/status", httpContent);
+            var result = await response.Content.ReadAsStringAsync();
+            if (response.IsSuccessStatusCode)
+                return true;
+            return false;
+        }
+
         public async Task<bool> CreateOrder(OrderCreateRequest request)
         {
             var client = _httpClientFactory.CreateClient();
@@ -39,5 +51,6 @@ namespace NhaThuocOnline.Intergration
             var items = JsonConvert.DeserializeObject<List<OrderItemVm>>(body);
             return items;
         }
+
     }
 }

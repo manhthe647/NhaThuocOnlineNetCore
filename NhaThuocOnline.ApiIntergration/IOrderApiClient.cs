@@ -11,6 +11,7 @@ namespace NhaThuocOnline.Intergration
     {
         Task<List<OrderItemVm>> GetProductByCartId(string cartId);
         Task<bool> CreateOrder(OrderCreateRequest request);
+        Task<bool> ChangeStatusOrder(ChangeStatusRequest request);
 
 
     }

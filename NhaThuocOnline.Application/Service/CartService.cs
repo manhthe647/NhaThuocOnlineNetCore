@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore;
+﻿using Azure.Core;
+using Microsoft.EntityFrameworkCore;
 using NhaThuocOnline.Application.Interface;
 using NhaThuocOnline.Data.EF;
 using NhaThuocOnline.Data.Entities;
@@ -22,7 +23,7 @@ namespace NhaThuocOnline.Application.Service
 
         public async Task<string> CreateCartItem(CartCreateRequest request)
         {
-
+         
             var existingProductInCartItem = await _dbContext.CartItems.FirstOrDefaultAsync(x => x.CartId == request.CartId && x.ProductId == request.ProductId);
 
 
@@ -77,12 +78,11 @@ namespace NhaThuocOnline.Application.Service
 
         public async Task<List<CartItemVm>> GetByCartId (string cartId)
         {
+
             var query = await (from ci in _dbContext.CartItems
                          join p in _dbContext.Products on ci.ProductId equals p.Id
                          select new { ci,p }).Where(x => x.ci.CartId == cartId).ToListAsync(); 
-
-
-  
+               
 
             var assignedCart = await _dbContext.Carts.Where(x=>x.CartId == cartId).FirstOrDefaultAsync();
             var assignedCartId = assignedCart != null ? Convert.ToInt32(assignedCart.CustomerId) : -1;
@@ -105,7 +105,22 @@ namespace NhaThuocOnline.Application.Service
         public async Task<string> GetCartIdRecently(int customerId)
         {
            var data= await _dbContext.Carts.OrderByDescending(x=>x.CreatedAt).FirstOrDefaultAsync(x=>x.CustomerId == customerId);
-            return data.CartId.ToString();
+            if( data != null)
+            {
+                return data.CartId.ToString();
+            }
+
+                var newCart = new Cart()
+                {
+                    CustomerId = customerId,
+                    CartId = GenerateNewCartId(),
+                };
+                _dbContext.Carts.Add(newCart);
+                _dbContext.SaveChanges();
+
+                var getNewCartId = await _dbContext.Carts.OrderByDescending(x => x.CreatedAt).FirstOrDefaultAsync(x=>x.CustomerId == customerId);
+                return getNewCartId.CartId.ToString();
+            
         }
 
         public  async Task<bool> UpdateQuantity(CartUpdateQuantityRequest request)
@@ -119,6 +134,11 @@ namespace NhaThuocOnline.Application.Service
             await _dbContext.SaveChangesAsync();
             return true;
             
+        }
+
+        private static string GenerateNewCartId()
+        {
+            return Guid.NewGuid().ToString();
         }
     }
 }

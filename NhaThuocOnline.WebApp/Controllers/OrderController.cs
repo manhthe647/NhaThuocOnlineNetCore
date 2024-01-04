@@ -23,12 +23,27 @@ namespace NhaThuocOnline.WebApp.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(OrderCreateRequest request)
         {
-            
-            return null;
+
+            if (sessions != null)
+            {
+                var customerId = GetCustomerIdFromToken(sessions);
+                // Lấy id giỏ hàng 
+                var cartId = await _cartApiClient.GetCartIdRecently(customerId);
+
+                // lấy danh sách sản phẩm
+
+                request.CustomerId = customerId;
+                // xử lý đơn hàng
+                await _orderApiClient.CreateOrder(request);
+
+                return RedirectToAction("Checkout");
+            }
+
+            return NotFound();
         }
 
 
-        [HttpGet]
+            [HttpGet]
         [Route("/checkout")]
         public async Task<IActionResult> Checkout()
         {
