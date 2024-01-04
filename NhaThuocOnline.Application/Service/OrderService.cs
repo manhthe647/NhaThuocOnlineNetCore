@@ -54,11 +54,11 @@ namespace NhaThuocOnline.Application.Service
 
                     //xóa giỏ hàng hiện tại
 
-                    var cart = await _dbContext.Carts.OrderByDescending(c => c.CreatedAt).FirstOrDefaultAsync();
+                    //var cart = await _dbContext.Carts.OrderByDescending(c => c.CreatedAt).FirstOrDefaultAsync();
 
-                    var cartItem = await _dbContext.CartItems.Where(x=>x.CartId == cart.CartId).ToListAsync();
-                    _dbContext.CartItems.RemoveRange(cartItem);
-                    _dbContext.Carts.Remove(cart);
+                    //var cartItem = await _dbContext.CartItems.Where(x=>x.CartId == cart.CartId).ToListAsync();
+                    //_dbContext.CartItems.RemoveRange(cartItem);
+                    //_dbContext.Carts.Remove(cart);
 
 
                     //await _dbContext.SaveChangesAsync();

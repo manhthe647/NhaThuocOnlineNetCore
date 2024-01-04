@@ -13,8 +13,8 @@ namespace NhaThuocOnline.Application.Interface
         Task<List<OrderItemVm>> GetProductByCartId(string cartId);
 
         Task<bool> CreateOrder(OrderCreateRequest request);
-        Task<OrderItemCustomerAddress> GetOrderById(int orderId);
         Task<bool> ChangeStatusOrder(ChangeStatusRequest request);
+        Task<OrderItemCustomerAddress> GetOrderById(int orderId);
 
         //
         Task<List<OrderDetailVm>> GetOrderRecently();

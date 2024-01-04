@@ -47,7 +47,7 @@
                   
                
                     <div class="pr-2 py-2 w-100">
-                         @if (sessions != null)
+                         @if (sessions != null && Model.Count() > 0)
                             {
                         <table class="w-100">
                         <thead class="border-bottom" >
@@ -139,7 +139,7 @@
                 </div>
                 </div>
             </div>
-        @if(sessions != null)
+        @if (sessions != null && Model.Count() > 0)
         {
             <div class="right_box-content col-lg-4 d-lg-block p-0 ml-4 ">
                 <div class="card rounded-custom ">
