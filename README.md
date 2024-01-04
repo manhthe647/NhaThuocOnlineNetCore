@@ -3,7 +3,7 @@ https://www.youtube.com/watch?v=Xgt3iJ5APsg
 ## Tên đề tài: Nhà Thuốc Online
 ## Môn học: Đồ án công nghệ web nâng cao ( 1 tín )
 ## Thành viên: Trần Mạnh Thế - 0205266
-## Công nghệ sử dụng: ASP.NET CORE 
+## Công nghệ sử dụng: ASP.NET Web API
 ## Schema
   <img src="https://i.imgur.com/PYCTlMZ.png" alt="" width="100%">
   
